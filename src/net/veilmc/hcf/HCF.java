@@ -108,8 +108,6 @@ public class HCF extends JavaPlugin{
 		return HCF.getRemaining(millis, milliseconds, true);
 	}
 
-	// TESTg
-
 	public static String getRemaining(long duration, boolean milliseconds, boolean trail){
 		if(milliseconds && duration < MINUTE){
 			return (trail ? DateTimeFormats.REMAINING_SECONDS_TRAILING : DateTimeFormats.REMAINING_SECONDS).get().format((double) duration * 0.001) + 's';
