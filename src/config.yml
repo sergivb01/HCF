@@ -1,0 +1,207 @@
+
+# Scoreboard title for side bar.
+scoreboard:
+  title: '&9&lVeil &f[Map 1]'
+  active-class: '&a&lActive Class&7'
+
+# Enable death-signs so when a player dies it spawns a sign.
+death-signs: true
+
+online-medics:
+  - '&7%LINE%'
+  - '&9&lOnline Donators'
+  - ' '
+  - ' &f&l* &e%MEDICS%'
+  - '&7%LINE%'
+
+server-info:
+  teamspeak: 'ts.veilhcf.us'
+
+warzone: 750
+
+# Enable found diamond alerts.
+found-diamonds: true
+
+# Is kit-map mode enabled?
+kit-map: false
+
+veilz: false
+veilz-options:
+# Minutes - example: 5
+  regen: 5
+
+
+#Deathban Permissions
+
+# hcf.deathban.150m
+deathban-time: 180
+
+# Can't build how many blocks from spawn?
+unbuildable-range: 300
+
+help:
+  - '&7&m-----------------------------------------------------'
+  - '&b&l  VeilMC Help'
+  - '&a '
+  - '&6  World Border:'
+  - '  &7* &eOverworld&7: &f%OVERWORLD%'
+  - '  &7* &eNether&7: &f%NETHER%'
+  - '  &7* &eEnd&7: &f%END%'
+  - '&a '
+  - '&6  End Portals:'
+  - '  &7* &f%ENDPORTAL%'
+  - '&a '
+  - '&6 Support:'
+  - '  &7* &ets.veilhcf.us'
+  - '&a '
+  - '&6 Discord:'
+  - '  &7* &eveilhcf.us/discord'
+  - '&a '
+  - '&6 Website:'
+  - '  &7* &eveilhcf.us'
+  - '&7&m-----------------------------------------------------'
+
+# Configurable messages
+messages:
+  cobble-enabled: '&aYou can now pick up cobblestone.'
+  cobble-disabled: '&cYou can no longer pick up cobblestone.'
+  revive-message: '&cDonate at store.buycraft.net to receive these perks.'
+  deathban-bypass: '&cYou would be death-banned for %reason% but you have permission to bypass.'
+  deathbanned-eotw: '&cDeathbanned for the entirety of the map due to EOTW.Come back for SOTW.'
+  deathbanned-active: '&cYou are currently death-banned for &c&l%reason%&c. &c&l%time% &cremaining.'
+  still-deathbanned: '&cStill death-banned for %time%: &f%reason%&c. &cYou can purchase lives at our store to bypass this.'
+  deathbanned-eotw-entire: '&cYou have been death-banned for entire of EOTW. Check out our website for SOTW information.\nwww.server.com'
+  
+# Faction configurable messages
+  end-cannot-build: '&cYou cannot build in the end.'  
+  world-cannot-build: '&cYou cannot build within 300 blocks of spawn.'
+  failed-pearl: '&cYou cannot Enderpearl into safe-zones, used Enderpearl has been refunded.'
+  teleport-spawn: '&dTeleported to over-world spawn.'
+  cannot-attack: '&cYou cannot attack players in safezones.'
+  in-faction: '&a%player% &eis in your faction.'
+  ally-faction: '&eYou are hurting an ally &7[%allyplayer%]&e.'
+  
+# Timers
+sotw:
+  started: '&cStarted SOTW protection for &c&l%time%&c.'
+  not-active: '&cSOTW protection already active.'
+  cancelled: '&cSOTW protection has been cancelled.'
+  ended-one: '&cSOTW Protection is now over!'
+  ended-two: '&cYou are no longer invincible!'
+  
+
+  
+  #pvptimer-started: '&aYour &a&lPVP Timer &ahas started.'
+  #pvptimer-paused: '&cYour &a&lPVP Timer &ctimer is now paused.'
+  #pvptimer-unpaused: '&cYour &a&lPVP Timer &ctimer is no longer paused.'
+  #pvptimer-expired: '&cYour &a&lPVP Timer &chas expired.'
+  #pvptimer-playerspawn: '&cOnce you leave Spawn your 30 minutes of &a&lPVP Timer &cwill start.'
+  
+# PVP Timer
+pvp-timer:
+  - '&7%LINE%'
+  - '&e/pvp enable &7- &fRemoves your PvP Timer.'
+  - '&e/pvp time &7- &fCheck remaining time.'
+  - '&e/lives &7- &fLife & deathban related commands.'
+  - '&7%LINE%'
+  
+# Timer placeholders and colors  
+timers:
+  enderpearl-timer: '&e&lEnderpearl'
+  enderpearl-color: '&e'
+  archer-timer: '&c&lArcher Tag'
+  archer-color: '&c'
+  notch-apple-timer: '&6&lGapple'
+  notch-apple-color: '&6'
+  pvp-class-warmup-timer: '&bClass Warmup'
+  pvp-class-warmup-color: '&b'
+  pvptimer-timer: '&a&lPvP Timer'
+  pvptimer-color: '&a&l'
+  sotw-timer: '&a&lSOTW'
+  sotw-color: '&c'
+  spawntag-timer: '&c&lSpawn Tag'
+  spawntag-color: '&c'
+  stuck-timer: '&c&lStuck'
+  stuck-color: '&c'
+  teleport-timer: '&9&lTeleport'
+  teleport-color: '&9'
+  event-timer: '&9&lEvent'
+  event-color: '&9&l'
+  logout-timer: '&c&lLogout'
+  logout-color: '&c'
+  messages:
+    logout-already-started: '&cYour &c&lLogout &ctimer has already started.'
+    logout-started: '&cYour &c&lLogout &ctimer has started.'
+    logout-safely: '&aYou have been safely logged out.'
+    enderpearl-expired: '&eYour &c&lEnderpearl &ecooldown has expired.'
+    enderpearl-item: '&cEnderpearl Cooldown&e: &f%time%'
+    spawn-tagged: '&cYou are now spawn-tagged for %time%.'
+  
+# Faction colors
+
+
+faction-settings:
+  max-players: 5
+  max-allies: 1
+  show:
+    player-faction:
+      - '&7%LINE%'
+      - '&f&l > %FACTION% &3- &7(%ONLINE%/%MAX% online)'
+      - ' &eHome: &c%HOME%'
+      - ' &eLeader: %LEADER%'
+      - ' &eCaptains: %CAPTAINS%'
+      - ' &eMembers: %MEMBERS%'
+      - ' &eDTR: &6[%DTR%&7/&e%MAXDTR%&6] &r%DTR-SYMBOL%'
+      - ' &eRegen: &d%REGEN%'
+      - ' &eBalance: &9$%BALANCE%&e, Kills: &c%KILLS%'
+      - '&7%LINE%'
+    system-faction:
+      - '&7%LINE%'
+      - '%FACTION%'
+      - '  &eLocation:&f %WORLD%, %X%, %Z%'
+      - '&7%LINE%'
+    road-faction:
+      - '&7%LINE%'
+      - '%FACTION%'
+      - '&7%LINE%'
+  colors:
+    teammate: '&2'
+    ally: '&9'
+    enemy: '&e'
+    safezone: '&a'
+    road: '&c'
+    target: '&d'
+    warzone: '&c'
+    default: '&7'
+    wilderness: '&d'
+    glowstone: '&6'
+# Potion limitations
+potion-limits:
+  instant-damage: 1
+  regen: 1
+  strength: 1
+  weakness: 1
+  slowness: 1
+  invis: 1
+  poison: 1
+
+# Change enchantment limits to your map kit needs.
+enchant-limits:
+  PROTECTION_ENVIRONMENTAL: 2
+  PROTECTION_FIRE: 3
+  SILK_TOUCH: 1
+  ARROW_DAMAGE: 3
+  DURABILITY: 3
+  PROTECTION_EXPLOSIONS: 3
+  LOOT_BONUS_BLOCKS: 3
+  PROTECTION_PROJECTILE: 3
+  OXYGEN: 3
+  WATER_WORKER: 1
+  THORNS: 0
+  DAMAGE_ALL: 1
+  ARROW_KNOCKBACK: 1
+  KNOCKBACK: 1
+  FIRE_ASPECT: 1
+  LOOT_BONUS_MOBS: 3
+  LUCK: 3
+  LURE: 3
