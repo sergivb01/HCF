@@ -413,7 +413,7 @@ public class HCF extends JavaPlugin{
 		this.eotwHandler = new EOTWHandler(this);
 		this.eventScheduler = new EventScheduler(this);
 		this.factionManager = new FlatFileFactionManager(this);
-		if (ConfigurationService.VEILZ) this.pvpClassManager = new PvpClassManager(this);
+		this.pvpClassManager = new PvpClassManager(this);
 		this.timerManager = new TimerManager(this);
 		this.scoreboardHandler = new ScoreboardHandler(this);
 		this.userManager = new UserManager(this);
