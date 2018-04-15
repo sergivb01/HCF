@@ -123,3 +123,5 @@ commands:
     description: View ore statistics of a player.
   crowgive:
     description: Give a player a crowbar.
+  chatgame:
+    description: Create a chatgame.

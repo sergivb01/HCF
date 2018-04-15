@@ -342,6 +342,7 @@ public class HCF extends JavaPlugin{
 		manager.registerEvents(new SotwListener(this), this);
 		//manager.registerEvents(new StatTrackListener(), this);
 		manager.registerEvents(new CobbleCommand(), this);
+		manager.registerEvents(new ChatGameCommand(), this);
 	}
 
 	private void registerCommands(){
@@ -395,6 +396,7 @@ public class HCF extends JavaPlugin{
 		this.getCommand("cobble").setExecutor(new CobbleCommand());
 		this.getCommand("ores").setExecutor(new OresCommand());
 		this.getCommand("crowgive").setExecutor(new CrowbarGiveCommand());
+		this.getCommand("chatgame").setExecutor(new ChatGameCommand());
 		final Map<String, Map<String, Object>> map = this.getDescription().getCommands();
 
 		for(final Map.Entry<String, Map<String, Object>> entry : map.entrySet()){
