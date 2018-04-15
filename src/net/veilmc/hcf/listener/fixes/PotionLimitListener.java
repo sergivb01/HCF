@@ -42,7 +42,7 @@ public class PotionLimitListener
 			ProjectileSource shooter = event.getEntity().getShooter();
 			if((shooter instanceof Player)){
 				((Player) shooter).sendMessage(ChatColor.RED + "You cannot use this potion.");
-				((Player) shooter).getPlayer().setItemInHand(null);
+				if (((Player) shooter).getItemInHand().getDurability() > 8000) ((Player) shooter).getPlayer().setItemInHand(null);
 			}
 		}
 	}
