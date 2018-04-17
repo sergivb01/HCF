@@ -20,6 +20,11 @@ public class OresCommand implements CommandExecutor{
             sender.sendMessage(ChatColor.DARK_GRAY + "Coal Mined: " + ChatColor.GRAY + ((Player) sender).getStatistic(Statistic.MINE_BLOCK, Material.COAL_ORE));
             return true;
         }*/
+        if (args.length == 0) {
+            Bukkit.dispatchCommand(sender, "ores " + sender.getName());
+            return true;
+        }
+
 		OfflinePlayer target = Bukkit.getServer().getPlayer(args[0]);
 		if(target == null || (!(target.hasPlayedBefore()))){
 			sender.sendMessage(ChatColor.RED + "Error: Player has not played before.");
