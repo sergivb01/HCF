@@ -7,6 +7,7 @@ import net.veilmc.hcf.classes.event.PvpClassEquipEvent;
 import net.veilmc.hcf.classes.event.PvpClassUnequipEvent;
 import net.veilmc.hcf.classes.type.MinerClass;
 import net.veilmc.hcf.classes.type.RogueClass;
+import net.veilmc.hcf.utils.ConfigurationService;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
@@ -62,6 +63,7 @@ public class PvpClassManager{
 	}
 
 	public void setEquippedClass(Player player, @Nullable PvpClass pvpClass){
+		if (ConfigurationService.VEILZ) return;
 		PvpClass equipped = this.getEquippedClass(player);
 		if(equipped != null){
 			if(pvpClass == null){
