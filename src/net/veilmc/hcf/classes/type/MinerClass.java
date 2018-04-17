@@ -4,9 +4,7 @@ import net.veilmc.hcf.HCF;
 import net.veilmc.hcf.classes.PvpClass;
 import net.veilmc.hcf.classes.event.PvpClassEquipEvent;
 import net.veilmc.util.BukkitUtils;
-import org.bukkit.ChatColor;
-import org.bukkit.Location;
-import org.bukkit.Material;
+import org.bukkit.*;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -39,7 +37,6 @@ public class MinerClass
 	public MinerClass(final HCF plugin){
 		super("Miner", TimeUnit.SECONDS.toMillis(5));
 		this.plugin = plugin;
-		this.passiveEffects.add(new PotionEffect(PotionEffectType.FAST_DIGGING, Integer.MAX_VALUE, 1));
 		this.passiveEffects.add(new PotionEffect(PotionEffectType.NIGHT_VISION, Integer.MAX_VALUE, 0));
 		this.passiveEffects.add(new PotionEffect(PotionEffectType.FIRE_RESISTANCE, Integer.MAX_VALUE, 0));
 	}

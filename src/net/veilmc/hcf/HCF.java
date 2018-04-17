@@ -397,6 +397,7 @@ public class HCF extends JavaPlugin{
 		this.getCommand("ores").setExecutor(new OresCommand());
 		this.getCommand("crowgive").setExecutor(new CrowbarGiveCommand());
 		this.getCommand("chatgame").setExecutor(new ChatGameCommand());
+		this.getCommand("miner").setExecutor(new MinerCommand());
 		final Map<String, Map<String, Object>> map = this.getDescription().getCommands();
 
 		for(final Map.Entry<String, Map<String, Object>> entry : map.entrySet()){

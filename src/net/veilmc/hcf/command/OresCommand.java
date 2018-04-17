@@ -28,6 +28,13 @@ public class OresCommand implements CommandExecutor{
 		sender.sendMessage(ChatColor.GRAY + BukkitUtils.STRAIGHT_LINE_DEFAULT);
 		sender.sendMessage(ChatColor.translateAlternateColorCodes('&', "&b&lOre Statistics"));
 		sender.sendMessage(ChatColor.translateAlternateColorCodes('&', "Player: " + target.getName()));
+		Integer diamonds = target.getPlayer().getStatistic(Statistic.MINE_BLOCK, Material.DIAMOND_ORE);
+		if (diamonds < 250) sender.sendMessage("Miner level: 0 (Default effects)");
+		if (diamonds >= 250 && diamonds < 500) sender.sendMessage("Miner level: 1");
+		if (diamonds >= 500 && diamonds < 750) sender.sendMessage("Miner level: 2");
+		if (diamonds >= 750 && diamonds < 1000) sender.sendMessage("Miner level: 3");
+		if (diamonds >= 1000 && diamonds < 2000) sender.sendMessage("Miner level: 4");
+		if (diamonds >= 2000) sender.sendMessage("Miner level: 5");
 		sender.sendMessage(" ");
 		sender.sendMessage(ChatColor.BLUE + "Emerald Mined: " + ChatColor.WHITE + target.getPlayer().getStatistic(Statistic.MINE_BLOCK, Material.EMERALD_ORE));
 		sender.sendMessage(ChatColor.BLUE + "Diamonds Mined: " + ChatColor.WHITE + target.getPlayer().getStatistic(Statistic.MINE_BLOCK, Material.DIAMOND_ORE));

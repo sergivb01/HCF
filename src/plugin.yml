@@ -125,3 +125,5 @@ commands:
     description: Give a player a crowbar.
   chatgame:
     description: Create a chatgame.
+  miner:
+    description: No arguments show miner levels info. Player on first argument show that player miner level.
