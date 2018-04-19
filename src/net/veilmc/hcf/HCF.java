@@ -280,7 +280,7 @@ public class HCF extends JavaPlugin{
 		manager.registerEvents(new AutoRespawnListener(this), this);
 		manager.registerEvents(new PortalFixListener(), this);
 		manager.registerEvents(new ElevatorListener(this), this);
-		manager.registerEvents(new EndPortalCommand(this), this);
+		if (!ConfigurationService.VEILZ) manager.registerEvents(new EndPortalCommand(this), this);
 		manager.registerEvents(new PermissionsCommand(this), this);
 		manager.registerEvents(new ColonFix(), this);
 		manager.registerEvents(new PotionListener(), this);
