@@ -1,6 +1,7 @@
 package net.veilmc.hcf.command;
 
 import net.veilmc.hcf.HCF;
+import net.veilmc.hcf.utils.ConfigurationService;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -34,7 +35,7 @@ public class EndPortalCommand implements CommandExecutor, Listener{
 		this.plugin = plugin;
 		this.ITEM_DISPLAYNAME = ChatColor.GREEN + "Endportal Maker";
 		this.playerSelections = new HashMap<UUID, LocationPair>();
-		this.plugin.getServer().getPluginManager().registerEvents(this, this.plugin);
+		if (!ConfigurationService.VEILZ) this.plugin.getServer().getPluginManager().registerEvents(this, this.plugin);
 	}
 
 	@EventHandler
@@ -127,6 +128,7 @@ public class EndPortalCommand implements CommandExecutor, Listener{
 	}
 
 	public boolean onCommand(final CommandSender s, final Command c, final String alias, final String[] args){
+		if (ConfigurationService.VEILZ) s.sendMessage(ChatColor.RED + "You cannot use this command while Veilz is enabled.");
 		if(!(s instanceof Player)){
 			return true;
 		}

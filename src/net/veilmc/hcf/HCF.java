@@ -312,7 +312,7 @@ public class HCF extends JavaPlugin{
 		manager.registerEvents(new DeathSignListener(this), this);
 		manager.registerEvents(new DeathbanListener(this), this);
 		manager.registerEvents(new EnchantLimitListener(), this);
-		manager.registerEvents(new EnderChestRemovalListener(), this);
+		if (!ConfigurationService.VEILZ) manager.registerEvents(new EnderChestRemovalListener(), this);
 		manager.registerEvents(new EntityLimitListener(), this);
 		manager.registerEvents(new FlatFileFactionManager(this), this);
 		manager.registerEvents(new EndListener(), this);

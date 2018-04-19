@@ -6,6 +6,7 @@ import net.veilmc.hcf.faction.type.PlayerFaction;
 import net.veilmc.util.JavaUtils;
 import net.veilmc.util.command.CommandArgument;
 
+import org.apache.logging.log4j.core.config.Configuration;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -58,7 +59,17 @@ public class FactionCreateArgument
 			sender.sendMessage(ChatColor.RED + "You are already in a faction.");
 			return true;
 		}
-		this.plugin.getFactionManager().createFaction(new PlayerFaction(name), sender);
+		if (ConfigurationService.VEILZ) {
+			int balance = plugin.getEconomyManager().getBalance(((Player) sender).getUniqueId());
+			int cost = ConfigurationService.VEILZ_FACTIONCOST;
+			if (balance < cost) sender.sendMessage(ChatColor.RED + "You need atleast $" + cost + " to create a faction. You currently have $" + balance + ".");
+			else {
+				this.plugin.getFactionManager().createFaction(new PlayerFaction(name), sender);
+				plugin.getEconomyManager().setBalance(((Player) sender).getUniqueId(), balance - cost);
+			}
+
+		}
+		if (!ConfigurationService.VEILZ) this.plugin.getFactionManager().createFaction(new PlayerFaction(name), sender);
 		return true;
 	}
 }

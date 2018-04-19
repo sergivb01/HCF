@@ -122,6 +122,7 @@ public final class ConfigurationService{
 	public static boolean DEV;
 
 	public static long VEILZ_REGEN;
+	public static int VEILZ_FACTIONCOST;
 
 	public static boolean TAB;
 	public static boolean DIAMOND_ORE_ALERTS = false;
@@ -177,6 +178,7 @@ public final class ConfigurationService{
 
 
 		VEILZ_REGEN = TimeUnit.MINUTES.toMillis(config.getInt("veilz-options.regen", 5));
+		VEILZ_FACTIONCOST = config.getInt("veilz-options.faction-cost", 10);
 
 
 		TEAMMATE_COLOUR = ChatColor.getByChar(config.getString("faction-settings.colors.teammate", "&2").replace("&", "").trim());
