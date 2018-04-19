@@ -124,8 +124,6 @@ public class HCF extends JavaPlugin{
 		eventGames.forEach(System.out::print);
 	}
 
-	// TEST
-
 	public void onEnable(){
 		plugin = this;
 
