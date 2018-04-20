@@ -12,6 +12,7 @@ import net.veilmc.hcf.faction.type.*;
 import net.veilmc.hcf.kothgame.CaptureZone;
 import net.veilmc.hcf.kothgame.faction.CapturableFaction;
 import net.veilmc.util.BukkitUtils;
+import net.veilmc.util.Config;
 import net.veilmc.util.cuboid.Cuboid;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.ImmutableSet;
@@ -371,6 +372,7 @@ public class FactionsCoreListener
 			event.setCancelled(true);
 		}
 		if(action == Action.RIGHT_CLICK_BLOCK){
+			if (ConfigurationService.VEILZ) return;
 			boolean canBuild;
 			boolean bl = canBuild = !BLOCK_INTERACTABLES.contains(block.getType());
 			if(canBuild){

@@ -114,7 +114,7 @@ public class WorldListener implements Listener{
 	public void onPlayerSpawn(PlayerSpawnLocationEvent event){
 		Player player = event.getPlayer();
 		if(!player.hasPlayedBefore()){
-			this.plugin.getEconomyManager().addBalance(player.getUniqueId(), 250);
+			if (!ConfigurationService.VEILZ) this.plugin.getEconomyManager().addBalance(player.getUniqueId(), 250);
 			event.setSpawnLocation(Bukkit.getWorld("world").getSpawnLocation().add(0.5, 0.0, 0.5));
 		}
 	}
