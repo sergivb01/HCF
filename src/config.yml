@@ -29,7 +29,7 @@ veilz: false
 veilz-options:
 # Minutes - example: 5
   regen: 5
-  veilz-options.faction-cost: 10
+  faction-cost: 10
 
 
 #Deathban Permissions
