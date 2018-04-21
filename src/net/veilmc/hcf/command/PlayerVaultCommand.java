@@ -22,7 +22,7 @@ public class PlayerVaultCommand implements CommandExecutor{
 			return false;
 		}
 
-		if(!ConfigurationService.KIT_MAP && !ConfigurationService.VEILZ){
+		if(!ConfigurationService.KIT_MAP){
 			sender.sendMessage(ChatColor.RED + "This command can be executed on Kits only.");
 			return true;
 		}

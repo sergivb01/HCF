@@ -1,6 +1,9 @@
 package net.veilmc.hcf.command.spawn;
 
 import net.veilmc.hcf.HCF;
+import net.veilmc.hcf.faction.FactionManager;
+import net.veilmc.hcf.faction.type.Faction;
+import net.veilmc.hcf.faction.type.PlayerFaction;
 import net.veilmc.hcf.utils.ConfigurationService;
 import org.bukkit.*;
 import org.bukkit.command.Command;
@@ -34,7 +37,15 @@ public class SpawnCommand
 			if(this.plugin.getTimerManager().spawnTagTimer.getRemaining(player) > 0L){
 				player.sendMessage(ChatColor.RED + "You can not do this while your " + ChatColor.BOLD + "Spawn Tag" + ChatColor.RED + " is active.");
 				return false;
-			}else{
+			}
+			Faction factionAt;
+			PlayerFaction playerFaction;
+			FactionManager factionManager = HCF.getPlugin().getFactionManager();
+			if ((factionAt = factionManager.getFactionAt(Bukkit.getPlayer(sender.getName()).getLocation())).isSafezone() && ((playerFaction = factionManager.getPlayerFaction((Player) sender)) == null || !factionAt.equals(playerFaction))) {
+				Bukkit.getPlayer(player.getName()).teleport(Bukkit.getWorld("world").getSpawnLocation());
+				return true;
+			}
+			else{
 				this.plugin.getTimerManager().teleportTimer.teleport(player, Bukkit.getWorld("world").getSpawnLocation(), TimeUnit.SECONDS.toMillis(15L), ChatColor.YELLOW + "Teleporting to spawn in " + ChatColor.LIGHT_PURPLE + "15 seconds.", PlayerTeleportEvent.TeleportCause.COMMAND);
 				return true;
 			}

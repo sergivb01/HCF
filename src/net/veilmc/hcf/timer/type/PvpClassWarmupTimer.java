@@ -90,6 +90,7 @@ public class PvpClassWarmupTimer
 
 	@EventHandler(ignoreCancelled = true, priority = EventPriority.MONITOR)
 	public void onPlayerJoin(PlayerJoinEvent event){
+		if (ConfigurationService.VEILZ) return;
 		this.attemptEquip(event.getPlayer());
 	}
 
