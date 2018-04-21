@@ -1,6 +1,7 @@
 package net.veilmc.hcf.listener;
 
 import net.veilmc.hcf.HCF;
+import net.veilmc.hcf.faction.FactionManager;
 import net.veilmc.hcf.faction.type.*;
 import net.veilmc.hcf.utils.ConfigurationService;
 import net.veilmc.hcf.faction.event.CaptureZoneEnterEvent;
@@ -40,11 +41,12 @@ public class FactionsCoreListener
 	public static final String PROTECTION_BYPASS_PERMISSION = "hcf.faction.protection.bypass";
 	private static final ImmutableMultimap<Object, Object> ITEM_BLOCK_INTERACTABLES;
 	private static final ImmutableSet<Material> BLOCK_INTERACTABLES;
+	private static final ImmutableSet<Material> BLOCK_INTERACTABLES_VEILZ_SPAWN;
 
 	static{
 		ITEM_BLOCK_INTERACTABLES = ImmutableMultimap.builder().put(Material.DIAMOND_HOE, Material.GRASS).put(Material.GOLD_HOE, Material.GRASS).put(Material.IRON_HOE, Material.GRASS).put(Material.STONE_HOE, Material.GRASS).put(Material.WOOD_HOE, Material.GRASS).build();
-		if (ConfigurationService.VEILZ) BLOCK_INTERACTABLES = Sets.immutableEnumSet(Material.BED, Material.BED_BLOCK, Material.BEACON, Material.IRON_DOOR, Material.IRON_DOOR_BLOCK, Material.FURNACE, Material.BURNING_FURNACE, Material.BREWING_STAND, Material.HOPPER, Material.DROPPER, Material.DISPENSER, Material.STONE_BUTTON, Material.WOOD_BUTTON, Material.WORKBENCH, Material.ANVIL, Material.LEVER, Material.FIRE);
-		else BLOCK_INTERACTABLES = Sets.immutableEnumSet(Material.BED, Material.BED_BLOCK, Material.BEACON, Material.FENCE_GATE, Material.IRON_DOOR, Material.TRAP_DOOR, Material.WOOD_DOOR, Material.WOODEN_DOOR, Material.IRON_DOOR_BLOCK, Material.CHEST, Material.TRAPPED_CHEST, Material.FURNACE, Material.BURNING_FURNACE, Material.BREWING_STAND, Material.HOPPER, Material.DROPPER, Material.DISPENSER, Material.STONE_BUTTON, Material.WOOD_BUTTON, Material.ENCHANTMENT_TABLE, Material.WORKBENCH, Material.ANVIL, Material.LEVER, Material.FIRE);
+		BLOCK_INTERACTABLES_VEILZ_SPAWN = Sets.immutableEnumSet(Material.BED, Material.BED_BLOCK, Material.BEACON, Material.IRON_DOOR, Material.IRON_DOOR_BLOCK, Material.FURNACE, Material.BURNING_FURNACE, Material.BREWING_STAND, Material.HOPPER, Material.DROPPER, Material.DISPENSER, Material.STONE_BUTTON, Material.WOOD_BUTTON, Material.WORKBENCH, Material.ANVIL, Material.LEVER, Material.FIRE);
+		BLOCK_INTERACTABLES = Sets.immutableEnumSet(Material.BED, Material.BED_BLOCK, Material.BEACON, Material.FENCE_GATE, Material.IRON_DOOR, Material.TRAP_DOOR, Material.WOOD_DOOR, Material.WOODEN_DOOR, Material.IRON_DOOR_BLOCK, Material.CHEST, Material.TRAPPED_CHEST, Material.FURNACE, Material.BURNING_FURNACE, Material.BREWING_STAND, Material.HOPPER, Material.DROPPER, Material.DISPENSER, Material.STONE_BUTTON, Material.WOOD_BUTTON, Material.ENCHANTMENT_TABLE, Material.WORKBENCH, Material.ANVIL, Material.LEVER, Material.FIRE);
 	}
 
 	private final HCF plugin;
@@ -389,7 +391,18 @@ public class FactionsCoreListener
 				}
 			}
 			if(!block.getType().equals(Material.WORKBENCH)){
-
+				if (ConfigurationService.VEILZ) {
+					Player sender = event.getPlayer();
+					Faction factionAt;
+					PlayerFaction playerFaction;
+					FactionManager factionManager = HCF.getPlugin().getFactionManager();
+					if ((factionAt = factionManager.getFactionAt(Bukkit.getPlayer(sender.getName()).getLocation())).isSafezone() && ((playerFaction = factionManager.getPlayerFaction((Player) sender)) == null || !factionAt.equals(playerFaction))) {
+						canBuild = !BLOCK_INTERACTABLES_VEILZ_SPAWN.contains(block.getType());
+					}
+					else {
+						canBuild = !BLOCK_INTERACTABLES.contains(block.getType());
+					}
+				}
 				if(!canBuild && !FactionsCoreListener.attemptBuild(event.getPlayer(), block.getLocation(), ChatColor.YELLOW + "You cannot do this in the territory of %1$s" + ChatColor.YELLOW + '.', true)){
 					event.setCancelled(true);
 				}
