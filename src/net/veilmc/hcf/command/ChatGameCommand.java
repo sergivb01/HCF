@@ -1,5 +1,6 @@
 package net.veilmc.hcf.command;
 
+import net.veilmc.hcf.utils.ConfigurationService;
 import net.veilmc.util.BukkitUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -10,6 +11,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 
+import java.awt.*;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.Arrays;
@@ -91,14 +93,29 @@ public class ChatGameCommand implements CommandExecutor, Listener {
             double end = System.currentTimeMillis();
             String time = formatter.format((end - start) / 1000.0D);
             if (message.equalsIgnoreCase(answer_shuffle)) {
+                if (ConfigurationService.VEILZ) {
+                    Bukkit.broadcastMessage(ChatColor.BOLD.toString() + ChatColor.WHITE + ChatColor.BOLD + " CHATGAME " + ChatColor.BLUE + player + " has won " + ChatColor.GREEN + "$70" + ChatColor.BLUE + " for unscrambling " + ChatColor.RED + question_shuffle + ChatColor.BLUE + " in " + ChatColor.RED + time + ChatColor.BLUE + " seconds. " + ChatColor.DARK_GRAY + "(" + ChatColor.DARK_AQUA + answer_shuffle + ChatColor.DARK_GRAY + ")");
+                    Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "eco " + player + " give 70");
+                    return;
+                }
                 Bukkit.broadcastMessage(ChatColor.BOLD.toString() + ChatColor.WHITE + ChatColor.BOLD + " CHATGAME " + ChatColor.BLUE + player + " has won " + ChatColor.GREEN + "$200" + ChatColor.BLUE + " for unscrambling " + ChatColor.RED + question_shuffle + ChatColor.BLUE + " in " + ChatColor.RED + time + ChatColor.BLUE + " seconds. " + ChatColor.DARK_GRAY + "(" + ChatColor.DARK_AQUA + answer_shuffle + ChatColor.DARK_GRAY + ")");
                 Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "eco " + player + " give 200");
             }
             if (message.equalsIgnoreCase(type)) {
+                if (ConfigurationService.VEILZ) {
+                    Bukkit.broadcastMessage(ChatColor.BOLD.toString() + ChatColor.WHITE + ChatColor.BOLD + " CHATGAME " + ChatColor.BLUE + player + " has won " + ChatColor.GREEN + "$30" + ChatColor.BLUE + " for typing " + ChatColor.RED + type + ChatColor.BLUE + " in " + ChatColor.RED + time + ChatColor.BLUE + " seconds.");
+                    Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "eco " + player + " give 30");
+                    return;
+                }
                 Bukkit.broadcastMessage(ChatColor.BOLD.toString() + ChatColor.WHITE + ChatColor.BOLD + " CHATGAME " + ChatColor.BLUE + player + " has won " + ChatColor.GREEN + "$100" + ChatColor.BLUE + " for typing " + ChatColor.RED + type + ChatColor.BLUE + " in " + ChatColor.RED + time + ChatColor.BLUE + " seconds.");
                 Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "eco " + player + " give 100");
             }
             if (message.equalsIgnoreCase(answer_question)) {
+                if (ConfigurationService.VEILZ) {
+                    Bukkit.broadcastMessage(ChatColor.BOLD.toString() + ChatColor.WHITE + ChatColor.BOLD + " CHATGAME " + ChatColor.BLUE + player + " has won " + ChatColor.GREEN + "$50" + ChatColor.BLUE + " for guessing " + ChatColor.AQUA + question_guess + ChatColor.BLUE + " in " + ChatColor.RED + time + ChatColor.BLUE + " seconds. " + ChatColor.DARK_GRAY + "(" + ChatColor.DARK_AQUA + answer_question + ChatColor.DARK_GRAY + ")");
+                    Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "eco " + player + " give 50");
+                    return;
+                }
                 Bukkit.broadcastMessage(ChatColor.BOLD.toString() + ChatColor.WHITE + ChatColor.BOLD + " CHATGAME " + ChatColor.BLUE + player + " has won " + ChatColor.GREEN + "$150" + ChatColor.BLUE + " for guessing " + ChatColor.AQUA + question_guess + ChatColor.BLUE + " in " + ChatColor.RED + time + ChatColor.BLUE + " seconds. " + ChatColor.DARK_GRAY + "(" + ChatColor.DARK_AQUA + answer_question + ChatColor.DARK_GRAY + ")");
                 Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "eco " + player + " give 150");
             }
