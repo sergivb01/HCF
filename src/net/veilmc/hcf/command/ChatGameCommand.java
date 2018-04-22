@@ -92,38 +92,47 @@ public class ChatGameCommand implements CommandExecutor, Listener {
         if ((message.equalsIgnoreCase(answer_question) || message.equalsIgnoreCase(type) || message.equalsIgnoreCase(answer_shuffle)) && isActive == true) {
             double end = System.currentTimeMillis();
             String time = formatter.format((end - start) / 1000.0D);
+            setNull();
             if (message.equalsIgnoreCase(answer_shuffle)) {
                 if (ConfigurationService.VEILZ) {
                     Bukkit.broadcastMessage(ChatColor.BOLD.toString() + ChatColor.WHITE + ChatColor.BOLD + " CHATGAME " + ChatColor.BLUE + player + " has won " + ChatColor.GREEN + "$70" + ChatColor.BLUE + " for unscrambling " + ChatColor.RED + question_shuffle + ChatColor.BLUE + " in " + ChatColor.RED + time + ChatColor.BLUE + " seconds. " + ChatColor.DARK_GRAY + "(" + ChatColor.DARK_AQUA + answer_shuffle + ChatColor.DARK_GRAY + ")");
                     Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "eco " + player + " give 70");
+                    setNull();
                     return;
                 }
                 Bukkit.broadcastMessage(ChatColor.BOLD.toString() + ChatColor.WHITE + ChatColor.BOLD + " CHATGAME " + ChatColor.BLUE + player + " has won " + ChatColor.GREEN + "$200" + ChatColor.BLUE + " for unscrambling " + ChatColor.RED + question_shuffle + ChatColor.BLUE + " in " + ChatColor.RED + time + ChatColor.BLUE + " seconds. " + ChatColor.DARK_GRAY + "(" + ChatColor.DARK_AQUA + answer_shuffle + ChatColor.DARK_GRAY + ")");
                 Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "eco " + player + " give 200");
+                setNull();
             }
             if (message.equalsIgnoreCase(type)) {
                 if (ConfigurationService.VEILZ) {
                     Bukkit.broadcastMessage(ChatColor.BOLD.toString() + ChatColor.WHITE + ChatColor.BOLD + " CHATGAME " + ChatColor.BLUE + player + " has won " + ChatColor.GREEN + "$30" + ChatColor.BLUE + " for typing " + ChatColor.RED + type + ChatColor.BLUE + " in " + ChatColor.RED + time + ChatColor.BLUE + " seconds.");
                     Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "eco " + player + " give 30");
+                    setNull();
                     return;
                 }
                 Bukkit.broadcastMessage(ChatColor.BOLD.toString() + ChatColor.WHITE + ChatColor.BOLD + " CHATGAME " + ChatColor.BLUE + player + " has won " + ChatColor.GREEN + "$100" + ChatColor.BLUE + " for typing " + ChatColor.RED + type + ChatColor.BLUE + " in " + ChatColor.RED + time + ChatColor.BLUE + " seconds.");
                 Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "eco " + player + " give 100");
+                setNull();
             }
             if (message.equalsIgnoreCase(answer_question)) {
                 if (ConfigurationService.VEILZ) {
                     Bukkit.broadcastMessage(ChatColor.BOLD.toString() + ChatColor.WHITE + ChatColor.BOLD + " CHATGAME " + ChatColor.BLUE + player + " has won " + ChatColor.GREEN + "$50" + ChatColor.BLUE + " for guessing " + ChatColor.AQUA + question_guess + ChatColor.BLUE + " in " + ChatColor.RED + time + ChatColor.BLUE + " seconds. " + ChatColor.DARK_GRAY + "(" + ChatColor.DARK_AQUA + answer_question + ChatColor.DARK_GRAY + ")");
                     Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "eco " + player + " give 50");
+                    setNull();
                     return;
                 }
                 Bukkit.broadcastMessage(ChatColor.BOLD.toString() + ChatColor.WHITE + ChatColor.BOLD + " CHATGAME " + ChatColor.BLUE + player + " has won " + ChatColor.GREEN + "$150" + ChatColor.BLUE + " for guessing " + ChatColor.AQUA + question_guess + ChatColor.BLUE + " in " + ChatColor.RED + time + ChatColor.BLUE + " seconds. " + ChatColor.DARK_GRAY + "(" + ChatColor.DARK_AQUA + answer_question + ChatColor.DARK_GRAY + ")");
                 Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "eco " + player + " give 150");
+                setNull();
             }
-            answer_shuffle = null;
-            type = null;
-            answer_question = null;
-            isActive = false;
+            setNull();
         }
-
+    }
+    private void setNull() {
+        answer_shuffle = null;
+        type = null;
+        answer_question = null;
+        isActive = false;
     }
 }
