@@ -520,7 +520,6 @@ public class FactionsCoreListener
 	    	if (!(event.getEntity() instanceof Player) && !(event.getEntity().getKiller() instanceof Player)) return;
             Player killer = event.getEntity().getKiller();
             Bukkit.dispatchCommand(Bukkit.getConsoleSender(),"f setdtr " + killer.getName() + " -i");
-            killer.sendMessage(ChatColor.GREEN + "1 DTR added to your faction for killing " + event.getEntity().getName() + ".");
             return;
         }
     }
