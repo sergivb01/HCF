@@ -366,12 +366,25 @@ public class FactionsCoreListener
 
 	@EventHandler(ignoreCancelled = true, priority = EventPriority.HIGH)
 	public void onPlayerInteract(PlayerInteractEvent event){
+		Player sender = event.getPlayer();
+		Faction factionAt;
+		PlayerFaction playerFaction;
+		FactionManager factionManager = HCF.getPlugin().getFactionManager();
 		if(!event.hasBlock()){
 			return;
 		}
 		Block block = event.getClickedBlock();
 		Action action = event.getAction();
 		if(action == Action.PHYSICAL && !FactionsCoreListener.attemptBuild(event.getPlayer(), block.getLocation(), null)){
+			if (ConfigurationService.VEILZ) {
+				if ((factionAt = factionManager.getFactionAt(Bukkit.getPlayer(sender.getName()).getLocation())).isSafezone() && ((playerFaction = factionManager.getPlayerFaction((Player) sender)) == null || !factionAt.equals(playerFaction))) {
+					event.setCancelled(false);
+				}
+				else {
+					event.setCancelled(true);
+				}
+				return;
+			}
 			event.setCancelled(true);
 		}
 		if(action == Action.RIGHT_CLICK_BLOCK){
@@ -392,10 +405,6 @@ public class FactionsCoreListener
 			}
 			if(!block.getType().equals(Material.WORKBENCH)){
 				if (ConfigurationService.VEILZ) {
-					Player sender = event.getPlayer();
-					Faction factionAt;
-					PlayerFaction playerFaction;
-					FactionManager factionManager = HCF.getPlugin().getFactionManager();
 					if ((factionAt = factionManager.getFactionAt(Bukkit.getPlayer(sender.getName()).getLocation())).isSafezone() && ((playerFaction = factionManager.getPlayerFaction((Player) sender)) == null || !factionAt.equals(playerFaction))) {
 						canBuild = !BLOCK_INTERACTABLES_VEILZ_SPAWN.contains(block.getType());
 					}
