@@ -1,5 +1,8 @@
 package net.veilmc.hcf.command;
 
+import net.veilmc.hcf.HCF;
+import net.veilmc.hcf.faction.FactionMember;
+import net.veilmc.hcf.faction.type.PlayerFaction;
 import net.veilmc.hcf.utils.ConfigurationService;
 import net.veilmc.util.BukkitUtils;
 import org.bukkit.Bukkit;
@@ -7,6 +10,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
@@ -89,11 +93,10 @@ public class ChatGameCommand implements CommandExecutor, Listener {
         String player = e.getPlayer().getName();
         String message = e.getMessage();
         NumberFormat formatter = new DecimalFormat("#.##");
-        if ((message.equalsIgnoreCase(answer_question) || message.equalsIgnoreCase(type) || message.equalsIgnoreCase(answer_shuffle)) && isActive == true) {
-            double end = System.currentTimeMillis();
-            String time = formatter.format((end - start) / 1000.0D);
-            setNull();
+        if (isActive == true) {
             if (message.equalsIgnoreCase(answer_shuffle)) {
+                double end = System.currentTimeMillis();
+                String time = formatter.format((end - start) / 1000.0D);
                 if (ConfigurationService.VEILZ) {
                     Bukkit.broadcastMessage(ChatColor.BOLD.toString() + ChatColor.WHITE + ChatColor.BOLD + " CHATGAME " + ChatColor.BLUE + player + " has won " + ChatColor.GREEN + "$70" + ChatColor.BLUE + " for unscrambling " + ChatColor.RED + question_shuffle + ChatColor.BLUE + " in " + ChatColor.RED + time + ChatColor.BLUE + " seconds. " + ChatColor.DARK_GRAY + "(" + ChatColor.DARK_AQUA + answer_shuffle + ChatColor.DARK_GRAY + ")");
                     Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "eco " + player + " give 70");
@@ -105,6 +108,8 @@ public class ChatGameCommand implements CommandExecutor, Listener {
                 setNull();
             }
             if (message.equalsIgnoreCase(type)) {
+                double end = System.currentTimeMillis();
+                String time = formatter.format((end - start) / 1000.0D);
                 if (ConfigurationService.VEILZ) {
                     Bukkit.broadcastMessage(ChatColor.BOLD.toString() + ChatColor.WHITE + ChatColor.BOLD + " CHATGAME " + ChatColor.BLUE + player + " has won " + ChatColor.GREEN + "$30" + ChatColor.BLUE + " for typing " + ChatColor.RED + type + ChatColor.BLUE + " in " + ChatColor.RED + time + ChatColor.BLUE + " seconds.");
                     Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "eco " + player + " give 30");
@@ -116,6 +121,8 @@ public class ChatGameCommand implements CommandExecutor, Listener {
                 setNull();
             }
             if (message.equalsIgnoreCase(answer_question)) {
+                double end = System.currentTimeMillis();
+                String time = formatter.format((end - start) / 1000.0D);
                 if (ConfigurationService.VEILZ) {
                     Bukkit.broadcastMessage(ChatColor.BOLD.toString() + ChatColor.WHITE + ChatColor.BOLD + " CHATGAME " + ChatColor.BLUE + player + " has won " + ChatColor.GREEN + "$50" + ChatColor.BLUE + " for guessing " + ChatColor.AQUA + question_guess + ChatColor.BLUE + " in " + ChatColor.RED + time + ChatColor.BLUE + " seconds. " + ChatColor.DARK_GRAY + "(" + ChatColor.DARK_AQUA + answer_question + ChatColor.DARK_GRAY + ")");
                     Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "eco " + player + " give 50");
@@ -126,7 +133,6 @@ public class ChatGameCommand implements CommandExecutor, Listener {
                 Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "eco " + player + " give 150");
                 setNull();
             }
-            setNull();
         }
     }
     private void setNull() {
