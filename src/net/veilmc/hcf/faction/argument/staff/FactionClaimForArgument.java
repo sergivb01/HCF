@@ -5,6 +5,7 @@ import net.veilmc.hcf.faction.claim.Claim;
 import net.veilmc.hcf.faction.type.ClaimableFaction;
 import net.veilmc.hcf.faction.type.Faction;
 import net.veilmc.hcf.faction.type.PlayerFaction;
+import net.veilmc.hcf.utils.ConfigurationService;
 import net.veilmc.util.command.CommandArgument;
 import com.sk89q.worldedit.bukkit.WorldEditPlugin;
 import com.sk89q.worldedit.bukkit.selections.Selection;
@@ -58,6 +59,10 @@ public class FactionClaimForArgument
 		Selection selection = worldEditPlugin.getSelection(player);
 		if(selection == null){
 			sender.sendMessage(ChatColor.RED + "You must make a WorldEdit selection to do this.");
+			return true;
+		}
+		if (!ConfigurationService.VEILZ && args[1].equalsIgnoreCase("ciudad")) {
+			player.sendMessage(ChatColor.RED + "You can only claim this faction on VeilZ.");
 			return true;
 		}
 		ClaimableFaction claimableFaction = (ClaimableFaction) targetFaction;

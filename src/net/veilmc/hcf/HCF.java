@@ -59,6 +59,7 @@ import net.veilmc.util.BukkitUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.PluginCommand;
+import org.bukkit.configuration.serialization.ConfigurationSerializable;
 import org.bukkit.configuration.serialization.ConfigurationSerialization;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
@@ -267,11 +268,11 @@ public class HCF extends JavaPlugin{
 		ConfigurationSerialization.registerClass(RoadFaction.class);
 		ConfigurationSerialization.registerClass(SpawnFaction.class);
 		ConfigurationSerialization.registerClass(GlowstoneFaction.class);
+		ConfigurationSerialization.registerClass(CityFaction.class);
 		ConfigurationSerialization.registerClass(RoadFaction.NorthRoadFaction.class);
 		ConfigurationSerialization.registerClass(RoadFaction.EastRoadFaction.class);
 		ConfigurationSerialization.registerClass(RoadFaction.SouthRoadFaction.class);
 		ConfigurationSerialization.registerClass(RoadFaction.WestRoadFaction.class);
-		ConfigurationSerialization.registerClass(GlowstoneFaction.class);
 	}
 
 	private void registerListeners(){
