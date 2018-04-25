@@ -104,7 +104,7 @@ public class HCF extends JavaPlugin{
 	public static HCF getPlugin(){
 		return plugin;
 	}
-	// test
+
 	public static String getRemaining(long millis, boolean milliseconds){
 		return HCF.getRemaining(millis, milliseconds, true);
 	}
