@@ -104,7 +104,7 @@ public class HCF extends JavaPlugin{
 	public static HCF getPlugin(){
 		return plugin;
 	}
-	
+	// TEST
 	public static String getRemaining(long millis, boolean milliseconds){
 		return HCF.getRemaining(millis, milliseconds, true);
 	}
@@ -203,7 +203,7 @@ public class HCF extends JavaPlugin{
 		int seconds = (ConfigurationService.KIT_MAP ? 300 : 7200);
 		startNewKoth(seconds);
 		NEXT_KOTH = System.currentTimeMillis() + (seconds * 1000);
-		Bukkit.broadcastMessage(ChatColor.translateAlternateColorCodes('&', "&6&lKOTH &7» &eA new KOTH will be starting in&5 " + (ConfigurationService.KIT_MAP ? "5 minnutes" : "2 hours") + "!"));
+		Bukkit.broadcastMessage(ChatColor.translateAlternateColorCodes('&', "&6&lKOTH &7ï¿½ &eA new KOTH will be starting in&5 " + (ConfigurationService.KIT_MAP ? "5 minnutes" : "2 hours") + "!"));
 	}
 
 	public void startNewKoth(int seconds){
