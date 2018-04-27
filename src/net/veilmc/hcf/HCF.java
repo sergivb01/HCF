@@ -73,6 +73,7 @@ import java.util.stream.Collectors;
 
 
 public class HCF extends JavaPlugin{
+	//test slack notification
 	public static final Joiner SPACE_JOINER = Joiner.on(' ');
 	public static final Joiner COMMA_JOINER = Joiner.on(", ");
 	public static final long HOUR = TimeUnit.HOURS.toMillis(1);
