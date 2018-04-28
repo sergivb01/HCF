@@ -528,7 +528,9 @@ public class FactionsCoreListener
 	    if (ConfigurationService.VEILZ) {
 	    	if (!(event.getEntity() instanceof Player) && !(event.getEntity().getKiller() instanceof Player)) return;
             Player killer = event.getEntity().getKiller();
-            Bukkit.dispatchCommand(Bukkit.getConsoleSender(),"f setdtr " + killer.getName() + " -i");
+			Faction faction = this.plugin.getFactionManager().getContainingFaction(killer.getName());
+			PlayerFaction playerFaction = (PlayerFaction) faction;
+			playerFaction.setDeathsUntilRaidable(playerFaction.getDeathsUntilRaidable() + 0.3);
             return;
         }
     }
