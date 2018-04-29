@@ -10,11 +10,14 @@ import net.veilmc.hcf.classes.archer.ArcherClass;
 import net.veilmc.hcf.combatlog.CombatLogListener;
 import net.veilmc.hcf.combatlog.CustomEntityRegistration;
 import net.veilmc.hcf.command.*;
-import net.veilmc.hcf.config.PotionLimiterData;
 import net.veilmc.hcf.command.crate.KeyListener;
 import net.veilmc.hcf.command.crate.KeyManager;
 import net.veilmc.hcf.command.crate.LootExecutor;
 import net.veilmc.hcf.command.death.DeathExecutor;
+import net.veilmc.hcf.command.lives.LivesExecutor;
+import net.veilmc.hcf.command.spawn.SpawnCommand;
+import net.veilmc.hcf.command.spawn.TokenExecutor;
+import net.veilmc.hcf.config.PotionLimiterData;
 import net.veilmc.hcf.deathban.Deathban;
 import net.veilmc.hcf.deathban.DeathbanListener;
 import net.veilmc.hcf.deathban.DeathbanManager;
@@ -41,10 +44,7 @@ import net.veilmc.hcf.kothgame.faction.KothFaction;
 import net.veilmc.hcf.kothgame.koth.KothExecutor;
 import net.veilmc.hcf.listener.*;
 import net.veilmc.hcf.listener.fixes.*;
-import net.veilmc.hcf.command.lives.LivesExecutor;
 import net.veilmc.hcf.scoreboard.ScoreboardHandler;
-import net.veilmc.hcf.command.spawn.SpawnCommand;
-import net.veilmc.hcf.command.spawn.TokenExecutor;
 import net.veilmc.hcf.tab.TabListener;
 import net.veilmc.hcf.timer.TimerExecutor;
 import net.veilmc.hcf.timer.TimerManager;
@@ -59,7 +59,6 @@ import net.veilmc.util.BukkitUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.PluginCommand;
-import org.bukkit.configuration.serialization.ConfigurationSerializable;
 import org.bukkit.configuration.serialization.ConfigurationSerialization;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
@@ -344,6 +343,7 @@ public class HCF extends JavaPlugin{
 		//manager.registerEvents(new StatTrackListener(), this);
 		manager.registerEvents(new CobbleCommand(), this);
 		manager.registerEvents(new ChatGameCommand(), this);
+		manager.registerEvents(new NetherPortalPearlFixListener(), this);
 	}
 
 	private void registerCommands(){
