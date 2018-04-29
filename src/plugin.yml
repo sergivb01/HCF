@@ -127,3 +127,5 @@ commands:
     description: Create a chatgame.
   miner:
     description: No arguments show miner levels info. Player on first argument show that player miner level.
+  spawnentities:
+    description: Used to hide player entities on spawn for sotws.
