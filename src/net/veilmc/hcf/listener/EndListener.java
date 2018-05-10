@@ -110,7 +110,7 @@ public class EndListener
 	@EventHandler(ignoreCancelled = true, priority = EventPriority.HIGHEST)
 	public void onPlayerPortal(PlayerPortalEvent event){
 		Location endSpawnLocation = Bukkit.getWorld("world_the_end").getSpawnLocation();
-		Location endExitLocation = new Location(Bukkit.getWorld("world"), 0.0D, 70.0D, 250.0D);
+		Location endExitLocation = new Location(Bukkit.getWorld("world"), 0.0D, 70.0D, 200.0D);
 
 		endSpawnLocation.setYaw(89);
 		endExitLocation.setYaw(0);
