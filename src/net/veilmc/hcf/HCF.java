@@ -345,6 +345,7 @@ public class HCF extends JavaPlugin{
 		manager.registerEvents(new ChatGameCommand(), this);
 		manager.registerEvents(new NetherPortalPearlFixListener(), this);
 		manager.registerEvents(new SpawnEntitiesCommand(), this);
+		manager.registerEvents(new MobSpawnDisabledOnKitsListener(), this);
 	}
 
 	private void registerCommands(){
