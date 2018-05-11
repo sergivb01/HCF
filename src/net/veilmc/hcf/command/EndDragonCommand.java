@@ -47,7 +47,6 @@ public class EndDragonCommand
 			}
 		}
 		((Player) sender).getWorld().spawnCreature(((Player) sender).getLocation().add(0,10,0), EntityType.ENDER_DRAGON);
-		this.plugin.getKeyManager().
 		for(Player on : Bukkit.getServer().getOnlinePlayers()){
 			for(int i = 0; i < 5; ++i){
 				on.sendMessage("");
