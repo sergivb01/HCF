@@ -52,7 +52,7 @@ public class EndListener
 					arrstring[6] = ChatColor.RED + "[EnderDragon]";
 					arrstring[7] = ChatColor.YELLOW + "Slain by";
 					arrstring[8] = ChatColor.YELLOW.toString() + ChatColor.BOLD + factionName;
-					arrstring[9] = ChatColor.GRAY + (!factionName.contains("Faction: ") ? "" : event.getEntity().getKiller().getName());
+					arrstring[9] = ChatColor.GRAY + (!factionName.contains("Faction: ") ? "" : "Player: " + event.getEntity().getKiller().getName());
 					new ImageMessage(imageToSend, 15, ImageChar.BLOCK.getChar()).appendText(arrstring).sendToPlayer(on);
 				}catch(Exception e){
 					e.printStackTrace();
@@ -63,6 +63,7 @@ public class EndListener
 			SimpleDateFormat sdf = new SimpleDateFormat("M/d HH:mm:ss");
 			itemMeta.setLore(Arrays.asList(ChatColor.DARK_PURPLE.toString() + ChatColor.BOLD + "Enderdragon " + ChatColor.YELLOW + "slain by " + ChatColor.AQUA + event.getEntity().getKiller().getName(), ChatColor.YELLOW + sdf.format(new Date()).replace(" AM", "").replace(" PM", "")));
 			dragonEgg.setItemMeta(itemMeta);
+			Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "crate key " + event.getEntity().getKiller().getName() + " Dragon 5");
 			event.getEntity().getKiller().getInventory().addItem(dragonEgg);
 			if(!event.getEntity().getKiller().getInventory().contains(Material.DRAGON_EGG)){
 				event.getDrops().add(dragonEgg);

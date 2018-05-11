@@ -3,12 +3,6 @@ package net.veilmc.hcf.command;
 import net.veilmc.hcf.HCF;
 import net.veilmc.util.imagemessage.ImageChar;
 import net.veilmc.util.imagemessage.ImageMessage;
-
-import java.awt.image.BufferedImage;
-import java.util.Collections;
-import java.util.List;
-import javax.imageio.ImageIO;
-
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Sound;
@@ -17,8 +11,15 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;
+import org.bukkit.entity.EnderDragon;
+import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
+
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.util.Collections;
+import java.util.List;
 
 public class EndDragonCommand
 		implements CommandExecutor,
@@ -38,14 +39,22 @@ public class EndDragonCommand
 			sender.sendMessage(ChatColor.RED + "You must be in the end.");
 			return true;
 		}
-		((Player) sender).getWorld().spawnCreature(((Player) sender).getLocation(), EntityType.ENDER_DRAGON);
+		for (Entity en : ((Player) sender).getNearbyEntities(2000, 2000, 2000)) {
+			if (en instanceof EnderDragon) {
+				sender.sendMessage(ChatColor.RED + "There can only be one ender dragon at the same time.");
+				((EnderDragon) en).setHealth(1);
+				return true;
+			}
+		}
+		((Player) sender).getWorld().spawnCreature(((Player) sender).getLocation().add(0,10,0), EntityType.ENDER_DRAGON);
+		this.plugin.getKeyManager().
 		for(Player on : Bukkit.getServer().getOnlinePlayers()){
 			for(int i = 0; i < 5; ++i){
 				on.sendMessage("");
 			}
 			try{
 				BufferedImage imageToSend = ImageIO.read(this.plugin.getResource("enderdragon-art.png"));
-				new ImageMessage(imageToSend, 15, ImageChar.BLOCK.getChar()).appendText("", "", "", "", "", "", ChatColor.RED + "[EnderDragon]", ChatColor.YELLOW + "Spawned").sendToPlayer(on);
+				new ImageMessage(imageToSend, 15, ImageChar.BLOCK.getChar()).appendText("", "", "", "", "", "", ChatColor.RED + "[EnderDragon Event]", ChatColor.YELLOW + "Dragon Spawned", ChatColor.YELLOW + "Kill it to get a big prize!").sendToPlayer(on);
 			}catch(Exception e){
 				e.printStackTrace();
 			}
