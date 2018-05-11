@@ -42,7 +42,6 @@ public class EndDragonCommand
 		for (Entity en : ((Player) sender).getNearbyEntities(2000, 2000, 2000)) {
 			if (en instanceof EnderDragon) {
 				sender.sendMessage(ChatColor.RED + "There can only be one ender dragon at the same time.");
-				((EnderDragon) en).setHealth(1);
 				return true;
 			}
 		}
