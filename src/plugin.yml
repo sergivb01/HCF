@@ -130,3 +130,4 @@ commands:
   spawnentities:
     description: Used to hide player entities on spawn for sotws.
   enddragon:
+    aliases: [enderdragonevent]
