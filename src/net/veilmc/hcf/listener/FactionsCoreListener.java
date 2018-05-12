@@ -1,9 +1,10 @@
 package net.veilmc.hcf.listener;
 
+import com.google.common.collect.ImmutableMultimap;
+import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.Sets;
 import net.veilmc.hcf.HCF;
 import net.veilmc.hcf.faction.FactionManager;
-import net.veilmc.hcf.faction.type.*;
-import net.veilmc.hcf.utils.ConfigurationService;
 import net.veilmc.hcf.faction.event.CaptureZoneEnterEvent;
 import net.veilmc.hcf.faction.event.CaptureZoneLeaveEvent;
 import net.veilmc.hcf.faction.event.PlayerClaimEnterEvent;
@@ -12,12 +13,9 @@ import net.veilmc.hcf.faction.struct.Role;
 import net.veilmc.hcf.faction.type.*;
 import net.veilmc.hcf.kothgame.CaptureZone;
 import net.veilmc.hcf.kothgame.faction.CapturableFaction;
+import net.veilmc.hcf.utils.ConfigurationService;
 import net.veilmc.util.BukkitUtils;
-import net.veilmc.util.Config;
 import net.veilmc.util.cuboid.Cuboid;
-import com.google.common.collect.ImmutableMultimap;
-import com.google.common.collect.ImmutableSet;
-import com.google.common.collect.Sets;
 import org.bukkit.*;
 import org.bukkit.block.Block;
 import org.bukkit.entity.*;
@@ -523,15 +521,16 @@ public class FactionsCoreListener
 			event.setCancelled(true);
 		}
 	}
+
 	@EventHandler
     public void onPlayerKillAddDtrOnVeilz(PlayerDeathEvent event) {
 	    if (ConfigurationService.VEILZ) {
-	    	if (!(event.getEntity() instanceof Player) && !(event.getEntity().getKiller() instanceof Player)) return;
-            Player killer = event.getEntity().getKiller();
-			Faction faction = this.plugin.getFactionManager().getContainingFaction(killer.getName());
-			PlayerFaction playerFaction = (PlayerFaction) faction;
-			playerFaction.setDeathsUntilRaidable(playerFaction.getDeathsUntilRaidable() + 0.3);
-            return;
+	    	if (event.getEntity().getKiller() != null) {
+				Player killer = event.getEntity().getKiller();
+				Faction faction = this.plugin.getFactionManager().getContainingFaction(killer.getName());
+				PlayerFaction playerFaction = (PlayerFaction) faction;
+				playerFaction.setDeathsUntilRaidable(playerFaction.getDeathsUntilRaidable() + 0.3);
+			}
         }
     }
 }
