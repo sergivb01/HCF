@@ -147,7 +147,7 @@ public class WorldListener implements Listener{
 			if(killer != event.getEntity().getPlayer()){
 				int mult = getMultiplier(killer);
 				int eco;
-				if (ConfigurationService.VEILZ) eco = 10 * mult;
+				if (ConfigurationService.VEILZ) eco = 25 * mult;
 				else eco = 100 * mult;
 				plugin.getEconomyManager().addBalance(killer.getUniqueId(), eco);
 				killer.sendMessage(ChatColor.GREEN + "You have gained $" + eco + " for killing " + ChatColor.WHITE + event.getEntity().getName() + ChatColor.GREEN + ". " + (mult != 1 ? ChatColor.GRAY + " (x" + mult + " multiplier" : ""));
