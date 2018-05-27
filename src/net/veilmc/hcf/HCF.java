@@ -404,6 +404,7 @@ public class HCF extends JavaPlugin{
 		this.getCommand("spawnentities").setExecutor(new SpawnEntitiesCommand());
 		this.getCommand("enddragon").setExecutor(new EndDragonCommand(this));
 		this.getCommand("sumoevent").setExecutor(new SumoEventCommand(this));
+		this.getCommand("ffaevent").setExecutor(new FfaEventCommand(this));
 		final Map<String, Map<String, Object>> map = this.getDescription().getCommands();
 
 		for(final Map.Entry<String, Map<String, Object>> entry : map.entrySet()){
