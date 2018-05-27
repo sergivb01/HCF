@@ -403,6 +403,7 @@ public class HCF extends JavaPlugin{
 		this.getCommand("miner").setExecutor(new MinerCommand());
 		this.getCommand("spawnentities").setExecutor(new SpawnEntitiesCommand());
 		this.getCommand("enddragon").setExecutor(new EndDragonCommand(this));
+		this.getCommand("sumoevent").setExecutor(new SumoEventCommand(this));
 		final Map<String, Map<String, Object>> map = this.getDescription().getCommands();
 
 		for(final Map.Entry<String, Map<String, Object>> entry : map.entrySet()){
