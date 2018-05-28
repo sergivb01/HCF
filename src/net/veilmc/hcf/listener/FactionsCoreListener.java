@@ -374,7 +374,7 @@ public class FactionsCoreListener
 		Block block = event.getClickedBlock();
 		Action action = event.getAction();
 		if(action == Action.PHYSICAL && !FactionsCoreListener.attemptBuild(event.getPlayer(), block.getLocation(), null)){
-			if (ConfigurationService.VEILZ) {
+			if (ConfigurationService.VEILZ || ConfigurationService.FFA) {
 				if (((factionAt = factionManager.getFactionAt(Bukkit.getPlayer(sender.getName()).getLocation())).isSafezone() && ((playerFaction = factionManager.getPlayerFaction((Player) sender)) == null || !factionAt.equals(playerFaction))) || factionAt instanceof CityFaction) {
 					event.setCancelled(false);
 				}
@@ -402,7 +402,7 @@ public class FactionsCoreListener
 				}
 			}
 			if(!block.getType().equals(Material.WORKBENCH)){
-				if (ConfigurationService.VEILZ) {
+				if (ConfigurationService.VEILZ || ConfigurationService.FFA) {
 					if (((factionAt = factionManager.getFactionAt(Bukkit.getPlayer(sender.getName()).getLocation())).isSafezone() && ((playerFaction = factionManager.getPlayerFaction((Player) sender)) == null || !factionAt.equals(playerFaction))) || factionAt instanceof CityFaction) {
 						canBuild = !BLOCK_INTERACTABLES_VEILZ_SPAWN.contains(block.getType());
 					}

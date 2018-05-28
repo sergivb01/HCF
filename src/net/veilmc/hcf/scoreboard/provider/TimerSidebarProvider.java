@@ -247,7 +247,7 @@ public class TimerSidebarProvider implements SidebarProvider{
 
 		final FactionUser factionUser = this.plugin.getUserManager().getUser(player.getUniqueId());
 
-		if((ConfigurationService.KIT_MAP || ConfigurationService.VEILZ) && factionUser != null){
+		if((ConfigurationService.KIT_MAP || ConfigurationService.VEILZ || ConfigurationService.FFA) && factionUser != null){
 			lines.add(new SidebarEntry(ChatColor.GOLD.toString() + " ", ChatColor.BLUE + "Balance: " + ChatColor.WHITE + "$", this.plugin.getEconomyManager().getBalance(player.getUniqueId())));
 			lines.add(new SidebarEntry(ChatColor.BLUE, " Kills", ": " + ChatColor.WHITE + factionUser.getKills()));
 			lines.add(new SidebarEntry(ChatColor.GOLD.toString() + " ", ChatColor.BLUE + "Deaths" + ": " + ChatColor.WHITE, player.getStatistic(Statistic.DEATHS)));

@@ -33,7 +33,7 @@ public class SpawnCommand
 			player.sendMessage(ChatColor.YELLOW + "You have been teleported to spawn.");
 			return true;
 		}
-		if(ConfigurationService.KIT_MAP || ConfigurationService.VEILZ){
+		if(ConfigurationService.KIT_MAP || ConfigurationService.VEILZ || ConfigurationService.FFA){
 			if(this.plugin.getTimerManager().spawnTagTimer.getRemaining(player) > 0L){
 				player.sendMessage(ChatColor.RED + "You can not do this while your " + ChatColor.BOLD + "Spawn Tag" + ChatColor.RED + " is active.");
 				return false;

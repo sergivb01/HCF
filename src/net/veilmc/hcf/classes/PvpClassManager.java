@@ -63,7 +63,7 @@ public class PvpClassManager{
 	}
 
 	public void setEquippedClass(Player player, @Nullable PvpClass pvpClass){
-		if (ConfigurationService.VEILZ) return;
+		if (ConfigurationService.VEILZ || ConfigurationService.FFA) return;
 		PvpClass equipped = this.getEquippedClass(player);
 		if(equipped != null){
 			if(pvpClass == null){

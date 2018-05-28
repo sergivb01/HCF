@@ -142,7 +142,7 @@ public class WorldListener implements Listener{
 
 	@EventHandler
 	public void onPlayerDeath(PlayerDeathEvent event){
-		if((ConfigurationService.KIT_MAP || ConfigurationService.VEILZ) && event.getEntity().getKiller() != null){
+		if((ConfigurationService.KIT_MAP || ConfigurationService.VEILZ || ConfigurationService.FFA) && event.getEntity().getKiller() != null){
 			Player killer = event.getEntity().getKiller();
 			if(killer != event.getEntity().getPlayer()){
 				int mult = getMultiplier(killer);
@@ -151,7 +151,7 @@ public class WorldListener implements Listener{
 				else eco = 100 * mult;
 				plugin.getEconomyManager().addBalance(killer.getUniqueId(), eco);
 				killer.sendMessage(ChatColor.GREEN + "You have gained $" + eco + " for killing " + ChatColor.WHITE + event.getEntity().getName() + ChatColor.GREEN + ". " + (mult != 1 ? ChatColor.GRAY + " (x" + mult + " multiplier" : ""));
-				if (ConfigurationService.KIT_MAP) Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "crate key " + killer.getName() + " KillReward");
+				if (ConfigurationService.KIT_MAP || ConfigurationService.FFA) Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "crate key " + killer.getName() + " KillReward");
 			}
 		}
 	}

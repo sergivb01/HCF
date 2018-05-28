@@ -24,6 +24,7 @@ found-diamonds: true
 
 # Is kit-map mode enabled?
 kit-map: false
+ffa: false
 
 veilz: false
 veilz-options:

@@ -276,11 +276,14 @@ public class HCF extends JavaPlugin{
 
 	private void registerListeners(){
 		PluginManager manager = this.getServer().getPluginManager();
+        if (!ConfigurationService.FFA) {
+
+        }
 		manager.registerEvents(new PotionLimitListener(), this);
 		manager.registerEvents(new AutoRespawnListener(this), this);
 		manager.registerEvents(new PortalFixListener(), this);
 		manager.registerEvents(new ElevatorListener(this), this);
-		if (!ConfigurationService.VEILZ) manager.registerEvents(new EndPortalCommand(this), this);
+		if (!ConfigurationService.VEILZ || !ConfigurationService.FFA) manager.registerEvents(new EndPortalCommand(this), this);
 		manager.registerEvents(new PermissionsCommand(this), this);
 		manager.registerEvents(new ColonFix(), this);
 		manager.registerEvents(new PotionListener(), this);
@@ -312,7 +315,7 @@ public class HCF extends JavaPlugin{
 		manager.registerEvents(new DeathSignListener(this), this);
 		manager.registerEvents(new DeathbanListener(this), this);
 		manager.registerEvents(new EnchantLimitListener(), this);
-		if (!ConfigurationService.VEILZ) manager.registerEvents(new EnderChestRemovalListener(), this);
+		if (!ConfigurationService.VEILZ || !ConfigurationService.FFA) manager.registerEvents(new EnderChestRemovalListener(), this);
 		manager.registerEvents(new EntityLimitListener(), this);
 		manager.registerEvents(new FlatFileFactionManager(this), this);
 		manager.registerEvents(new EndListener(), this);

@@ -119,6 +119,7 @@ public final class ConfigurationService{
 
 	public static boolean KIT_MAP;
 	public static boolean VEILZ;
+	public static boolean FFA;
 	public static boolean DEV;
 
 	public static long VEILZ_REGEN;
@@ -134,6 +135,7 @@ public final class ConfigurationService{
 
 		KIT_MAP = config.getBoolean("kit-map");
 		VEILZ = config.getBoolean("veilz");
+		FFA = config.getBoolean("ffa");
 		DEV = config.getBoolean("dev", false);
 		TAB = config.getBoolean("tab");
 

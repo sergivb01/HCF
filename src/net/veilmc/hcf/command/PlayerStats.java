@@ -60,7 +60,7 @@ public class PlayerStats
 		if(hcf.getDeathban() != null){
 			new Text(ChatColor.YELLOW + "  Deathbanned: " + (hcf.getDeathban().isActive() ? new StringBuilder().append(ChatColor.GREEN).append("true").toString() : new StringBuilder().append(ChatColor.RED).append("false").toString())).setHoverText(ChatColor.AQUA + "Un-Deathbanned at: " + HCF.getRemaining(hcf.getDeathban().getExpiryMillis(), true, true)).send(player);
 		}else{
-			if(!ConfigurationService.KIT_MAP || !ConfigurationService.VEILZ){
+			if(!ConfigurationService.KIT_MAP || ConfigurationService.VEILZ || !ConfigurationService.FFA){
 				player.sendMessage(ChatColor.YELLOW + "  Deathbanned: " + ChatColor.RED + "false");
 			}
 		}

@@ -36,7 +36,7 @@ public class PvpClassWarmupTimer
 		super(ConfigurationService.PVP_CLASS_WARMUP_TIMER, TimeUnit.SECONDS.toMillis(10), false);
 		this.plugin = plugin;
 		this.classWarmups = CacheBuilder.newBuilder().expireAfterWrite(this.defaultCooldown + 5000, TimeUnit.MILLISECONDS).build().asMap();
-		if (ConfigurationService.VEILZ) return;
+		if (ConfigurationService.VEILZ || ConfigurationService.FFA) return;
 		runTaskTimer(() -> {
 			for(Player player : Bukkit.getServer().getOnlinePlayers()){
 				attemptEquip(player);
@@ -90,7 +90,7 @@ public class PvpClassWarmupTimer
 
 	@EventHandler(ignoreCancelled = true, priority = EventPriority.MONITOR)
 	public void onPlayerJoin(PlayerJoinEvent event){
-		if (ConfigurationService.VEILZ) return;
+		if (ConfigurationService.VEILZ || ConfigurationService.FFA) return;
 		this.attemptEquip(event.getPlayer());
 	}
 

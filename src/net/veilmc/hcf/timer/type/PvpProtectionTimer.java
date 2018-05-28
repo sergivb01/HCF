@@ -120,7 +120,7 @@ public class PvpProtectionTimer extends PlayerTimer implements Listener{
 
 	@EventHandler(ignoreCancelled = true, priority = EventPriority.MONITOR)
 	public void onPlayerRespawn(PlayerRespawnEvent event){
-		if(ConfigurationService.KIT_MAP || ConfigurationService.VEILZ){
+		if(ConfigurationService.KIT_MAP || ConfigurationService.VEILZ || ConfigurationService.FFA){
 			return;
 		}
 		Player player = event.getPlayer();
@@ -132,7 +132,7 @@ public class PvpProtectionTimer extends PlayerTimer implements Listener{
 
 	@EventHandler
 	public void onTimer(TimerStartEvent e){
-		if(ConfigurationService.KIT_MAP || ConfigurationService.VEILZ){
+		if(ConfigurationService.KIT_MAP || ConfigurationService.VEILZ || ConfigurationService.FFA){
 			if(e.getTimer() instanceof PvpProtectionTimer){
 				this.plugin.getTimerManager().pvpProtectionTimer.clearCooldown(e.getUserUUID().get());
 			}
@@ -141,7 +141,7 @@ public class PvpProtectionTimer extends PlayerTimer implements Listener{
 
 	@EventHandler(ignoreCancelled = true, priority = EventPriority.MONITOR)
 	public void onPlayerDeath(final PlayerDeathEvent event){
-		if(ConfigurationService.KIT_MAP || ConfigurationService.VEILZ){
+		if(ConfigurationService.KIT_MAP || ConfigurationService.VEILZ || ConfigurationService.FFA){
 			return;
 		}
 		final Player player = event.getEntity();
@@ -214,7 +214,7 @@ public class PvpProtectionTimer extends PlayerTimer implements Listener{
 	@EventHandler(ignoreCancelled = true, priority = EventPriority.MONITOR)
 	public void onPlayerSpawnLocation(final PlayerSpawnLocationEvent event){
 		final Player player = event.getPlayer();
-		if(!player.hasPlayedBefore() && (!ConfigurationService.KIT_MAP && !ConfigurationService.VEILZ)){
+		if(!player.hasPlayedBefore() && (!ConfigurationService.KIT_MAP && !ConfigurationService.VEILZ && !ConfigurationService.FFA)){
 			if(!this.plugin.getEotwHandler().isEndOfTheWorld() && this.legible.add(player.getUniqueId())){
 				player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&cYou now have PvP Protection since you have died."));
 			}

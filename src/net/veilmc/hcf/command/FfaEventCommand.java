@@ -130,5 +130,5 @@ public class FfaEventCommand implements CommandExecutor {
             }.runTaskTimer(this.plugin, 20L, 20L);
         }
         return true;
-    } {
+    }
 }
