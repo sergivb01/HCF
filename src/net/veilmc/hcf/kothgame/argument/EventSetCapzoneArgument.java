@@ -5,11 +5,9 @@ import net.veilmc.hcf.faction.FactionManager;
 import net.veilmc.hcf.faction.claim.Claim;
 import net.veilmc.hcf.faction.type.Faction;
 import net.veilmc.hcf.kothgame.CaptureZone;
-import net.veilmc.hcf.kothgame.faction.CapturableFaction;
-import net.veilmc.hcf.kothgame.faction.ConquestFaction;
-import net.veilmc.hcf.kothgame.faction.EventFaction;
-import net.veilmc.hcf.kothgame.faction.KothFaction;
+import net.veilmc.hcf.kothgame.faction.*;
 import net.veilmc.hcf.kothgame.tracker.ConquestTracker;
+import net.veilmc.hcf.kothgame.tracker.KnockKothTracker;
 import net.veilmc.hcf.kothgame.tracker.KothTracker;
 import net.veilmc.hcf.palace.PalaceFaction;
 import net.veilmc.hcf.palace.PalaceTracker;
@@ -111,9 +109,12 @@ public class EventSetCapzoneArgument
 		}else if(capturableFaction instanceof KothFaction){
 			captureZone = new CaptureZone(capturableFaction.getName(), claim, KothTracker.DEFAULT_CAP_MILLIS);
 			((KothFaction) capturableFaction).setCaptureZone(captureZone);
-		}else if(capturableFaction instanceof PalaceFaction){
+		}else if(capturableFaction instanceof PalaceFaction) {
 			captureZone = new CaptureZone(capturableFaction.getName(), claim, PalaceTracker.DEFAULT_CAP_MILLIS1);
 			((PalaceFaction) capturableFaction).setCaptureZone(captureZone);
+		} else if(capturableFaction instanceof KnockKothFaction) {
+			captureZone = new CaptureZone(capturableFaction.getName(), claim, KnockKothTracker.DEFAULT_CAP_MILLIS);
+			((KnockKothFaction) capturableFaction).setCaptureZone(captureZone);
 		}else{
 			sender.sendMessage(ChatColor.RED + "Unexpected error");
 			return false;

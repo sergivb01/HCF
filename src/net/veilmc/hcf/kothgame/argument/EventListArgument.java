@@ -2,6 +2,7 @@ package net.veilmc.hcf.kothgame.argument;
 
 import net.veilmc.hcf.HCF;
 import net.veilmc.hcf.faction.type.Faction;
+import net.veilmc.hcf.kothgame.faction.ConquestFaction;
 import net.veilmc.hcf.kothgame.faction.EventFaction;
 import net.veilmc.hcf.kothgame.faction.KothFaction;
 import net.veilmc.hcf.palace.PalaceFaction;
@@ -43,10 +44,11 @@ public class EventListArgument extends CommandArgument{
 			return "Koth";
 		}else if(factionEvent instanceof PalaceFaction){
 			return "Palace";
-		}else{
+		}else if (factionEvent instanceof ConquestFaction){
 			return "Conquest";
+		}else {
+			return "Knock Koth";
 		}
-
 	}
 
 

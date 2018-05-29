@@ -30,6 +30,9 @@ public abstract class EventFaction
 		if(this.getEventType() == EventType.KOTH){
 			return ChatColor.BLUE + "" + ChatColor.BOLD + this.getName() + " KOTH";
 		}
+		if (this.getEventType() == EventType.KNOCK) {
+			return ChatColor.BLUE + "" + ChatColor.BOLD + this.getName() + " KNOCK KOTH";
+		}
 		return ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + this.getEventType().getDisplayName();
 	}
 
@@ -37,6 +40,9 @@ public abstract class EventFaction
 	public String getDisplayName(CommandSender sender){
 		if(this.getEventType() == EventType.KOTH){
 			return ChatColor.BLUE + "" + ChatColor.BOLD + this.getName() + " KOTH";
+		}
+		if (this.getEventType() == EventType.KNOCK){
+			return ChatColor.BLUE + "" + ChatColor.BOLD + this.getName() + " KNOCK KOTH";
 		}
 		return ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + this.getEventType().getDisplayName();
 	}

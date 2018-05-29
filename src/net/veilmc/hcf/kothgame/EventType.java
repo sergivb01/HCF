@@ -3,6 +3,7 @@ package net.veilmc.hcf.kothgame;
 import net.veilmc.hcf.HCF;
 import net.veilmc.hcf.kothgame.tracker.ConquestTracker;
 import net.veilmc.hcf.kothgame.tracker.EventTracker;
+import net.veilmc.hcf.kothgame.tracker.KnockKothTracker;
 import net.veilmc.hcf.kothgame.tracker.KothTracker;
 import net.veilmc.hcf.palace.PalaceTracker;
 import com.google.common.collect.ImmutableBiMap;
@@ -10,7 +11,7 @@ import com.google.common.collect.ImmutableMap;
 
 
 public enum EventType{
-	CONQUEST("Conquest", new ConquestTracker(HCF.getPlugin())), PALACE("Palace", new PalaceTracker((HCF.getPlugin()))), KOTH("Koth", new KothTracker(HCF.getPlugin()));
+	CONQUEST("Conquest", new ConquestTracker(HCF.getPlugin())), PALACE("Palace", new PalaceTracker((HCF.getPlugin()))), KOTH("Koth", new KothTracker(HCF.getPlugin())), KNOCK("Knock Koth", new KnockKothTracker(HCF.getPlugin()));
 
 	private static final ImmutableMap<String, EventType> byDisplayName;
 

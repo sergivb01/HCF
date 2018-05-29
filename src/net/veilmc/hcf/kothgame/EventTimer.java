@@ -1,5 +1,8 @@
 package net.veilmc.hcf.kothgame;
 
+import com.google.common.base.Objects;
+import com.google.common.base.Preconditions;
+import com.google.common.collect.Iterables;
 import net.veilmc.hcf.HCF;
 import net.veilmc.hcf.command.crate.Key;
 import net.veilmc.hcf.faction.event.CaptureZoneEnterEvent;
@@ -8,14 +11,12 @@ import net.veilmc.hcf.faction.type.Faction;
 import net.veilmc.hcf.faction.type.PlayerFaction;
 import net.veilmc.hcf.kothgame.faction.ConquestFaction;
 import net.veilmc.hcf.kothgame.faction.EventFaction;
+import net.veilmc.hcf.kothgame.faction.KnockKothFaction;
 import net.veilmc.hcf.kothgame.faction.KothFaction;
 import net.veilmc.hcf.palace.PalaceFaction;
 import net.veilmc.hcf.timer.GlobalTimer;
 import net.veilmc.hcf.utils.ConfigurationService;
 import net.veilmc.hcf.utils.DateTimeFormats;
-import com.google.common.base.Objects;
-import com.google.common.base.Preconditions;
-import com.google.common.collect.Iterables;
 import org.apache.commons.lang3.time.DurationFormatUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -123,6 +124,9 @@ public class EventTimer
 		if(this.eventFaction instanceof KothFaction){
 			return ((KothFaction) this.eventFaction).getCaptureZone().getRemainingCaptureMillis();
 		}
+		if(this.eventFaction instanceof KnockKothFaction) {
+			return ((KnockKothFaction) this.eventFaction).getCaptureZone().getRemainingCaptureMillis();
+		}
 		return super.getRemaining();
 	}
 
@@ -154,6 +158,9 @@ public class EventTimer
 		}
 		if(key.getName().equalsIgnoreCase("conquest")){
 			Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "crate key " + winner.getName() + " " + key.getName() + " 8");
+		}
+		if (this.eventFaction.getEventType().getDisplayName().contains("Knock")) {
+			Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "crate key " + winner.getName() + " Knock 6");
 		}
 
 		plugin.rotateGames();
@@ -190,6 +197,13 @@ public class EventTimer
 		if(eventFaction instanceof KothFaction){
 			final KothFaction kothFaction = (KothFaction) eventFaction;
 			if(kothFaction.getCaptureZone() == null){
+				sender.sendMessage(ChatColor.RED + "Cannot schedule " + eventFaction.getName() + " as its' capture zone is not set.");
+				return false;
+			}
+		}
+		if(eventFaction instanceof KnockKothFaction) {
+			final KnockKothFaction knockKothFaction = (KnockKothFaction) eventFaction;
+			if(knockKothFaction.getCaptureZone() == null){
 				sender.sendMessage(ChatColor.RED + "Cannot schedule " + eventFaction.getName() + " as its' capture zone is not set.");
 				return false;
 			}

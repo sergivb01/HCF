@@ -40,6 +40,7 @@ import net.veilmc.hcf.kothgame.eotw.EotwCommand;
 import net.veilmc.hcf.kothgame.eotw.EotwListener;
 import net.veilmc.hcf.kothgame.faction.CapturableFaction;
 import net.veilmc.hcf.kothgame.faction.ConquestFaction;
+import net.veilmc.hcf.kothgame.faction.KnockKothFaction;
 import net.veilmc.hcf.kothgame.faction.KothFaction;
 import net.veilmc.hcf.kothgame.koth.KothExecutor;
 import net.veilmc.hcf.listener.*;
@@ -202,7 +203,7 @@ public class HCF extends JavaPlugin{
 		int seconds = (ConfigurationService.KIT_MAP ? 300 : 7200);
 		startNewKoth(seconds);
 		NEXT_KOTH = System.currentTimeMillis() + (seconds * 1000);
-		Bukkit.broadcastMessage(ChatColor.translateAlternateColorCodes('&', "&6&lKOTH &7� &eA new KOTH will be starting in&5 " + (ConfigurationService.KIT_MAP ? "5 minnutes" : "2 hours") + "!"));
+		Bukkit.broadcastMessage(ChatColor.translateAlternateColorCodes('&', "&6&lKOTH &7� &eA new KOTH will be starting in&5 " + (ConfigurationService.KIT_MAP ? "5 minutes" : "2 hours") + "!"));
 	}
 
 	public void startNewKoth(int seconds){
@@ -261,6 +262,7 @@ public class HCF extends JavaPlugin{
 		ConfigurationSerialization.registerClass(KothFaction.class);
 		ConfigurationSerialization.registerClass(EndPortalFaction.class);
 		ConfigurationSerialization.registerClass(Faction.class);
+		ConfigurationSerialization.registerClass(KnockKothFaction.class);
 		ConfigurationSerialization.registerClass(FactionMember.class);
 		ConfigurationSerialization.registerClass(PlayerFaction.class);
 		ConfigurationSerialization.registerClass(RoadFaction.class);
