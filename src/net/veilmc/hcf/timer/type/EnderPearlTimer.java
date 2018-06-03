@@ -106,6 +106,9 @@ public class EnderPearlTimer
 
 	@EventHandler(ignoreCancelled = true, priority = EventPriority.MONITOR)
 	public void onProjectileLaunch(ProjectileLaunchEvent event){
+		if (ConfigurationService.FFA) {
+			return;
+		}
 		ProjectileSource source;
 		EnderPearl enderPearl;
 		Projectile projectile = event.getEntity();

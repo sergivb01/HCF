@@ -354,6 +354,15 @@ public class HCF extends JavaPlugin{
 	}
 
 	private void registerCommands(){
+		if (!ConfigurationService.FFA) {
+			this.getCommand("game").setExecutor(new EventExecutor(this));
+			this.getCommand("koth").setExecutor(new KothExecutor(this));
+			this.getCommand("cobble").setExecutor(new CobbleCommand());
+			this.getCommand("ores").setExecutor(new OresCommand());
+			this.getCommand("miner").setExecutor(new MinerCommand());
+			this.getCommand("sendcoords").setExecutor(new SendCoordsCommand(this));
+
+		}
 		this.getCommand("permissions").setExecutor(new PermissionsCommand(this));
 		this.getCommand("platinum").setExecutor(new PlatinumReviveCommand(this));
 		this.getCommand("teamspeak").setExecutor(new TeamspeakCommand());
@@ -365,7 +374,7 @@ public class HCF extends JavaPlugin{
 		this.getCommand("endportal").setExecutor(new EndPortalCommand(this));
 		this.getCommand("toggleend").setExecutor(new ToggleEnd(this));
 		this.getCommand("focus").setExecutor(new FactionFocusArgument(this));
-		this.getCommand("sendcoords").setExecutor(new SendCoordsCommand(this));
+
 		this.getCommand("spawner").setExecutor(new SpawnerCommand(this));
 		this.getCommand("sotw").setExecutor(new SotwCommand(this));
 		this.getCommand("dinfo").setExecutor(new DInfoCommand(this));
@@ -373,12 +382,10 @@ public class HCF extends JavaPlugin{
 		this.getCommand("crowbar").setExecutor(new CrowbarCommand());
 		this.getCommand("economy").setExecutor(new EconomyCommand(this));
 		this.getCommand("eotw").setExecutor(new EotwCommand(this));
-		this.getCommand("game").setExecutor(new EventExecutor(this));
 		this.getCommand("help").setExecutor(new HelpCommand());
 		this.getCommand("faction").setExecutor(new FactionExecutor(this));
 		this.getCommand("gopple").setExecutor(new GoppleCommand(this));
 		this.getCommand("stats").setExecutor(new PlayerStats());
-		this.getCommand("koth").setExecutor(new KothExecutor(this));
 		this.getCommand("check").setExecutor(new CheckCommand(this));
 		this.getCommand("store").setExecutor(new StoreCommand(this));
 		this.getCommand("lives").setExecutor(new LivesExecutor(this));
@@ -401,11 +408,8 @@ public class HCF extends JavaPlugin{
 		this.getCommand("safestop").setExecutor(new SafestopCommand());
 		this.getCommand("staffrevive").setExecutor(new StaffReviveCommand(this));
 		this.getCommand("nether").setExecutor(new NetherCommand(this));
-		this.getCommand("cobble").setExecutor(new CobbleCommand());
-		this.getCommand("ores").setExecutor(new OresCommand());
 		this.getCommand("crowgive").setExecutor(new CrowbarGiveCommand());
 		this.getCommand("chatgame").setExecutor(new ChatGameCommand());
-		this.getCommand("miner").setExecutor(new MinerCommand());
 		this.getCommand("spawnentities").setExecutor(new SpawnEntitiesCommand());
 		this.getCommand("enddragon").setExecutor(new EndDragonCommand(this));
 		this.getCommand("sumoevent").setExecutor(new SumoEventCommand(this));

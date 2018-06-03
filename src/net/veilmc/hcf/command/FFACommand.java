@@ -8,11 +8,16 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
+import ru.tehkode.permissions.bukkit.PermissionsEx;
 
 public class FFACommand
 		implements CommandExecutor{
 
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args){
+		if (!PermissionsEx.getUser(sender.getName()).inGroup("Owner")) {
+			sender.sendMessage(ChatColor.RED + "No. Ask a Owner.");
+			return true;
+		}
 		for(Player p : Bukkit.getOnlinePlayers()){
 			if(p.hasPermission("rank.staff")){
 				p.sendMessage(ChatColor.RED + "All other players were given potion effects, as you are staff, you didnt.");

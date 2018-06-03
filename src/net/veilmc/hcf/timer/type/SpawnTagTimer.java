@@ -107,6 +107,9 @@ public class SpawnTagTimer
 
 	@EventHandler(ignoreCancelled = true, priority = EventPriority.MONITOR)
 	public void onEntityDamageByEntity(EntityDamageByEntityEvent event){
+		if (ConfigurationService.FFA) {
+			return;
+		}
 		Entity entity;
 		Player attacker = BukkitUtils.getFinalAttacker(event, true);
 		if(attacker != null && (entity = event.getEntity()) instanceof Player){
