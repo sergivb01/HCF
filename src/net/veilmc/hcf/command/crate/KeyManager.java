@@ -1,20 +1,18 @@
 package net.veilmc.hcf.command.crate;
 
-import net.veilmc.hcf.HCF;
-import net.veilmc.hcf.command.crate.type.*;
-import net.veilmc.util.Config;
 import com.google.common.collect.HashBasedTable;
 import com.google.common.collect.Sets;
 import com.google.common.collect.Table;
+import net.veilmc.hcf.HCF;
+import net.veilmc.hcf.command.crate.type.*;
+import net.veilmc.util.Config;
+import org.bukkit.configuration.MemorySection;
+import org.bukkit.inventory.ItemStack;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
-
-import net.veilmc.hcf.command.crate.type.*;
-import org.bukkit.configuration.MemorySection;
-import org.bukkit.inventory.ItemStack;
 
 public class KeyManager{
 	private final KothKey kothKey;
@@ -23,6 +21,7 @@ public class KeyManager{
 	private final Tier2Key tier2Key;
 	private final Tier3Key tier3Key;
 	private final PalaceKey palaceKey;
+	private final KnockKothKey knockKothKey;
 	private final Table<UUID, String, Integer> depositedCrateMap;
 	private final Set<Key> keys;
 	private final Config config;
@@ -31,7 +30,7 @@ public class KeyManager{
 		super();
 		this.depositedCrateMap = HashBasedTable.create();
 		this.config = new Config(plugin, "key-data");
-		this.keys = Sets.newHashSet(new Key[]{this.tier3Key = new Tier3Key(), this.tier2Key = new Tier2Key(), this.kothKey = new KothKey(), this.tier1Key = new Tier1Key(), this.palaceKey = new PalaceKey(), this.conquestKey = new ConquestKey()});
+		this.keys = Sets.newHashSet(new Key[]{this.tier3Key = new Tier3Key(), this.tier2Key = new Tier2Key(), this.kothKey = new KothKey(), this.tier1Key = new Tier1Key(), this.palaceKey = new PalaceKey(), this.conquestKey = new ConquestKey(), this.knockKothKey = new KnockKothKey()});
 		this.reloadKeyData();
 	}
 
@@ -67,6 +66,8 @@ public class KeyManager{
 	public ConquestKey getConquestKey(){
 		return this.conquestKey;
 	}
+
+	public KnockKothKey getKnockKey() { return this.knockKothKey; }
 
 	public Key getKey(String name){
 		for(Key key : this.keys){

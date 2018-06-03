@@ -18,6 +18,7 @@ public class KnockKothTracker
     public static final long DEFAULT_CAP_MILLIS;
     private static final long MINIMUM_CONTROL_TIME_ANNOUNCE;
     private static long lastMillis;
+    public static boolean KNOCKKOTH;
 
     static{
         MINIMUM_CONTROL_TIME_ANNOUNCE = TimeUnit.SECONDS.toMillis(10);
@@ -40,8 +41,10 @@ public class KnockKothTracker
         CaptureZone captureZone = ((KnockKothFaction) eventFaction).getCaptureZone();
         long remainingMillis = captureZone.getRemainingCaptureMillis();
         if(remainingMillis <= 0){
+            KNOCKKOTH = true;
             this.plugin.getTimerManager().eventTimer.handleWinner(captureZone.getCappingPlayer());
             eventTimer.clearCooldown();
+            lastMillis = DEFAULT_CAP_MILLIS;
             return;
         }
         if(remainingMillis == captureZone.getDefaultCaptureMillis()){

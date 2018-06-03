@@ -13,6 +13,7 @@ import net.veilmc.hcf.kothgame.faction.ConquestFaction;
 import net.veilmc.hcf.kothgame.faction.EventFaction;
 import net.veilmc.hcf.kothgame.faction.KnockKothFaction;
 import net.veilmc.hcf.kothgame.faction.KothFaction;
+import net.veilmc.hcf.kothgame.tracker.KnockKothTracker;
 import net.veilmc.hcf.palace.PalaceFaction;
 import net.veilmc.hcf.timer.GlobalTimer;
 import net.veilmc.hcf.utils.ConfigurationService;
@@ -153,14 +154,15 @@ public class EventTimer
 
 
 		Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "event cancel");
+		if(KnockKothTracker.KNOCKKOTH) {
+			Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "crate key " + winner.getName() + " Knock 6");
+			KnockKothTracker.KNOCKKOTH = false;
+        }
 		if(key.getName().equalsIgnoreCase("koth")){
 			Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "crate key " + winner.getName() + " " + key.getName() + " 5");
 		}
 		if(key.getName().equalsIgnoreCase("conquest")){
 			Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "crate key " + winner.getName() + " " + key.getName() + " 8");
-		}
-		if (this.eventFaction.getEventType().getDisplayName().contains("Knock")) {
-			Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "crate key " + winner.getName() + " Knock 6");
 		}
 
 		plugin.rotateGames();
