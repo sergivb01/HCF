@@ -17,6 +17,8 @@ import net.veilmc.hcf.command.death.DeathExecutor;
 import net.veilmc.hcf.command.lives.LivesExecutor;
 import net.veilmc.hcf.command.spawn.SpawnCommand;
 import net.veilmc.hcf.command.spawn.TokenExecutor;
+import net.veilmc.hcf.config.EventManager;
+import net.veilmc.hcf.config.FlatFileEventManager;
 import net.veilmc.hcf.config.PotionLimiterData;
 import net.veilmc.hcf.deathban.Deathban;
 import net.veilmc.hcf.deathban.DeathbanListener;
@@ -92,6 +94,7 @@ public class HCF extends JavaPlugin{
 	private KeyManager keyManager;
 	private DeathbanManager deathbanManager;
 	private EconomyManager economyManager;
+	private EventManager eventManager;
 	private EOTWHandler eotwHandler;
 	private FactionManager factionManager;
 	private PvpClassManager pvpClassManager;
@@ -236,6 +239,7 @@ public class HCF extends JavaPlugin{
 		this.factionManager.saveFactionData(); //Factions
 		this.userManager.saveUserData(); //User settings
 		this.keyManager.saveKeyData(); //Key things
+		this.eventManager.saveEventsData();
 	}
 
 	public void onDisable(){
@@ -246,6 +250,7 @@ public class HCF extends JavaPlugin{
 		this.pvpClassManager.onDisable();
 		this.scoreboardHandler.clearBoards();
 		this.saveData();
+		this.eventManager.saveEventsData();
 		this.timerManager.disable();
 	}
 
@@ -266,10 +271,10 @@ public class HCF extends JavaPlugin{
 		ConfigurationSerialization.registerClass(FactionMember.class);
 		ConfigurationSerialization.registerClass(PlayerFaction.class);
 		ConfigurationSerialization.registerClass(RoadFaction.class);
-		ConfigurationSerialization.registerClass(RoadFaction.class);
 		ConfigurationSerialization.registerClass(SpawnFaction.class);
 		ConfigurationSerialization.registerClass(GlowstoneFaction.class);
 		ConfigurationSerialization.registerClass(CityFaction.class);
+		ConfigurationSerialization.registerClass(FFAFaction.class);
 		ConfigurationSerialization.registerClass(RoadFaction.NorthRoadFaction.class);
 		ConfigurationSerialization.registerClass(RoadFaction.EastRoadFaction.class);
 		ConfigurationSerialization.registerClass(RoadFaction.SouthRoadFaction.class);
@@ -278,14 +283,10 @@ public class HCF extends JavaPlugin{
 
 	private void registerListeners(){
 		PluginManager manager = this.getServer().getPluginManager();
-        if (!ConfigurationService.FFA) {
-
-        }
-		manager.registerEvents(new PotionLimitListener(), this);
 		manager.registerEvents(new AutoRespawnListener(this), this);
 		manager.registerEvents(new PortalFixListener(), this);
 		manager.registerEvents(new ElevatorListener(this), this);
-		if (!ConfigurationService.VEILZ || !ConfigurationService.FFA) manager.registerEvents(new EndPortalCommand(this), this);
+		if (!ConfigurationService.VEILZ && !ConfigurationService.FFA) manager.registerEvents(new EndPortalCommand(this), this);
 		manager.registerEvents(new PermissionsCommand(this), this);
 		manager.registerEvents(new ColonFix(), this);
 		manager.registerEvents(new PotionListener(), this);
@@ -317,7 +318,7 @@ public class HCF extends JavaPlugin{
 		manager.registerEvents(new DeathSignListener(this), this);
 		manager.registerEvents(new DeathbanListener(this), this);
 		manager.registerEvents(new EnchantLimitListener(), this);
-		if (!ConfigurationService.VEILZ || !ConfigurationService.FFA) manager.registerEvents(new EnderChestRemovalListener(), this);
+		if (!ConfigurationService.VEILZ && !ConfigurationService.FFA) manager.registerEvents(new EnderChestRemovalListener(), this);
 		manager.registerEvents(new EntityLimitListener(), this);
 		manager.registerEvents(new FlatFileFactionManager(this), this);
 		manager.registerEvents(new EndListener(), this);
@@ -414,6 +415,7 @@ public class HCF extends JavaPlugin{
 		this.getCommand("enddragon").setExecutor(new EndDragonCommand(this));
 		this.getCommand("sumoevent").setExecutor(new SumoEventCommand(this));
 		this.getCommand("ffaevent").setExecutor(new FfaEventCommand(this));
+		this.getCommand("thimbleevent").setExecutor(new ThimbleEventCommand(this));
 		final Map<String, Map<String, Object>> map = this.getDescription().getCommands();
 
 		for(final Map.Entry<String, Map<String, Object>> entry : map.entrySet()){
@@ -438,6 +440,7 @@ public class HCF extends JavaPlugin{
 		this.sotwTimer = new SotwTimer();
 		this.keyManager = new KeyManager(this);
 		this.message = new Message(this);
+		this.eventManager = new FlatFileEventManager(this);
 	}
 
 	public Message getMessage(){
@@ -470,6 +473,10 @@ public class HCF extends JavaPlugin{
 
 	public EconomyManager getEconomyManager(){
 		return this.economyManager;
+	}
+
+	public EventManager getEventManager(){
+		return this.eventManager;
 	}
 
 	public EOTWHandler getEotwHandler(){

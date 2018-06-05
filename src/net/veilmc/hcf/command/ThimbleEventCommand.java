@@ -23,10 +23,9 @@ import org.bukkit.scheduler.BukkitTask;
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
-public class SumoEventCommand implements CommandExecutor {
-
+public class ThimbleEventCommand implements CommandExecutor {
     private HCF plugin;
-    public SumoEventCommand(HCF plugin) {
+    public ThimbleEventCommand(HCF plugin) {
         this.plugin = plugin;
     }
 
@@ -34,7 +33,7 @@ public class SumoEventCommand implements CommandExecutor {
     private static final long TICKS_DAY = TimeUnit.DAYS.toMillis(1);
     private long current = Long.MIN_VALUE;
     private BukkitTask task;
-    private boolean isPendingSumo(){
+    private boolean isPendingThimble(){
         return this.task != null && this.current != Long.MIN_VALUE;
     }
     public long getRemainingTicks(){
@@ -57,12 +56,12 @@ public class SumoEventCommand implements CommandExecutor {
         if (args.length == 0) {
             player.sendMessage(BukkitUtils.STRAIGHT_LINE_DEFAULT);
             player.sendMessage(ChatColor.BLUE + "Queued players: " + queue.size());
-            if (player.hasPermission("hcf.sumoevent.admin")) {
-                player.sendMessage(ChatColor.BLUE + "/sumoevent <minutes> to start the event. Players will be teleported to the location where you executed the commmand.");
-                player.sendMessage(ChatColor.BLUE + "/sumoevent cancel to cancel events.");
-                player.sendMessage(ChatColor.BLUE + "/sumoevent addlocation to add a Sumo location. This locations are added on the bunkers where the players wait to be teleported to the event.");
-                player.sendMessage(ChatColor.BLUE + "/sumoevent removelocation to remove a location.");
-                player.sendMessage(ChatColor.BLUE + "/sumoevent locations to see all locations.");
+            if (player.hasPermission("hcf.thimbleevent.admin")) {
+                player.sendMessage(ChatColor.BLUE + "/thimbleevent <minutes> to start the event. Players will be teleported to the location where you executed the commmand.");
+                player.sendMessage(ChatColor.BLUE + "/thimbleevent cancel to cancel events.");
+                player.sendMessage(ChatColor.BLUE + "/thimbleevent addlocation to add a Thimble location. This locations are added on the bunkers where the players wait to be teleported to the event.");
+                player.sendMessage(ChatColor.BLUE + "/thimbleevent removelocation to remove a location.");
+                player.sendMessage(ChatColor.BLUE + "/thimbleevent locations to see all locations.");
             }
             player.sendMessage(BukkitUtils.STRAIGHT_LINE_DEFAULT);
             return true;
@@ -73,7 +72,7 @@ public class SumoEventCommand implements CommandExecutor {
                 player.sendMessage(ChatColor.RED + "You are already in the queue!");
                 return true;
             }
-            if (queue.size() >= eventManager.getSumoList().size()) {
+            if (queue.size() >= eventManager.getThimbleList().size()) {
                 player.sendMessage(ChatColor.RED + "Queue is full!");
                 return true;
             }
@@ -81,22 +80,22 @@ public class SumoEventCommand implements CommandExecutor {
                 player.sendMessage(ChatColor.RED + "You cannot join events while spawntagged.");
                 return true;
             }
-            if (!this.isPendingSumo()) {
-                player.sendMessage(ChatColor.RED + "There isn't currently a sumo event.");
+            if (!this.isPendingThimble()) {
+                player.sendMessage(ChatColor.RED + "There isn't currently a Thimble event.");
                 return true;
             }
             queue.add(player);
-            player.sendMessage(ChatColor.BLUE + "You have joined the queue for sumo event.");
+            player.sendMessage(ChatColor.BLUE + "You have joined the queue for Thimble event.");
             return true;
         }
-        if (player.hasPermission("hcf.sumoevent.admin")) {
+        if (player.hasPermission("hcf.thimbleevent.admin")) {
             if (args[0].equalsIgnoreCase("cancel")) {
-                if(this.isPendingSumo()){
+                if(this.isPendingThimble()){
                     queue.clear();
                     this.task.cancel();
                     this.task = null;
                     this.current = Long.MIN_VALUE;
-                    player.sendMessage(ChatColor.BLUE + "Sumo event cancelled.");
+                    player.sendMessage(ChatColor.BLUE + "Thimble event cancelled.");
                     return true;
                 }
                 player.sendMessage(ChatColor.RED + "There are no events.");
@@ -104,35 +103,35 @@ public class SumoEventCommand implements CommandExecutor {
             }
             Location location = player.getLocation();
             if (args[0].equalsIgnoreCase("addlocation")) {
-                if (this.isPendingSumo()) {
-                    player.sendMessage(ChatColor.RED + "You cannot add locations while there is an active sumo task.");
+                if (this.isPendingThimble()) {
+                    player.sendMessage(ChatColor.RED + "You cannot add locations while there is an active Thimble task.");
                     return true;
                 }
-                if (eventManager.isSumoLocation(location)) {
+                if (eventManager.isThimbleLocation(location)) {
                     player.sendMessage(ChatColor.RED + "That location is already defined.");
                     return true;
                 }
-                eventManager.addSumoEventLocation(location);
+                eventManager.addThimbleEventLocation(location);
                 player.sendMessage(ChatColor.BLUE + "Added a new location. " + "X:" + location.getBlockX() + ", Y:" + location.getBlockY() + ", Z:" + location.getBlockZ());
                 return true;
             }
             if (args[0].equalsIgnoreCase("removelocation")) {
-                if (this.isPendingSumo()) {
-                    player.sendMessage(ChatColor.RED + "You cannot remove locations while there is an active sumo task.");
+                if (this.isPendingThimble()) {
+                    player.sendMessage(ChatColor.RED + "You cannot remove locations while there is an active Thimble task.");
                     return true;
                 }
-                if (!eventManager.isSumoLocation(location)) {
-                    player.sendMessage(ChatColor.RED + "There is not a sumo location defined on your coordinates.");
+                if (!eventManager.isThimbleLocation(location)) {
+                    player.sendMessage(ChatColor.RED + "There is not a thimble location defined on your coordinates.");
                     return true;
                 }
-                eventManager.removeSumoEventLocation(location);
+                eventManager.removeThimbleEventLocation(location);
                 player.sendMessage(ChatColor.BLUE + "Removed a location. " + "X:" + location.getBlockX() + ", Y:" + location.getBlockY() + ", Z:" + location.getBlockZ());
                 return true;
             }
             if (args[0].equalsIgnoreCase("locations")) {
                 player.sendMessage(BukkitUtils.STRAIGHT_LINE_DEFAULT);
-                player.sendMessage(ChatColor.BLUE + "Sumoevent locations (" + eventManager.getSumoList().size() + "):");
-                eventManager.getSumoList().forEach(String -> {
+                player.sendMessage(ChatColor.BLUE + "Thimble event locations (" + eventManager.getThimbleList().size() + "):");
+                eventManager.getThimbleList().forEach(String -> {
                     String locationstring = String;
                     locationstring = locationstring.replace("X:", "");
                     locationstring = locationstring.replace(", Y:", " ");
@@ -143,10 +142,10 @@ public class SumoEventCommand implements CommandExecutor {
                 return true;
             }
             if(args.length != 1){
-                sender.sendMessage(ChatColor.RED + "Usage: /sumoevent <time>");
+                sender.sendMessage(ChatColor.RED + "Usage: /thimbleevent <time>");
                 return true;
             }
-            if (eventManager.getSumoList().size() < 8) {
+            if (eventManager.getThimbleList().size() < 8) {
                 player.sendMessage(ChatColor.RED + "Add atleast 8 waiting locations to start the event.");
                 return true;
             }
@@ -155,11 +154,11 @@ public class SumoEventCommand implements CommandExecutor {
                 sender.sendMessage(ChatColor.RED + "Invalid duration, use the correct format: 10m1s");
                 return true;
             }
-            if (this.isPendingSumo()) {
-                player.sendMessage(ChatColor.RED + "There is currently an active Sumo queue. Type </sumoevent cancel> to cancel it.");
+            if (this.isPendingThimble()) {
+                player.sendMessage(ChatColor.RED + "There is currently an active Thimble queue. Type </thimbleevent cancel> to cancel it.");
                 return true;
             }
-            player.sendMessage(ChatColor.BLUE + "Sumo will start in " + DurationFormatUtils.formatDurationWords(millis, true, true) + ". Use </sumoevent join> to play the event.");
+            player.sendMessage(ChatColor.BLUE + "Thimble will start in " + DurationFormatUtils.formatDurationWords(millis, true, true) + ". Use </thimbleevent join> to play the event.");
             this.current = (long) (MinecraftServer.currentTick + 20) + millis / 50;
             this.task = new BukkitRunnable(){
                 public void run(){
@@ -168,7 +167,7 @@ public class SumoEventCommand implements CommandExecutor {
                         this.cancel();
                         index = 0;
                         queue.forEach(Player -> {
-                            String location = eventManager.getSumoList().get(index);
+                            String location = eventManager.getThimbleList().get(index);
                             ++index;
                             location = location.replace("X:", "");
                             location = location.replace(", Y:", " ");
@@ -177,17 +176,17 @@ public class SumoEventCommand implements CommandExecutor {
                         });
                         Bukkit.broadcastMessage(ChatColor.BLUE + "All queued players have been teleported to the event locations.");
                         queue.clear();
-                        Bukkit.dispatchCommand(player, "sumoevent cancel");
+                        Bukkit.dispatchCommand(player, "thimbleevent cancel");
                         return;
                     }
                     long remainingMillis = remainingTicks * 50;
                     if(Ints.contains(ALERT_SECONDS, (int) (remainingMillis / 1000))){
                         Bukkit.broadcastMessage(" ");
-                        Bukkit.broadcastMessage(ChatColor.BLUE.toString() + ChatColor.BOLD + "Sumo Event");
+                        Bukkit.broadcastMessage(ChatColor.BLUE.toString() + ChatColor.BOLD + "Thimble Event");
                         for (Player all : Bukkit.getOnlinePlayers()) {
-                            new net.veilmc.util.chat.Text(ChatColor.AQUA + "Click here to play the event before the timer ends or type ").setHoverText("Join Event").setClick(ClickAction.RUN_COMMAND, "/sumoevent join").send(all); new net.veilmc.util.chat.Text(ChatColor.AQUA + "</sumoevent join>. Time: " + ChatColor.WHITE + DurationFormatUtils.formatDurationWords(remainingMillis, true, true)).setHoverText("Join Event").setClick(ClickAction.RUN_COMMAND, "/sumoevent join").send(all);
+                            new net.veilmc.util.chat.Text(ChatColor.AQUA + "Click here to play the event before the timer ends or type ").setHoverText("Join Event").setClick(ClickAction.RUN_COMMAND, "/thimbleevent join").send(all); new net.veilmc.util.chat.Text(ChatColor.AQUA + "</thimbleevent join>. Time: " + ChatColor.WHITE + DurationFormatUtils.formatDurationWords(remainingMillis, true, true)).setHoverText("Join Event").setClick(ClickAction.RUN_COMMAND, "/thimbleevent join").send(all);
                         }
-                        Bukkit.broadcastMessage(ChatColor.BLUE + "Queue available spaces: " + (eventManager.getSumoList().size() - queue.size()));
+                        Bukkit.broadcastMessage(ChatColor.BLUE + "Queue available spaces: " + (eventManager.getThimbleList().size() - queue.size()));
                         Bukkit.broadcastMessage(" ");
                     }
                 }

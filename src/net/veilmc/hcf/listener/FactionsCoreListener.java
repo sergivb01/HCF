@@ -271,6 +271,9 @@ public class FactionsCoreListener
 			Player attacker;
 			Player player = (Player) entity;
 			Faction playerFactionAt = this.plugin.getFactionManager().getFactionAt(player.getLocation());
+			if (ConfigurationService.KIT_MAP && (playerFactionAt instanceof FFAFaction)) {
+				return;
+			}
 			EntityDamageEvent.DamageCause cause = event.getCause();
 			if(playerFactionAt.isSafezone() && cause != EntityDamageEvent.DamageCause.SUICIDE){
 				event.setCancelled(true);

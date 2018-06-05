@@ -25,6 +25,7 @@ public class SafestopCommand
 		HCF.getPlugin().getUserManager().saveUserData();
 		HCF.getPlugin().getFactionManager().saveFactionData();
 		HCF.getPlugin().getEconomyManager().saveEconomyData();
+		HCF.getPlugin().getEventManager().saveEventsData();
 		Bukkit.broadcastMessage(" ");
 		Bukkit.broadcastMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "The server has been stopped by " + sender.getName());
 		Bukkit.broadcastMessage(" ");

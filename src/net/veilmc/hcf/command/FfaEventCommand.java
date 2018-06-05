@@ -3,7 +3,10 @@ package net.veilmc.hcf.command;
 import net.minecraft.server.v1_7_R4.MinecraftServer;
 import net.minecraft.util.com.google.common.primitives.Ints;
 import net.veilmc.hcf.HCF;
+import net.veilmc.hcf.faction.type.FFAFaction;
+import net.veilmc.hcf.faction.type.Faction;
 import net.veilmc.hcf.utils.ConfigurationService;
+import net.veilmc.util.BukkitUtils;
 import net.veilmc.util.JavaUtils;
 import net.veilmc.util.chat.ClickAction;
 import org.apache.commons.lang.time.DurationFormatUtils;
@@ -14,6 +17,8 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scheduler.BukkitTask;
 
@@ -27,7 +32,7 @@ public class FfaEventCommand implements CommandExecutor {
         this.plugin = plugin;
     }
 
-    private static final int[] ALERT_SECONDS = new int[]{14400, 7200, 1800, 600, 300, 270, 240, 210, 180, 150, 120, 90, 60, 40, 30, 20, 15, 10, 5, 3, 1};
+    private static final int[] ALERT_SECONDS = new int[]{14400, 7200, 1800, 600, 300, 270, 240, 210, 180, 150, 135, 120, 100, 90, 70, 60, 50, 40, 30, 20, 15, 10, 5, 3, 2, 1};
     private static final long TICKS_DAY = TimeUnit.DAYS.toMillis(1);
     private long current = Long.MIN_VALUE;
     private BukkitTask task;
@@ -52,11 +57,13 @@ public class FfaEventCommand implements CommandExecutor {
             return true;
         }
         if (args.length == 0) {
+            player.sendMessage(BukkitUtils.STRAIGHT_LINE_DEFAULT);
             player.sendMessage(ChatColor.BLUE + "Queued players: " + queue.size());
             if (player.hasPermission("hcf.ffaevent.admin")) {
                 player.sendMessage(ChatColor.BLUE + "/ffaevent <minutes> to start the event. Players will be teleported to the location where you executed the commmand.");
                 player.sendMessage(ChatColor.BLUE + "/ffaevent cancel to cancel events.");
             }
+            player.sendMessage(BukkitUtils.STRAIGHT_LINE_DEFAULT);
             return true;
         }
         if (args[0].equalsIgnoreCase("join")) {
@@ -89,6 +96,11 @@ public class FfaEventCommand implements CommandExecutor {
                 player.sendMessage(ChatColor.RED + "There are no events.");
                 return true;
             }
+            Faction playerFactionAt = this.plugin.getFactionManager().getFactionAt(player.getLocation());
+            if (!(playerFactionAt instanceof FFAFaction)) {
+                player.sendMessage(ChatColor.RED + "You can only execute this command on FFA faction.");
+                return true;
+            }
             if(args.length != 1){
                 sender.sendMessage(ChatColor.RED + "Usage: /ffaevent <time>");
                 return true;
@@ -99,7 +111,7 @@ public class FfaEventCommand implements CommandExecutor {
                 return true;
             }
             if (this.isPendingFfa()) {
-                player.sendMessage(ChatColor.RED + "There is currently an active Ffa queue. Type </sumoevent cancel> to cancel it.");
+                player.sendMessage(ChatColor.RED + "There is currently an active Ffa queue. Type </ffaevent cancel> to cancel it.");
                 return true;
             }
             location = player.getLocation();
@@ -111,7 +123,12 @@ public class FfaEventCommand implements CommandExecutor {
                     long remainingTicks;
                     if((remainingTicks = getRemainingTicks()) <= 0){
                         this.cancel();
-                        queue.forEach(Player -> Player.teleport(location));
+                        queue.forEach(Player -> {
+                            Player.teleport(location);
+                            Player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, (10 * 60) * 20, 1));
+                            Player.addPotionEffect(new PotionEffect(PotionEffectType.FIRE_RESISTANCE, (10 * 60) * 20, 0));
+                            Player.addPotionEffect(new PotionEffect(PotionEffectType.INVISIBILITY, (10 * 60) * 20, 0));
+                        });
                         Bukkit.broadcastMessage(ChatColor.BLUE + "All queued players have been teleported to the event location.");
                         queue.clear();
                         Bukkit.dispatchCommand(player, "ffaevent cancel");
@@ -120,9 +137,9 @@ public class FfaEventCommand implements CommandExecutor {
                     long remainingMillis = remainingTicks * 50;
                     if(Ints.contains(ALERT_SECONDS, (int) (remainingMillis / 1000))){
                         Bukkit.broadcastMessage(" ");
-                        Bukkit.broadcastMessage(ChatColor.DARK_BLUE.toString() + ChatColor.BOLD + "FFA Event");
+                        Bukkit.broadcastMessage(ChatColor.BLUE.toString() + ChatColor.BOLD + "FFA Event");
                         for (Player all : Bukkit.getOnlinePlayers()) {
-                            new net.veilmc.util.chat.Text(ChatColor.BLUE + "Click here to play the event before the timer ends or type ").setHoverText("Join Event").setClick(ClickAction.RUN_COMMAND, "/ffaevent join").send(all); new net.veilmc.util.chat.Text(ChatColor.BLUE + "</ffaevent join>. Time: " + ChatColor.WHITE + DurationFormatUtils.formatDurationWords(remainingMillis, true, true)).setHoverText("Join Event").setClick(ClickAction.RUN_COMMAND, "/ffaevent join").send(all);
+                            new net.veilmc.util.chat.Text(ChatColor.AQUA + "Click here to play the event before the timer ends or type ").setHoverText("Join Event").setClick(ClickAction.RUN_COMMAND, "/ffaevent join").send(all); new net.veilmc.util.chat.Text(ChatColor.AQUA + "</ffaevent join>. Time: " + ChatColor.WHITE + DurationFormatUtils.formatDurationWords(remainingMillis, true, true)).setHoverText("Join Event").setClick(ClickAction.RUN_COMMAND, "/ffaevent join").send(all);
                         }
                         Bukkit.broadcastMessage(" ");
                     }

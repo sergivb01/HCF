@@ -27,6 +27,7 @@ import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.inventory.InventoryOpenEvent;
 import org.bukkit.event.player.PlayerBedEnterEvent;
 import org.bukkit.event.player.PlayerRespawnEvent;
+import org.bukkit.inventory.ItemStack;
 import org.bukkit.material.EnderChest;
 import org.spigotmc.event.player.PlayerSpawnLocationEvent;
 
@@ -107,6 +108,9 @@ public class WorldListener implements Listener{
 
 	@EventHandler(ignoreCancelled = true, priority = EventPriority.HIGH)
 	public void onPlayerRespawn(PlayerRespawnEvent event){
+		if (ConfigurationService.FFA) {
+			Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "kit apply Axe " + event.getPlayer().getName());
+		}
 		event.setRespawnLocation(Bukkit.getWorld("world").getSpawnLocation().add(0.5, 0.0, 0.5));
 	}
 
@@ -114,6 +118,9 @@ public class WorldListener implements Listener{
 	public void onPlayerSpawn(PlayerSpawnLocationEvent event){
 		Player player = event.getPlayer();
 		if(!player.hasPlayedBefore()){
+			if (ConfigurationService.FFA) {
+				Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "kit apply Axe " + event.getPlayer().getName());
+			}
 			if (!ConfigurationService.VEILZ) this.plugin.getEconomyManager().addBalance(player.getUniqueId(), 250);
 			event.setSpawnLocation(Bukkit.getWorld("world").getSpawnLocation().add(0.5, 0.0, 0.5));
 		}
@@ -145,6 +152,10 @@ public class WorldListener implements Listener{
 		if((ConfigurationService.KIT_MAP || ConfigurationService.VEILZ || ConfigurationService.FFA) && event.getEntity().getKiller() != null){
 			Player killer = event.getEntity().getKiller();
 			if(killer != event.getEntity().getPlayer()){
+				if (ConfigurationService.FFA) {
+					ItemStack gapple = new ItemStack(Material.GOLDEN_APPLE);
+					killer.getInventory().addItem(gapple);
+				}
 				int mult = getMultiplier(killer);
 				int eco;
 				if (ConfigurationService.VEILZ) eco = 25 * mult;

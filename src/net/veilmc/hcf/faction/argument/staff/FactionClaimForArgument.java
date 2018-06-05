@@ -1,5 +1,8 @@
 package net.veilmc.hcf.faction.argument.staff;
 
+import com.sk89q.worldedit.bukkit.WorldEditPlugin;
+import com.sk89q.worldedit.bukkit.selections.Selection;
+import net.minecraft.util.com.google.common.collect.Lists;
 import net.veilmc.hcf.HCF;
 import net.veilmc.hcf.faction.claim.Claim;
 import net.veilmc.hcf.faction.type.ClaimableFaction;
@@ -7,20 +10,15 @@ import net.veilmc.hcf.faction.type.Faction;
 import net.veilmc.hcf.faction.type.PlayerFaction;
 import net.veilmc.hcf.utils.ConfigurationService;
 import net.veilmc.util.command.CommandArgument;
-import com.sk89q.worldedit.bukkit.WorldEditPlugin;
-import com.sk89q.worldedit.bukkit.selections.Selection;
-
-import net.minecraft.util.com.google.common.collect.Lists;
-
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class FactionClaimForArgument
 		extends CommandArgument{
@@ -63,6 +61,10 @@ public class FactionClaimForArgument
 		}
 		if (!ConfigurationService.VEILZ && args[1].equalsIgnoreCase("ciudad")) {
 			player.sendMessage(ChatColor.RED + "You can only claim this faction on VeilZ.");
+			return true;
+		}
+		if (!ConfigurationService.KIT_MAP && args[1].equalsIgnoreCase("ffa")) {
+			player.sendMessage(ChatColor.RED + "You can only claim this faction on KitMap.");
 			return true;
 		}
 		ClaimableFaction claimableFaction = (ClaimableFaction) targetFaction;
