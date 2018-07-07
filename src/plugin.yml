@@ -134,3 +134,5 @@ commands:
   sumoevent:
   ffaevent:
   thimbleevent:
+  enderchest:
+    aliases: [ec, echest]

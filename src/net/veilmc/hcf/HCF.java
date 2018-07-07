@@ -352,6 +352,7 @@ public class HCF extends JavaPlugin{
 		manager.registerEvents(new NetherPortalPearlFixListener(), this);
 		manager.registerEvents(new SpawnEntitiesCommand(), this);
 		manager.registerEvents(new MobSpawnDisabledOnKitsListener(), this);
+		manager.registerEvents(new EnderChestCommand(), this);
 	}
 
 	private void registerCommands(){
@@ -416,6 +417,7 @@ public class HCF extends JavaPlugin{
 		this.getCommand("sumoevent").setExecutor(new SumoEventCommand(this));
 		this.getCommand("ffaevent").setExecutor(new FfaEventCommand(this));
 		this.getCommand("thimbleevent").setExecutor(new ThimbleEventCommand(this));
+		this.getCommand("enderchest").setExecutor(new EnderChestCommand());
 		final Map<String, Map<String, Object>> map = this.getDescription().getCommands();
 
 		for(final Map.Entry<String, Map<String, Object>> entry : map.entrySet()){
