@@ -2,6 +2,7 @@
   <artifact type="jar" name="HCF:jar">
     <output-path>$USER_HOME$/Desktop/Development/plugins</output-path>
     <root id="archive" name="HCF.jar">
+      <element id="module-output" name="HCF" />
       <element id="directory" name="META-INF">
         <element id="file-copy" path="$PROJECT_DIR$/HCF/META-INF/MANIFEST.MF" />
       </element>
