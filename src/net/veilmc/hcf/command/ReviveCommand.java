@@ -58,6 +58,7 @@ public class ReviveCommand implements CommandExecutor{
 		Bukkit.broadcastMessage(" ");
 		if (sender.hasPermission("veil.revive")) Bukkit.broadcastMessage("§f§l* Revive * §9§l" + sender.getName() + " §bhas revived §9§l" + target.getName() + " §busing their §3§lVeil §brank");
 		else if (sender.hasPermission("medic.revive")) Bukkit.broadcastMessage("§f§l* Revive * §9§l" + sender.getName() + " §bhas revived §9§l" + target.getName() + " §busing their §a§lMedic §brank");
+		else if (sender.hasPermission("keeper.revive")) Bukkit.broadcastMessage("§f§l* Revive * §9§l" + sender.getName() + " §bhas revived §9§l" + target.getName() + " §busing their §6§lKeeper §brank");
 		else Bukkit.broadcastMessage("§f§l* Revive * §9§l" + sender.getName() + " §bhas revived §9§l" + target.getName() + " §busing their §3§lPlatinum §brank");
 		Bukkit.broadcastMessage(ConfigurationService.REVIVE_MESSAGE);
 		Bukkit.broadcastMessage(" ");

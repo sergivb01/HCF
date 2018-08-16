@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="paperspigot-api-1.7.10-R0.1-SNAPSHOT" level="project" />
+    <orderEntry type="library" name="WorldEdit" level="project" />
+    <orderEntry type="library" name="LiteBans" level="project" />
+    <orderEntry type="library" name="Base" level="project" />
+    <orderEntry type="library" name="PermissionsEx-1.23.3" level="project" />
+  </component>
+</module>

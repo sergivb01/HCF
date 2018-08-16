@@ -38,6 +38,9 @@ public class SpawnCommand
 				player.sendMessage(ChatColor.RED + "You can not do this while your " + ChatColor.BOLD + "Spawn Tag" + ChatColor.RED + " is active.");
 				return false;
 			}
+			if (!player.getWorld().getName().equalsIgnoreCase("world_the_end")) {
+				player.sendMessage(ChatColor.RED + "This command is disabled at end.");
+			}
 			Faction factionAt;
 			PlayerFaction playerFaction;
 			FactionManager factionManager = HCF.getPlugin().getFactionManager();

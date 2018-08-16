@@ -31,7 +31,7 @@ public class EnderChestCommand implements CommandExecutor, Listener {
         }
         Player player = (Player) sender;
         Faction playerFactionAt = HCF.getPlugin().getFactionManager().getFactionAt(player.getLocation());
-        if (!(playerFactionAt = HCF.getPlugin().getFactionManager().getFactionAt(player.getLocation())).isSafezone() && !(playerFactionAt instanceof WildernessFaction) && !(playerFactionAt instanceof WarzoneFaction)) {
+        if (!playerFactionAt.isSafezone() && !(playerFactionAt instanceof WildernessFaction) && !(playerFactionAt instanceof WarzoneFaction)) {
             player.sendMessage(ChatColor.RED + "You cannot run this command in other factions.");
             return true;
         }

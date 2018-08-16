@@ -1,0 +1,10 @@
+#See http://minecraft.gamepedia.com/Potion
+#And http://minecraft.gamepedia.com/Splash_Potion
+disabled-potions:
+  - 8195
+  - 8201
+  - 8265
+  - 16393
+  - 16457
+  - 16387
+  - 16451
