@@ -1,6 +1,6 @@
 package idaniel84.deathban;
 
-import net.minecraft.util.gnu.trove.map.TObjectIntMap;
+import gnu.trove.map.TObjectIntMap;
 import org.bukkit.entity.Player;
 
 import java.util.UUID;

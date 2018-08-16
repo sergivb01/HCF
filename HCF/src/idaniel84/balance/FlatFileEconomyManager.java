@@ -1,7 +1,7 @@
 package idaniel84.balance;
 
-import net.minecraft.util.gnu.trove.map.TObjectIntMap;
-import net.minecraft.util.gnu.trove.map.hash.TObjectIntHashMap;
+import gnu.trove.map.TObjectIntMap;
+import gnu.trove.map.hash.TObjectIntHashMap;
 import net.veilmc.util.Config;
 import org.bukkit.configuration.MemorySection;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -14,7 +14,7 @@ public class FlatFileEconomyManager
 		implements EconomyManager{
 	private final JavaPlugin plugin;
 	@SuppressWarnings({"unchecked", "rawtypes"})
-	private TObjectIntMap<UUID> balanceMap = new TObjectIntHashMap(10, 0.5f, 0);
+	private TObjectIntMap<UUID> balanceMap = new TObjectIntHashMap<>(10, 0.5f, 0);
 	private Config balanceConfig;
 
 	public FlatFileEconomyManager(JavaPlugin plugin){

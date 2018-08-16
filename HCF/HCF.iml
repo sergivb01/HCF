@@ -12,5 +12,9 @@
     <orderEntry type="library" name="LiteBans" level="project" />
     <orderEntry type="library" name="Base" level="project" />
     <orderEntry type="library" name="PermissionsEx-1.23.3" level="project" />
+    <orderEntry type="library" name="EXPORT-Commons-Lang-3" level="project" />
+    <orderEntry type="library" name="ProtocolLib" level="project" />
+    <orderEntry type="library" name="Giraffe" level="project" />
+    <orderEntry type="library" name="EXPORT-Trove4J-3.0.3" level="project" />
   </component>
 </module>

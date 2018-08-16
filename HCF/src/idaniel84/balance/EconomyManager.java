@@ -1,6 +1,6 @@
 package idaniel84.balance;
 
-import net.minecraft.util.gnu.trove.map.TObjectIntMap;
+import gnu.trove.map.TObjectIntMap;
 
 import java.util.UUID;
 

@@ -1,10 +1,10 @@
 package idaniel84.deathban;
 
-import net.minecraft.util.com.google.common.cache.CacheBuilder;
-import net.veilmc.base.BasePlugin;
+import com.google.common.cache.CacheBuilder;
 import idaniel84.HCF;
 import idaniel84.user.FactionUser;
 import idaniel84.utils.ConfigurationService;
+import net.veilmc.base.BasePlugin;
 import net.veilmc.util.BukkitUtils;
 import org.apache.commons.lang3.time.DurationFormatUtils;
 import org.bukkit.ChatColor;

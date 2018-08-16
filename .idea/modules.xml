@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/HCF/HCF.iml" filepath="$PROJECT_DIR$/HCF/HCF.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HCF.iml" filepath="$PROJECT_DIR$/HCF.iml" />
     </modules>
   </component>
 </project>

@@ -1,9 +1,7 @@
 package idaniel84.faction.claim;
 
 import com.google.common.base.Preconditions;
-import idaniel84.faction.type.PlayerFaction;
-import idaniel84.faction.type.WildernessFaction;
-import net.minecraft.util.com.google.common.cache.CacheBuilder;
+import com.google.common.cache.CacheBuilder;
 import idaniel84.HCF;
 import idaniel84.faction.FactionManager;
 import idaniel84.faction.struct.Role;

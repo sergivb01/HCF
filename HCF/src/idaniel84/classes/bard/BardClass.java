@@ -1,8 +1,7 @@
 package idaniel84.classes.bard;
 
-import idaniel84.faction.type.PlayerFaction;
-import net.minecraft.util.gnu.trove.map.TObjectLongMap;
-import net.minecraft.util.gnu.trove.map.hash.TObjectLongHashMap;
+import gnu.trove.map.TObjectLongMap;
+import gnu.trove.map.hash.TObjectLongHashMap;
 import idaniel84.HCF;
 import idaniel84.classes.PvpClass;
 import idaniel84.faction.type.PlayerFaction;
@@ -40,7 +39,7 @@ public class BardClass
 	private final Map<Material, BardEffect> bardEffects = new EnumMap<Material, BardEffect>(Material.class);
 	private final BardRestorer bardRestorer;
 	private final HCF plugin;
-	private final TObjectLongMap<UUID> msgCooldowns = new TObjectLongHashMap();
+	private final TObjectLongMap<UUID> msgCooldowns = new TObjectLongHashMap<>();
 
 	public BardClass(HCF plugin){
 		super("Bard", TimeUnit.SECONDS.toMillis(3L));
