@@ -2,10 +2,6 @@ package idaniel84.listener;
 
 import com.google.common.base.Optional;
 import idaniel84.HCF;
-import idaniel84.utils.ConfigurationService;
-import idaniel84.HCF;
-import idaniel84.utils.ConfigurationService;
-import idaniel84.utils.ConfigurationService;
 import idaniel84.faction.claim.Claim;
 import idaniel84.faction.event.*;
 import idaniel84.faction.struct.RegenStatus;
@@ -146,13 +142,6 @@ public class FactionListener
 			if(ConfigurationService.KIT_MAP){
 				Faction fromFaction = event.getFromFaction();
 				player.sendMessage(ChatColor.YELLOW + "Leaving: " + fromFaction.getDisplayName(player) + ChatColor.YELLOW + ", Entering: " + toFaction.getDisplayName(player));
-			}else if (ConfigurationService.FFA){
-				if(toFaction.isSafezone()) {
-					player.sendMessage(ChatColor.GREEN + "You are now in safezone.");
-				}
-				if(!toFaction.isSafezone()) {
-					player.sendMessage(ChatColor.RED + "You have left safezone.");
-				}
 			}else{
 				Faction fromFaction = event.getFromFaction();
 				player.sendMessage(ChatColor.YELLOW + "Now leaving: " + fromFaction.getDisplayName(player) + ChatColor.YELLOW + " (" + (fromFaction.isDeathban() ? new StringBuilder().append(ChatColor.RED).append("Deathban").toString() : new StringBuilder().append(ChatColor.GREEN).append("Non-Deathban").toString()) + ChatColor.YELLOW + ')');

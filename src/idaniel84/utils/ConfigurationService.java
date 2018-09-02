@@ -118,12 +118,6 @@ public final class ConfigurationService{
     public static String PVPTIMER_STARTED;*/
 
 	public static boolean KIT_MAP;
-	public static boolean VEILZ;
-	public static boolean FFA;
-	public static boolean DEV;
-
-	public static long VEILZ_REGEN;
-	public static int VEILZ_FACTIONCOST;
 
 	public static boolean TAB;
 	public static boolean DIAMOND_ORE_ALERTS = false;
@@ -134,9 +128,6 @@ public final class ConfigurationService{
 	public static void init(FileConfiguration config){
 
 		KIT_MAP = config.getBoolean("kit-map");
-		VEILZ = config.getBoolean("veilz");
-		FFA = config.getBoolean("ffa");
-		DEV = config.getBoolean("dev", false);
 		TAB = config.getBoolean("tab");
 
 		TEAMSPEAK_IP = config.getString("server-info.teamspeak");
@@ -177,11 +168,6 @@ public final class ConfigurationService{
 		SPAWN_RADIUS_MAP.put(World.Environment.THE_END, Double.valueOf(48.5D));
 
 		DEFAULT_DEATHBAN_DURATION = TimeUnit.MINUTES.toMillis(config.getInt("deathban-time", 120));
-
-
-		VEILZ_REGEN = TimeUnit.MINUTES.toMillis(config.getInt("veilz-options.regen", 5));
-		VEILZ_FACTIONCOST = config.getInt("veilz-options.faction-cost", 10);
-
 
 		TEAMMATE_COLOUR = ChatColor.getByChar(config.getString("faction-settings.colors.teammate", "&2").replace("&", "").trim());
 		ALLY_COLOUR = ChatColor.getByChar(config.getString("faction-settings.colors.ally", "&3").replace("&", "").trim());

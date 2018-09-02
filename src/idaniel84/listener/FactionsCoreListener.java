@@ -4,10 +4,6 @@ import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Sets;
 import idaniel84.HCF;
-import idaniel84.utils.ConfigurationService;
-import idaniel84.HCF;
-import idaniel84.utils.ConfigurationService;
-import idaniel84.utils.ConfigurationService;
 import idaniel84.faction.FactionManager;
 import idaniel84.faction.event.CaptureZoneEnterEvent;
 import idaniel84.faction.event.CaptureZoneLeaveEvent;
@@ -43,11 +39,9 @@ public class FactionsCoreListener
 	public static final String PROTECTION_BYPASS_PERMISSION = "hcf.faction.protection.bypass";
 	private static final ImmutableMultimap<Object, Object> ITEM_BLOCK_INTERACTABLES;
 	private static final ImmutableSet<Material> BLOCK_INTERACTABLES;
-	private static final ImmutableSet<Material> BLOCK_INTERACTABLES_VEILZ_SPAWN;
 
 	static{
 		ITEM_BLOCK_INTERACTABLES = ImmutableMultimap.builder().put(Material.DIAMOND_HOE, Material.GRASS).put(Material.GOLD_HOE, Material.GRASS).put(Material.IRON_HOE, Material.GRASS).put(Material.STONE_HOE, Material.GRASS).put(Material.WOOD_HOE, Material.GRASS).build();
-		BLOCK_INTERACTABLES_VEILZ_SPAWN = Sets.immutableEnumSet(Material.BED, Material.BED_BLOCK, Material.BEACON, Material.IRON_DOOR, Material.IRON_DOOR_BLOCK, Material.FURNACE, Material.BURNING_FURNACE, Material.BREWING_STAND, Material.HOPPER, Material.DROPPER, Material.DISPENSER, Material.STONE_BUTTON, Material.WOOD_BUTTON, Material.WORKBENCH, Material.LEVER, Material.FIRE);
 		BLOCK_INTERACTABLES = Sets.immutableEnumSet(Material.BED, Material.BED_BLOCK, Material.BEACON, Material.FENCE_GATE, Material.IRON_DOOR, Material.TRAP_DOOR, Material.WOOD_DOOR, Material.WOODEN_DOOR, Material.IRON_DOOR_BLOCK, Material.CHEST, Material.TRAPPED_CHEST, Material.FURNACE, Material.BURNING_FURNACE, Material.BREWING_STAND, Material.HOPPER, Material.DROPPER, Material.DISPENSER, Material.STONE_BUTTON, Material.WOOD_BUTTON, Material.ENCHANTMENT_TABLE, Material.WORKBENCH, Material.ANVIL, Material.LEVER, Material.FIRE);
 	}
 
@@ -283,6 +277,9 @@ public class FactionsCoreListener
 				event.setCancelled(true);
 			}
 			if((attacker = BukkitUtils.getFinalAttacker(event, true)) != null){
+				if (attacker.getItemInHand().getType() == Material.FISHING_ROD && event.getCause() != EntityDamageEvent.DamageCause.ENTITY_ATTACK) {
+					return;
+				}
 				PlayerFaction attackerFaction;
 				Faction attackerFactionAt = this.plugin.getFactionManager().getFactionAt(attacker.getLocation());
 				if(attackerFactionAt.isSafezone()){
@@ -381,15 +378,6 @@ public class FactionsCoreListener
 		Block block = event.getClickedBlock();
 		Action action = event.getAction();
 		if(action == Action.PHYSICAL && !FactionsCoreListener.attemptBuild(event.getPlayer(), block.getLocation(), null)){
-			if (ConfigurationService.VEILZ || ConfigurationService.FFA) {
-				if (((factionAt = factionManager.getFactionAt(Bukkit.getPlayer(sender.getName()).getLocation())).isSafezone() && ((playerFaction = factionManager.getPlayerFaction((Player) sender)) == null || !factionAt.equals(playerFaction))) || factionAt instanceof CityFaction) {
-					event.setCancelled(false);
-				}
-				else {
-					event.setCancelled(true);
-				}
-				return;
-			}
 			event.setCancelled(true);
 		}
 		if(action == Action.RIGHT_CLICK_BLOCK){
@@ -409,14 +397,6 @@ public class FactionsCoreListener
 				}
 			}
 			if(!block.getType().equals(Material.WORKBENCH)){
-				if (ConfigurationService.VEILZ || ConfigurationService.FFA) {
-					if (((factionAt = factionManager.getFactionAt(Bukkit.getPlayer(sender.getName()).getLocation())).isSafezone() && ((playerFaction = factionManager.getPlayerFaction((Player) sender)) == null || !factionAt.equals(playerFaction))) || factionAt instanceof CityFaction) {
-						canBuild = !BLOCK_INTERACTABLES_VEILZ_SPAWN.contains(block.getType());
-					}
-					else {
-						canBuild = !BLOCK_INTERACTABLES.contains(block.getType());
-					}
-				}
 				if(!canBuild && !FactionsCoreListener.attemptBuild(event.getPlayer(), block.getLocation(), ChatColor.YELLOW + "You cannot do this in the territory of %1$s" + ChatColor.YELLOW + '.', true)){
 					event.setCancelled(true);
 				}
@@ -528,16 +508,4 @@ public class FactionsCoreListener
 			event.setCancelled(true);
 		}
 	}
-
-	@EventHandler
-    public void onPlayerKillAddDtrOnVeilz(PlayerDeathEvent event) {
-	    if (ConfigurationService.VEILZ) {
-	    	if (event.getEntity().getKiller() != null) {
-				Player killer = event.getEntity().getKiller();
-				Faction faction = this.plugin.getFactionManager().getContainingFaction(killer.getName());
-				PlayerFaction playerFaction = (PlayerFaction) faction;
-				playerFaction.setDeathsUntilRaidable(playerFaction.getDeathsUntilRaidable() + 0.3);
-			}
-        }
-    }
 }

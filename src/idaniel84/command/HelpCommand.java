@@ -18,7 +18,6 @@ public class HelpCommand implements CommandExecutor, TabCompleter{
 					.replace("%NETHER%", HCF.getPlugin().getServerHandler().getNetherBorder() + "")
 					.replace("%END%", HCF.getPlugin().getServerHandler().getEndBorder() + ""));
 		}
-
 		return true;
 	}
 

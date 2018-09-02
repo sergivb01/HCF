@@ -5,54 +5,16 @@ import com.sk89q.worldedit.bukkit.WorldEditPlugin;
 import idaniel84.balance.*;
 import idaniel84.classes.PvpClassManager;
 import idaniel84.classes.archer.ArcherClass;
-import idaniel84.command.*;
-import idaniel84.config.EventManager;
-import idaniel84.config.FlatFileEventManager;
-import idaniel84.config.PotionLimiterData;
-import idaniel84.tab.TabListener;
-import idaniel84.timer.TimerExecutor;
-import idaniel84.timer.TimerManager;
-import idaniel84.timer.type.SotwTimer;
-import idaniel84.user.FactionUser;
-import idaniel84.user.UserManager;
-import idaniel84.utils.*;
-import idaniel84.balance.*;
-import idaniel84.classes.PvpClassManager;
-import idaniel84.classes.archer.ArcherClass;
-import idaniel84.command.*;
-import idaniel84.config.EventManager;
-import idaniel84.config.FlatFileEventManager;
-import idaniel84.config.PotionLimiterData;
-import idaniel84.tab.TabListener;
-import idaniel84.timer.TimerExecutor;
-import idaniel84.timer.TimerManager;
-import idaniel84.timer.type.SotwTimer;
-import idaniel84.user.FactionUser;
-import idaniel84.user.UserManager;
-import idaniel84.utils.*;
-import idaniel84.classes.PvpClassManager;
-import idaniel84.classes.archer.ArcherClass;
-import idaniel84.config.EventManager;
-import idaniel84.config.FlatFileEventManager;
-import idaniel84.config.PotionLimiterData;
-import idaniel84.tab.TabListener;
-import idaniel84.timer.TimerExecutor;
-import idaniel84.timer.TimerManager;
-import idaniel84.timer.type.SotwTimer;
-import idaniel84.user.FactionUser;
-import idaniel84.user.UserManager;
-import net.veilmc.base.BasePlugin;
-import net.veilmc.base.ServerHandler;
-import idaniel84.balance.*;
-import idaniel84.classes.PvpClassManager;
-import idaniel84.classes.archer.ArcherClass;
 import idaniel84.combatlog.CombatLogListener;
 import idaniel84.combatlog.CustomEntityRegistration;
 import idaniel84.command.*;
 import idaniel84.command.crate.KeyListener;
-import idaniel84.command.crate.KeyManager;
 import idaniel84.command.crate.LootExecutor;
 import idaniel84.command.death.DeathExecutor;
+import idaniel84.command.event.EnderDragonEventCommand;
+import idaniel84.command.event.FfaEventCommand;
+import idaniel84.command.event.SumoEventCommand;
+import idaniel84.command.event.ThimbleEventCommand;
 import idaniel84.command.lives.LivesExecutor;
 import idaniel84.command.spawn.SpawnCommand;
 import idaniel84.command.spawn.TokenExecutor;
@@ -67,6 +29,7 @@ import idaniel84.faction.FactionExecutor;
 import idaniel84.faction.FactionManager;
 import idaniel84.faction.FactionMember;
 import idaniel84.faction.FlatFileFactionManager;
+import idaniel84.faction.argument.FactionFocusArgument;
 import idaniel84.faction.claim.Claim;
 import idaniel84.faction.claim.ClaimHandler;
 import idaniel84.faction.claim.ClaimWandListener;
@@ -87,7 +50,6 @@ import idaniel84.kothgame.koth.KothExecutor;
 import idaniel84.listener.*;
 import idaniel84.listener.fixes.*;
 import idaniel84.scoreboard.ScoreboardHandler;
-import idaniel84.tab.TabListener;
 import idaniel84.timer.TimerExecutor;
 import idaniel84.timer.TimerManager;
 import idaniel84.timer.type.SotwTimer;
@@ -97,6 +59,8 @@ import idaniel84.utils.*;
 import idaniel84.visualise.ProtocolLibHook;
 import idaniel84.visualise.VisualiseHandler;
 import idaniel84.visualise.WallBorderListener;
+import net.veilmc.base.BasePlugin;
+import net.veilmc.base.ServerHandler;
 import net.veilmc.util.BukkitUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -130,7 +94,6 @@ public class HCF extends JavaPlugin{
 	private FoundDiamondsListener foundDiamondsListener;
 	private ClaimHandler claimHandler;
 	private SotwTimer sotwTimer;
-	private KeyManager keyManager;
 	private DeathbanManager deathbanManager;
 	private EconomyManager economyManager;
 	private EventManager eventManager;
@@ -202,21 +165,12 @@ public class HCF extends JavaPlugin{
 
 		registerGames();
 
-		Bukkit.getConsoleSender().sendMessage(ChatColor.GRAY + BukkitUtils.STRAIGHT_LINE_DEFAULT);
-		Bukkit.getConsoleSender().sendMessage("");
-		Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', "&e[" + HCF.getPlugin().getDescription().getName() + "] Plugin loaded!"));
-		Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', "&e[" + HCF.getPlugin().getDescription().getName() + "] &eVersion: " + HCF.getPlugin().getDescription().getVersion()));
-		Bukkit.getConsoleSender().sendMessage("");
-		Bukkit.getConsoleSender().sendMessage(ChatColor.GRAY + BukkitUtils.STRAIGHT_LINE_DEFAULT);
-
-
-		if(ConfigurationService.DEV){
-			Bukkit.getPluginManager().registerEvents(new TabListener(this), this);
-			for(int i = 0; i < 10; i++){
-				getLogger().warning("SERVER HAS BEEN LOADED AS DEV VERSION! PLUGIN MAY NOT BE STABLE!");
-			}
-		}
-
+		getLogger().info(ChatColor.GRAY + BukkitUtils.STRAIGHT_LINE_DEFAULT);
+		getLogger().info("");
+		getLogger().info(ChatColor.translateAlternateColorCodes('&', "&e[" + HCF.getPlugin().getDescription().getName() + "] Plugin loaded!"));
+		getLogger().info(ChatColor.translateAlternateColorCodes('&', "&e[" + HCF.getPlugin().getDescription().getName() + "] &eVersion: " + HCF.getPlugin().getDescription().getVersion()));
+		getLogger().info("");
+		getLogger().info(ChatColor.GRAY + BukkitUtils.STRAIGHT_LINE_DEFAULT);
 
 		Bukkit.getScheduler().scheduleSyncRepeatingTask(this, () -> {
 			List<String> donors = new ArrayList<>();
@@ -277,7 +231,6 @@ public class HCF extends JavaPlugin{
 		this.economyManager.saveEconomyData(); //Balance
 		this.factionManager.saveFactionData(); //Factions
 		this.userManager.saveUserData(); //User settings
-		this.keyManager.saveKeyData(); //Key things
 		this.eventManager.saveEventsData();
 	}
 
@@ -289,8 +242,8 @@ public class HCF extends JavaPlugin{
 		this.pvpClassManager.onDisable();
 		this.scoreboardHandler.clearBoards();
 		this.saveData();
-		this.eventManager.saveEventsData();
 		this.timerManager.disable();
+		getLogger().info("Plugin successfully disabled.");
 	}
 
 	private void registerConfiguration(){
@@ -312,7 +265,6 @@ public class HCF extends JavaPlugin{
 		ConfigurationSerialization.registerClass(RoadFaction.class);
 		ConfigurationSerialization.registerClass(SpawnFaction.class);
 		ConfigurationSerialization.registerClass(GlowstoneFaction.class);
-		ConfigurationSerialization.registerClass(CityFaction.class);
 		ConfigurationSerialization.registerClass(FFAFaction.class);
 		ConfigurationSerialization.registerClass(RoadFaction.NorthRoadFaction.class);
 		ConfigurationSerialization.registerClass(RoadFaction.EastRoadFaction.class);
@@ -322,141 +274,131 @@ public class HCF extends JavaPlugin{
 
 	private void registerListeners(){
 		PluginManager manager = this.getServer().getPluginManager();
-		manager.registerEvents(new AutoRespawnListener(this), this);
-		manager.registerEvents(new PortalFixListener(), this);
-		manager.registerEvents(new ElevatorListener(this), this);
-		if (!ConfigurationService.VEILZ && !ConfigurationService.FFA) manager.registerEvents(new EndPortalCommand(this), this);
-		manager.registerEvents(new PermissionsCommand(this), this);
-		manager.registerEvents(new ColonFix(), this);
-		manager.registerEvents(new PotionListener(), this);
-		manager.registerEvents(new PexCrashFix(), this);
-		manager.registerEvents(new DupeGlitchFix(), this);
-		manager.registerEvents(new DonorOnlyListener(), this);
 		manager.registerEvents(new ArcherClass(this), this);
-		manager.registerEvents(new KeyListener(this), this);
-		manager.registerEvents(new WeatherFixListener(), this);
-		manager.registerEvents(new EndermanFixListener(), this);
-		manager.registerEvents(new MinecartElevatorListener(), this);
-		manager.registerEvents(new StoreCommand(this), this);
+		manager.registerEvents(new AutoRespawnListener(this), this);
 		manager.registerEvents(new AutoSmeltOreListener(), this);
+		manager.registerEvents(new BeaconStrengthFixListener(), this);
 		manager.registerEvents(new BlockHitFixListener(), this);
 		manager.registerEvents(new BlockJumpGlitchFixListener(), this);
-		manager.registerEvents(new HungerFixListener(), this);
 		manager.registerEvents(new BoatGlitchFixListener(), this);
 		manager.registerEvents(new BookDeenchantListener(), this);
+		manager.registerEvents(new BookQuillFixListener(), this);
 		manager.registerEvents(new BorderListener(), this);
 		manager.registerEvents(new BottledExpListener(), this);
+		manager.registerEvents(new ChatGameCommand(), this);
 		manager.registerEvents(new ChatListener(this), this);
 		manager.registerEvents(new ClaimWandListener(this), this);
+		manager.registerEvents(new CobbleCommand(), this);
+		manager.registerEvents(new ColonFix(), this);
 		manager.registerEvents(new CombatLogListener(this), this);
 		manager.registerEvents(new CoreListener(this), this);
 		manager.registerEvents(new CreeperFriendlyListener(), this);
 		manager.registerEvents(new CrowbarListener(this), this);
+		manager.registerEvents(new DeathbanListener(this), this);
 		manager.registerEvents(new DeathListener(this), this);
 		manager.registerEvents(new DeathMessageListener(this), this);
 		manager.registerEvents(new DeathSignListener(this), this);
-		manager.registerEvents(new DeathbanListener(this), this);
+		manager.registerEvents(new DonorOnlyListener(), this);
+		manager.registerEvents(new DupeGlitchFix(), this);
+		manager.registerEvents(new ElevatorListener(this), this);
 		manager.registerEvents(new EnchantLimitListener(), this);
-		if (!ConfigurationService.VEILZ && !ConfigurationService.FFA) manager.registerEvents(new EnderChestRemovalListener(), this);
-		manager.registerEvents(new EntityLimitListener(), this);
-		manager.registerEvents(new FlatFileFactionManager(this), this);
+		manager.registerEvents(new EnchantSecurityListener(), this);
+		manager.registerEvents(new EnderChestCommand(), this);
+		manager.registerEvents(new EnderChestRemovalListener(), this);
+		manager.registerEvents(new EndermanFixListener(), this);
 		manager.registerEvents(new EndListener(), this);
+		manager.registerEvents(new EndPortalCommand(this), this);
+		manager.registerEvents(new EntityLimitListener(), this);
 		manager.registerEvents(new EotwListener(this), this);
 		manager.registerEvents(new EventSignListener(), this);
 		manager.registerEvents(new ExpMultiplierListener(), this);
-		manager.registerEvents(new EnchantSecurityListener(), this);
 		manager.registerEvents(new FactionListener(this), this);
-		manager.registerEvents(new HitDetectionListener(), this);
+		manager.registerEvents(new FactionsCoreListener(this), this);
+		manager.registerEvents(new FlatFileFactionManager(this), this);
 		manager.registerEvents(new FoundDiamondsListener(), this);
 		manager.registerEvents(new FurnaceSmeltSpeederListener(this), this);
+		manager.registerEvents(new HitDetectionListener(), this);
+		manager.registerEvents(new HungerFixListener(), this);
 		manager.registerEvents(new InfinityArrowFixListener(), this);
-		manager.registerEvents(new KitListener(this), this);
 		manager.registerEvents(new ItemStatTrackingListener(), this);
+		manager.registerEvents(new KeyListener(this), this);
+		manager.registerEvents(new KitListener(this), this);
+		manager.registerEvents(new MinecartElevatorListener(), this);
+		manager.registerEvents(new MobSpawnDisabledOnKitsListener(), this);
+		manager.registerEvents(new NetherPortalPearlFixListener(), this);
 		manager.registerEvents(new PearlGlitchListener(this), this);
+		manager.registerEvents(new PexCrashFix(), this);
+		manager.registerEvents(new PortalFixListener(), this);
 		manager.registerEvents(new PotionLimitListener(), this);
-		manager.registerEvents(new FactionsCoreListener(this), this);
-		manager.registerEvents(new SignSubclaimListener(this), this);
+		manager.registerEvents(new PotionListener(), this);
 		manager.registerEvents(new ShopSignListener(this), this);
+		manager.registerEvents(new SignSubclaimListener(this), this);
 		manager.registerEvents(new SkullListener(), this);
-		manager.registerEvents(new BookQuillFixListener(), this);
-		manager.registerEvents(new BeaconStrengthFixListener(), this);
+		manager.registerEvents(new SotwListener(this), this);
+		manager.registerEvents(new SpawnEntitiesCommand(), this);
+		//manager.registerEvents(new StatTrackListener(), this);
+		manager.registerEvents(new StoreCommand(this), this);
+		manager.registerEvents(new UnRepairableListener(), this);
 		manager.registerEvents(new VoidGlitchFixListener(), this);
 		manager.registerEvents(new WallBorderListener(this), this);
+		manager.registerEvents(new WeatherFixListener(), this);
 		manager.registerEvents(new WorldListener(this), this);
-		manager.registerEvents(new UnRepairableListener(), this);
-		manager.registerEvents(new SotwListener(this), this);
-		//manager.registerEvents(new StatTrackListener(), this);
-		manager.registerEvents(new CobbleCommand(), this);
-		manager.registerEvents(new ChatGameCommand(), this);
-		manager.registerEvents(new NetherPortalPearlFixListener(), this);
-		manager.registerEvents(new SpawnEntitiesCommand(), this);
-		manager.registerEvents(new MobSpawnDisabledOnKitsListener(), this);
-		manager.registerEvents(new EnderChestCommand(), this);
+		manager.registerEvents(new NearPearlFixListener(), this);
+		manager.registerEvents(new FishingRodHitchListener(),this);
 	}
 
 	private void registerCommands(){
-		if (!ConfigurationService.FFA) {
-			this.getCommand("game").setExecutor(new EventExecutor(this));
-			this.getCommand("koth").setExecutor(new KothExecutor(this));
-			this.getCommand("cobble").setExecutor(new CobbleCommand());
-			this.getCommand("ores").setExecutor(new OresCommand());
-			this.getCommand("miner").setExecutor(new MinerCommand());
-			this.getCommand("sendcoords").setExecutor(new SendCoordsCommand(this));
-
-		}
-		this.getCommand("permissions").setExecutor(new PermissionsCommand(this));
-		this.getCommand("platinum").setExecutor(new PlatinumReviveCommand(this));
-		this.getCommand("teamspeak").setExecutor(new TeamspeakCommand());
-		this.getCommand("supplydrop").setExecutor(new SupplydropCommand(this));
-		this.getCommand("enderchest").setExecutor(new PlayerVaultCommand(this));
-		this.getCommand("statreset").setExecutor(new StatResetCommand(this));
-		this.getCommand("togglefd").setExecutor(new TogglefdCommand());
-		this.getCommand("ffa").setExecutor(new FFACommand());
-		this.getCommand("endportal").setExecutor(new EndPortalCommand(this));
-		this.getCommand("toggleend").setExecutor(new ToggleEnd(this));
-		this.getCommand("focus").setExecutor(new FactionFocusArgument(this));
-
-		this.getCommand("spawner").setExecutor(new SpawnerCommand(this));
-		this.getCommand("sotw").setExecutor(new SotwCommand(this));
-		this.getCommand("dinfo").setExecutor(new DInfoCommand(this));
-		this.getCommand("conquest").setExecutor(new ConquestExecutor(this));
-		this.getCommand("crowbar").setExecutor(new CrowbarCommand());
-		this.getCommand("economy").setExecutor(new EconomyCommand(this));
-		this.getCommand("eotw").setExecutor(new EotwCommand(this));
-		this.getCommand("help").setExecutor(new HelpCommand());
-		this.getCommand("faction").setExecutor(new FactionExecutor(this));
-		this.getCommand("gopple").setExecutor(new GoppleCommand(this));
-		this.getCommand("stats").setExecutor(new PlayerStats());
+		this.getCommand("chatgame").setExecutor(new ChatGameCommand());
 		this.getCommand("check").setExecutor(new CheckCommand(this));
-		this.getCommand("store").setExecutor(new StoreCommand(this));
-		this.getCommand("lives").setExecutor(new LivesExecutor(this));
-		this.getCommand("token").setExecutor(new TokenExecutor(this));
+		this.getCommand("cobble").setExecutor(new CobbleCommand());
+		this.getCommand("conquest").setExecutor(new ConquestExecutor(this));
+		this.getCommand("coords").setExecutor(new CoordsCommand(this));
+		this.getCommand("crowbar").setExecutor(new CrowbarCommand());
+		this.getCommand("crowgive").setExecutor(new CrowbarGiveCommand());
 		this.getCommand("death").setExecutor(new DeathExecutor(this));
+		this.getCommand("economy").setExecutor(new EconomyCommand(this));
+		this.getCommand("enddragon").setExecutor(new EnderDragonEventCommand(this));
+		this.getCommand("enderchest").setExecutor(new EnderChestCommand());
+		this.getCommand("endportal").setExecutor(new EndPortalCommand(this));
+		this.getCommand("eotw").setExecutor(new EotwCommand(this));
+		this.getCommand("faction").setExecutor(new FactionExecutor(this));
+		this.getCommand("ffa").setExecutor(new FFACommand());
+		this.getCommand("ffaevent").setExecutor(new FfaEventCommand(this));
+		this.getCommand("focus").setExecutor(new FactionFocusArgument(this));
+		this.getCommand("game").setExecutor(new EventExecutor(this));
+		this.getCommand("gopple").setExecutor(new GoppleCommand(this));
+		this.getCommand("help").setExecutor(new HelpCommand());
+		this.getCommand("koth").setExecutor(new KothExecutor(this));
+		this.getCommand("lives").setExecutor(new LivesExecutor(this));
 		this.getCommand("location").setExecutor(new LocationCommand(this));
 		this.getCommand("logout").setExecutor(new LogoutCommand(this));
+		this.getCommand("loot").setExecutor(new LootExecutor(this));
 		this.getCommand("mapkit").setExecutor(new MapKitCommand(this));
+		this.getCommand("revive").setExecutor(new ReviveCommand(this));
+		this.getCommand("miner").setExecutor(new MinerCommand());
+		this.getCommand("ores").setExecutor(new OresCommand());
 		this.getCommand("pay").setExecutor(new PayCommand(this));
 		this.getCommand("pvptimer").setExecutor(new PvpTimerCommand(this));
-		this.getCommand("refund").setExecutor(new RefundCommand());
-		this.getCommand("coords").setExecutor(new CoordsCommand(this));
-		this.getCommand("servertime").setExecutor(new ServerTimeCommand());
-		this.getCommand("spawn").setExecutor(new SpawnCommand(this));
-		this.getCommand("timer").setExecutor(new TimerExecutor(this));
-		this.getCommand("medic").setExecutor(new ReviveCommand(this));
-		this.getCommand("savedata").setExecutor(new SaveDataCommand());
-		this.getCommand("setborder").setExecutor(new SetBorderCommand());
-		this.getCommand("loot").setExecutor(new LootExecutor(this));
 		this.getCommand("safestop").setExecutor(new SafestopCommand());
-		this.getCommand("staffrevive").setExecutor(new StaffReviveCommand(this));
-		this.getCommand("nether").setExecutor(new NetherCommand(this));
-		this.getCommand("crowgive").setExecutor(new CrowbarGiveCommand());
-		this.getCommand("chatgame").setExecutor(new ChatGameCommand());
+		this.getCommand("savedata").setExecutor(new SaveDataCommand());
+		this.getCommand("sendcoords").setExecutor(new SendCoordsCommand(this));
+		this.getCommand("servertime").setExecutor(new ServerTimeCommand());
+		this.getCommand("setborder").setExecutor(new SetBorderCommand());
+		this.getCommand("sotw").setExecutor(new SotwCommand(this));
+		this.getCommand("spawn").setExecutor(new SpawnCommand(this));
 		this.getCommand("spawnentities").setExecutor(new SpawnEntitiesCommand());
-		this.getCommand("enddragon").setExecutor(new EndDragonCommand(this));
+		this.getCommand("spawner").setExecutor(new SpawnerCommand(this));
+		this.getCommand("staffrevive").setExecutor(new StaffReviveCommand(this));
+		this.getCommand("statreset").setExecutor(new StatResetCommand(this));
+		this.getCommand("stats").setExecutor(new StatsCommand());
+		this.getCommand("store").setExecutor(new StoreCommand(this));
 		this.getCommand("sumoevent").setExecutor(new SumoEventCommand(this));
-		this.getCommand("ffaevent").setExecutor(new FfaEventCommand(this));
+		this.getCommand("supplydrop").setExecutor(new SupplydropCommand(this));
 		this.getCommand("thimbleevent").setExecutor(new ThimbleEventCommand(this));
-		this.getCommand("enderchest").setExecutor(new EnderChestCommand());
+		this.getCommand("timer").setExecutor(new TimerExecutor(this));
+		this.getCommand("toggleend").setExecutor(new ToggleEnd(this));
+		this.getCommand("togglefd").setExecutor(new TogglefdCommand());
+		this.getCommand("token").setExecutor(new TokenExecutor(this));
 		final Map<String, Map<String, Object>> map = this.getDescription().getCommands();
 
 		for(final Map.Entry<String, Map<String, Object>> entry : map.entrySet()){
@@ -479,7 +421,6 @@ public class HCF extends JavaPlugin{
 		this.userManager = new UserManager(this);
 		this.visualiseHandler = new VisualiseHandler();
 		this.sotwTimer = new SotwTimer();
-		this.keyManager = new KeyManager(this);
 		this.message = new Message(this);
 		this.eventManager = new FlatFileEventManager(this);
 	}
@@ -498,10 +439,6 @@ public class HCF extends JavaPlugin{
 
 	public WorldEditPlugin getWorldEdit(){
 		return this.worldEdit;
-	}
-
-	public KeyManager getKeyManager(){
-		return this.keyManager;
 	}
 
 	public ClaimHandler getClaimHandler(){

@@ -1,18 +1,15 @@
 package idaniel84.timer.type;
 
-import idaniel84.utils.ConfigurationService;
-import idaniel84.utils.ConfigurationService;
-import idaniel84.utils.ConfigurationService;
 import idaniel84.HCF;
-import idaniel84.utils.ConfigurationService;
 import idaniel84.timer.PlayerTimer;
 import idaniel84.timer.TimerRunnable;
-import net.veilmc.util.Config;
+import idaniel84.utils.ConfigurationService;
 import net.minecraft.server.v1_7_R4.EntityPlayer;
 import net.minecraft.server.v1_7_R4.ItemStack;
 import net.minecraft.server.v1_7_R4.PacketPlayOutSetSlot;
 import net.minecraft.server.v1_7_R4.PlayerInventory;
 import net.minecraft.util.com.google.common.cache.CacheBuilder;
+import net.veilmc.util.Config;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -109,9 +106,6 @@ public class EnderPearlTimer
 
 	@EventHandler(ignoreCancelled = true, priority = EventPriority.MONITOR)
 	public void onProjectileLaunch(ProjectileLaunchEvent event){
-		if (ConfigurationService.FFA) {
-			return;
-		}
 		ProjectileSource source;
 		EnderPearl enderPearl;
 		Projectile projectile = event.getEntity();

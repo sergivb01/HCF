@@ -37,9 +37,9 @@ public class StoreCommand implements CommandExecutor, Listener{
 		live1.setItemMeta(live1meta);
 		page1.setItem(3, live1);
 
-		ItemStack live5 = new ItemStack(Material.BOOK, 5, (short) 3);
+		ItemStack live5 = new ItemStack(Material.PAPER, 5, (short) 3);
 		ItemMeta live5meta = live1.getItemMeta();
-		live5meta.setLore((Arrays.asList((ChatColor.WHITE + " * " + ChatColor.GREEN + "$25000"), (ChatColor.GRAY + "When you purchase this"), (ChatColor.GRAY + "you will recieve " + ChatColor.GOLD + "5x lives"))));
+		live5meta.setLore((Arrays.asList((ChatColor.WHITE + " * " + ChatColor.GREEN + "$20000"), (ChatColor.GRAY + "When you purchase this"), (ChatColor.GRAY + "you will recieve " + ChatColor.GOLD + "5x lives"))));
 		live5meta.setDisplayName(ChatColor.GOLD + "" + ChatColor.BOLD + "5x Life");
 		live5.setItemMeta(live5meta);
 		page1.setItem(5, live5);
@@ -70,11 +70,11 @@ public class StoreCommand implements CommandExecutor, Listener{
 				event.setCancelled(true);
 			}
 			if(clicked.getType() == Material.BOOK){
-				if(balance < 25000){
+				if(balance < 20000){
 					player.sendMessage(ChatColor.RED + "You can not afford this item.");
 				}else{
 					player.sendMessage(ChatColor.GREEN + "You have purchased this item.");
-					this.plugin.getEconomyManager().setBalance(uuid, balance - 25000);
+					this.plugin.getEconomyManager().setBalance(uuid, balance - 20000);
 					this.plugin.getDeathbanManager().addLives(uuid, 5);
 					player.closeInventory();
 				}

@@ -4,35 +4,8 @@ import com.google.common.base.Objects;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.Iterables;
 import idaniel84.HCF;
-import idaniel84.kothgame.faction.ConquestFaction;
-import idaniel84.kothgame.faction.EventFaction;
-import idaniel84.kothgame.faction.KnockKothFaction;
-import idaniel84.kothgame.faction.KothFaction;
-import idaniel84.kothgame.tracker.KnockKothTracker;
-import idaniel84.palace.PalaceFaction;
-import idaniel84.timer.GlobalTimer;
-import idaniel84.utils.ConfigurationService;
-import idaniel84.utils.DateTimeFormats;
-import idaniel84.HCF;
-import idaniel84.kothgame.faction.ConquestFaction;
-import idaniel84.kothgame.faction.EventFaction;
-import idaniel84.kothgame.faction.KnockKothFaction;
-import idaniel84.kothgame.faction.KothFaction;
-import idaniel84.kothgame.tracker.KnockKothTracker;
-import idaniel84.palace.PalaceFaction;
-import idaniel84.timer.GlobalTimer;
-import idaniel84.utils.ConfigurationService;
-import idaniel84.utils.DateTimeFormats;
-import idaniel84.kothgame.faction.ConquestFaction;
-import idaniel84.kothgame.faction.EventFaction;
-import idaniel84.kothgame.faction.KnockKothFaction;
-import idaniel84.kothgame.faction.KothFaction;
-import idaniel84.kothgame.tracker.KnockKothTracker;
-import idaniel84.palace.PalaceFaction;
-import idaniel84.timer.GlobalTimer;
-import idaniel84.utils.ConfigurationService;
-import idaniel84.utils.DateTimeFormats;
 import idaniel84.command.crate.Key;
+import idaniel84.command.crate.KeyListener;
 import idaniel84.faction.event.CaptureZoneEnterEvent;
 import idaniel84.faction.event.CaptureZoneLeaveEvent;
 import idaniel84.faction.type.Faction;
@@ -49,8 +22,6 @@ import idaniel84.utils.DateTimeFormats;
 import org.apache.commons.lang3.time.DurationFormatUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.Location;
-import org.bukkit.World;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.EnderPearl;
 import org.bukkit.entity.Player;
@@ -176,11 +147,10 @@ public class EventTimer
 		}
 		final PlayerFaction playerFaction = this.plugin.getFactionManager().getPlayerFaction(winner.getUniqueId());
 		Bukkit.broadcastMessage(ChatColor.GRAY + "[" + ChatColor.GOLD + this.eventFaction.getEventType().getDisplayName() + ChatColor.GRAY + "] " + ChatColor.GOLD + ((playerFaction == null) ? winner.getName() : playerFaction.getName() + ChatColor.GRAY + " [" + winner.getName() + "]") + ChatColor.YELLOW + " has captured " + ChatColor.LIGHT_PURPLE + this.eventFaction.getName() + ChatColor.YELLOW + " after " + DurationFormatUtils.formatDurationWords(this.getUptime(), true, true) + ChatColor.YELLOW + " of up-time");
-		final World world = winner.getWorld();
-		final Location location = winner.getLocation();
-		final Key key = this.plugin.getKeyManager().getKey(ChatColor.stripColor(this.eventFaction.getEventType().getDisplayName()));
-
-
+		if (playerFaction != null) {
+			playerFaction.setGameCaptures(playerFaction.getGameCaptures() + 1);
+		}
+		final Key key = KeyListener.getKey(ChatColor.stripColor(this.eventFaction.getEventType().getDisplayName()));
 		Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "event cancel");
 		if(KnockKothTracker.KNOCKKOTH) {
 			Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "crate key " + winner.getName() + " Knock 6");
@@ -201,22 +171,6 @@ public class EventTimer
 			plugin.startNewKoth(7200);
 			Bukkit.broadcastMessage(ChatColor.translateAlternateColorCodes('&', "&6&lKOTH &7» &eA new KOTH will be starting in &d&l2 hours"));
 		}
-
-
-	}
-
-
-	public void handleWinner1(final Player winner){
-		if(this.eventFaction == null){
-			return;
-		}
-		final PlayerFaction playerFaction = this.plugin.getFactionManager().getPlayerFaction(winner.getUniqueId());
-		//Bukkit.broadcastMessage(ConfigurationService.KOTH_PLAYER_CAP.replace("%player%", winner.getName()).replace("%koth%", this.eventFaction.getEventType().getDisplayName()));
-		Bukkit.broadcastMessage(ConfigurationService.BASECOLOUR + "[" + this.eventFaction.getEventType().getDisplayName() + "] " + ChatColor.LIGHT_PURPLE + ((playerFaction == null) ? winner.getName() : playerFaction.getName() + ChatColor.GRAY + " [" + winner.getName() + "]") + ChatColor.GOLD + " has captured " + ChatColor.LIGHT_PURPLE + this.eventFaction.getName() + ChatColor.GOLD + '.');
-		final World world = winner.getWorld();
-		final Location location = winner.getLocation();
-		this.clearCooldown();
-
 	}
 
 	public boolean tryContesting(final EventFaction eventFaction, final CommandSender sender){

@@ -8,46 +8,6 @@ import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 import idaniel84.HCF;
 import idaniel84.deathban.Deathban;
-import idaniel84.faction.event.FactionDtrChangeEvent;
-import idaniel84.faction.event.PlayerJoinedFactionEvent;
-import idaniel84.faction.event.PlayerLeaveFactionEvent;
-import idaniel84.faction.event.PlayerLeftFactionEvent;
-import idaniel84.faction.event.cause.FactionLeaveCause;
-import idaniel84.faction.struct.Raidable;
-import idaniel84.faction.struct.RegenStatus;
-import idaniel84.faction.struct.Relation;
-import idaniel84.faction.struct.Role;
-import idaniel84.timer.type.TeleportTimer;
-import idaniel84.user.FactionUser;
-import idaniel84.utils.ConfigurationService;
-import idaniel84.HCF;
-import idaniel84.deathban.Deathban;
-import idaniel84.faction.event.FactionDtrChangeEvent;
-import idaniel84.faction.event.PlayerJoinedFactionEvent;
-import idaniel84.faction.event.PlayerLeaveFactionEvent;
-import idaniel84.faction.event.PlayerLeftFactionEvent;
-import idaniel84.faction.event.cause.FactionLeaveCause;
-import idaniel84.faction.struct.Raidable;
-import idaniel84.faction.struct.RegenStatus;
-import idaniel84.faction.struct.Relation;
-import idaniel84.faction.struct.Role;
-import idaniel84.timer.type.TeleportTimer;
-import idaniel84.user.FactionUser;
-import idaniel84.utils.ConfigurationService;
-import idaniel84.deathban.Deathban;
-import idaniel84.faction.event.FactionDtrChangeEvent;
-import idaniel84.faction.event.PlayerJoinedFactionEvent;
-import idaniel84.faction.event.PlayerLeaveFactionEvent;
-import idaniel84.faction.event.PlayerLeftFactionEvent;
-import idaniel84.faction.event.cause.FactionLeaveCause;
-import idaniel84.faction.struct.Raidable;
-import idaniel84.faction.struct.RegenStatus;
-import idaniel84.faction.struct.Relation;
-import idaniel84.faction.struct.Role;
-import idaniel84.timer.type.TeleportTimer;
-import idaniel84.user.FactionUser;
-import idaniel84.utils.ConfigurationService;
-import idaniel84.deathban.Deathban;
 import idaniel84.faction.FactionMember;
 import idaniel84.faction.event.FactionDtrChangeEvent;
 import idaniel84.faction.event.PlayerJoinedFactionEvent;
@@ -76,10 +36,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 import javax.annotation.Nullable;
-import java.text.DecimalFormat;
 import java.util.*;
-
-import static org.bukkit.ChatColor.RED;
 
 public class PlayerFaction
 		extends ClaimableFaction
@@ -98,17 +55,18 @@ public class PlayerFaction
 	protected long regenCooldownTimestamp;
 	private long lastDtrUpdateTimestamp;
 	private transient String focused;
+	private int gameCaptures;
 
 	public PlayerFaction(String name){
 		super(name);
 		this.invitedPlayerNames = new TreeSet(String.CASE_INSENSITIVE_ORDER);
-		this.deathsUntilRaidable = 1.0D;
+		this.deathsUntilRaidable = 1.1D;
 	}
 
 	public PlayerFaction(Map map){
 		super(map);
 		this.invitedPlayerNames = new TreeSet(String.CASE_INSENSITIVE_ORDER);
-		this.deathsUntilRaidable = 1.0D;
+		this.deathsUntilRaidable = 1.1D;
 		Iterator object = GenericUtils.castMap(map.get("members"), String.class, FactionMember.class).entrySet().iterator();
 		while(object.hasNext()){
 			Map.Entry entry = (Map.Entry) object.next();
@@ -138,6 +96,7 @@ public class PlayerFaction
 		this.deathsUntilRaidable = ((Double) map.get("deathsUntilRaidable")).doubleValue();
 		this.regenCooldownTimestamp = Long.parseLong((String) map.get("regenCooldownTimestamp"));
 		this.lastDtrUpdateTimestamp = Long.parseLong((String) map.get("lastDtrUpdateTimestamp"));
+		this.gameCaptures = Integer.parseInt((String) map.get("gameCaptures"));
 	}
 
 	public static String format(String format){
@@ -188,6 +147,7 @@ public class PlayerFaction
 		map.put("deathsUntilRaidable", Double.valueOf(this.deathsUntilRaidable));
 		map.put("regenCooldownTimestamp", Long.toString(this.regenCooldownTimestamp));
 		map.put("lastDtrUpdateTimestamp", Long.toString(this.lastDtrUpdateTimestamp));
+		map.put("gameCaptures", Integer.toString(this.gameCaptures));
 		return map;
 	}
 
@@ -346,7 +306,7 @@ public class PlayerFaction
 				Location destination = (Location) timer.getDestination(player);
 				if(Objects.equal(destination, this.home.getLocation())){
 					timer.clearCooldown(player);
-					player.sendMessage(RED + "Your home was unset, so your " + timer.getDisplayName() + RED + " timer has been cancelled");
+					player.sendMessage(ChatColor.RED + "Your home was unset, so your " + timer.getDisplayName() + ChatColor.RED + " timer has been cancelled");
 				}
 			}
 		}
@@ -377,6 +337,10 @@ public class PlayerFaction
 		this.balance = balance;
 	}
 
+	public int getGameCaptures() { return this.gameCaptures; }
+
+	public void setGameCaptures(int captures) { this.gameCaptures = captures; }
+
 	public boolean isRaidable(){
 		return this.deathsUntilRaidable <= 0.0D;
 	}
@@ -402,7 +366,7 @@ public class PlayerFaction
 	public ChatColor getDtrColour(){
 		updateDeathsUntilRaidable();
 		if(this.deathsUntilRaidable < 0.0D){
-			return RED;
+			return ChatColor.RED;
 		}
 		if(this.deathsUntilRaidable < 1.0D){
 			return ChatColor.YELLOW;
@@ -412,6 +376,10 @@ public class PlayerFaction
 
 	private void updateDeathsUntilRaidable(){
 		if(getRegenStatus() == RegenStatus.REGENERATING){
+			if (ConfigurationService.KIT_MAP) {
+				setDeathsUntilRaidable(this.getMaximumDeathsUntilRaidable());
+				return;
+			}
 			long now = System.currentTimeMillis();
 			long millisPassed = now - this.lastDtrUpdateTimestamp;
 			if(millisPassed >= ConfigurationService.DTR_MILLIS_BETWEEN_UPDATES){
@@ -472,10 +440,6 @@ public class PlayerFaction
 		return RegenStatus.FULL;
 	}
 
-	public void regenProccess(){
-
-	}
-
 	public void printDetails(CommandSender sender){
 		String leaderName = null;
 		final HashSet<String> coleaderName = new HashSet<String>();
@@ -488,12 +452,13 @@ public class PlayerFaction
 			Faction captainNames = HCF.getPlugin().getFactionManager().getFaction((UUID) memberNames.getKey());
 			if(captainNames instanceof PlayerFaction){
 				playerFaction = (PlayerFaction) captainNames;
-				allyNames.add(playerFaction.getDisplayName(sender) + ChatColor.GRAY + '[' + ChatColor.GRAY + playerFaction.getOnlinePlayers(sender).size() + ChatColor.GRAY + '/' + ChatColor.GRAY + playerFaction.members.size() + ChatColor.GRAY + ']');
+				allyNames.add(playerFaction.getDisplayName(sender) + ChatColor.WHITE + '[' + ChatColor.WHITE + playerFaction.getOnlinePlayers(sender).size() + ChatColor.WHITE + '/' + ChatColor.WHITE + playerFaction.members.size() + ChatColor.WHITE + ']');
 			}
 		}
 
 		HashSet memberNames = new HashSet();
 		int combinedKills1 = 0;
+		int combinedDeaths = 0;
 		HashSet<String> captainNames = new HashSet();
 		Iterator playerFaction1 = this.members.entrySet().iterator();
 
@@ -504,6 +469,8 @@ public class PlayerFaction
 			final FactionUser user = HCF.getPlugin().getUserManager().getUser((UUID) entry.getKey());
 			final Deathban deathban = user.getDeathban();
 			int kills = user.getKills();
+			combinedKills1 = combinedKills1 + kills;
+			combinedDeaths = combinedDeaths + user.getDeaths();
 
 			ChatColor colour;
 			if(target == null || (sender instanceof Player && !((Player) sender).canSee(target))){
@@ -512,9 +479,9 @@ public class PlayerFaction
 				colour = ChatColor.GREEN;
 			}
 			if(deathban != null && deathban.isActive()){
-				colour = RED;
+				colour = ChatColor.RED;
 			}
-			final String memberName = colour + factionMember.getName() + ChatColor.GRAY + '[' + ChatColor.AQUA + kills + ChatColor.GRAY + ']';
+			final String memberName = colour + factionMember.getName() + ChatColor.GRAY + '[' + ChatColor.WHITE + kills + ChatColor.GRAY + ']';
 			switch(factionMember.getRole()){
 				case LEADER:{
 					leaderName = memberName;
@@ -534,10 +501,6 @@ public class PlayerFaction
 				}
 			}
 		}
-
-		DecimalFormat df = new DecimalFormat("#");
-
-		String finalLeaderName = leaderName;
 		long dtrRegenRemaining = this.getRemainingRegenerationTime();
       /*
       HCF.getInstance().getConfig().getStringList("faction-settings.show.player-faction").forEach(str -> sender.sendMessage(ChatColor.translateAlternateColorCodes('&',
@@ -553,66 +516,60 @@ public class PlayerFaction
                       .replace("%DTR-SYMBOL%", (this.getRegenStatus().getSymbol() != null ? this.getRegenStatus().getSymbol() : ""))
                       .replace("%HOME%", this.home == null ? "None" : (df.format(this.getHome().getX()) + ", " + df.format(this.getHome().getZ())))
                       .replace("%LEADER%", finalLeaderName != null ? finalLeaderName : "")
-                      .replace("%CAPTAINS%", !captainNames.isEmpty() ? StringUtils.join(captainNames, ChatColor.GRAY + ", ") : ChatColor.GRAY + "None")
-                      .replace("%MEMBERS%", !memberNames.isEmpty() ? StringUtils.join(memberNames, ChatColor.GRAY + ", ") : ChatColor.GRAY + "None")
-                      .replace("%ALLIES%", !allyNames.isEmpty() ? StringUtils.join(allyNames, ChatColor.GRAY + ", ") : ChatColor.GRAY + "None")
-                      .replace("%REGEN%", (dtrRegenRemaining > 0L) ? DurationFormatUtils.formatDurationWords(dtrRegenRemaining, true, true) : ChatColor.GRAY + "Fully Regenerated.")
+                      .replace("%CAPTAINS%", !captainNames.isEmpty() ? StringUtils.join(captainNames, ChatColor.WHITE + ", ") : ChatColor.WHITE + "None")
+                      .replace("%MEMBERS%", !memberNames.isEmpty() ? StringUtils.join(memberNames, ChatColor.WHITE + ", ") : ChatColor.WHITE + "None")
+                      .replace("%ALLIES%", !allyNames.isEmpty() ? StringUtils.join(allyNames, ChatColor.WHITE + ", ") : ChatColor.WHITE + "None")
+                      .replace("%REGEN%", (dtrRegenRemaining > 0L) ? DurationFormatUtils.formatDurationWords(dtrRegenRemaining, true, true) : ChatColor.WHITE + "Fully Regenerated.")
               )));*/
-		sender.sendMessage(ChatColor.translateAlternateColorCodes('&', "&9" + BukkitUtils.STRAIGHT_LINE_DEFAULT));
-		sender.sendMessage(ChatColor.AQUA + " " + ChatColor.BOLD + ChatColor.stripColor(this.getDisplayName(sender)) + ChatColor.GRAY + " [" + this.getOnlineMembers().size() + "/" + this.getMembers().size() + " online]" + ChatColor.BLUE + " Status: " + (this.isOpen() ? ChatColor.GREEN + "Open" : ChatColor.AQUA + "Closed"));
-		sender.sendMessage(ChatColor.BLUE + " Home: " + ((this.home == null ? RED + "Not Set" : ChatColor.AQUA.toString() + this.home.getLocation().getBlockX() + ", " + this.home.getLocation().getBlockZ())));
+		sender.sendMessage(ChatColor.translateAlternateColorCodes('&', "&c" + BukkitUtils.STRAIGHT_LINE_DEFAULT));
+		sender.sendMessage(" " + ChatColor.DARK_RED + ChatColor.BOLD.toString() + ChatColor.stripColor(this.getDisplayName(sender)) + ChatColor.GRAY + " (" + this.getOnlineMembers().size() + "/" + this.getMembers().size() + ")" + ChatColor.WHITE + " - " + ChatColor.RED + "Home: " + ((this.home == null ? ChatColor.GRAY + "Not Set" : ChatColor.WHITE.toString() + this.home.getLocation().getBlockX() + ", " + this.home.getLocation().getBlockZ() + ChatColor.RED + ((sender instanceof Player) ? ". " + ChatColor.ITALIC + (int)this.home.getLocation().distance(((Player) sender).getLocation()) + " blocks to you. " : ". "))) + ChatColor.GRAY + (this.isOpen() ? "[Open]" : "[Closed]"));
 		if(!allyNames.isEmpty()){
-			sender.sendMessage(ChatColor.BLUE + " Allies: " + StringUtils.join(allyNames, ChatColor.GRAY + ", "));
+			sender.sendMessage(ChatColor.RED + " Allies: " + StringUtils.join(allyNames, ChatColor.WHITE + ", "));
 		}
 		if(leaderName != null){
-			sender.sendMessage(ChatColor.BLUE + " Leader: " + leaderName);
+			sender.sendMessage(ChatColor.RED + " Leader: " + leaderName);
 		}
 		if(!captainNames.isEmpty()){
-			sender.sendMessage(ChatColor.BLUE + " Captains: " + StringUtils.join(captainNames, ChatColor.GRAY + ", "));
+			sender.sendMessage(ChatColor.RED + " Captains: " + StringUtils.join(captainNames, ChatColor.WHITE + ", "));
 		}
 		if(!memberNames.isEmpty()){
-			sender.sendMessage(ChatColor.BLUE + " Members: " + StringUtils.join(memberNames, ChatColor.GRAY + ", "));
+			sender.sendMessage(ChatColor.RED + " Members: " + StringUtils.join(memberNames, ChatColor.WHITE + ", "));
 		}
-		if(sender instanceof Player){
-			final Faction playerFaction2 = HCF.getPlugin().getFactionManager().getPlayerFaction((Player) sender);
-			if(playerFaction2 != null && this.announcement != null && playerFaction2.equals(this)){
-				sender.sendMessage(ChatColor.BLUE + " Announcement: " + ChatColor.LIGHT_PURPLE + this.announcement);
-			}
-		}
-		if(ConfigurationService.KIT_MAP){
-			sender.sendMessage(ChatColor.BLUE + " Balance: " + ChatColor.AQUA + "$" + this.balance);
-			sender.sendMessage(ChatColor.BLUE + " Total Kills: " + ChatColor.AQUA + combinedKills1);
+		sender.sendMessage(ChatColor.RED + " Balance: " + ChatColor.WHITE + '$' + this.balance + ChatColor.RED + ", Events won: " + ChatColor.WHITE + getGameCaptures() + ".");
+		sender.sendMessage(ChatColor.RED + " Kills: " + ChatColor.WHITE + combinedKills1 + ChatColor.RED + ", Deaths: " + ChatColor.WHITE + combinedDeaths + (combinedDeaths == 0 ? "." : ChatColor.RED + ", KD: " + ChatColor.WHITE + combinedKills1/combinedDeaths + "."));
+		if(!(sender.hasPermission("rank.staff")) || ConfigurationService.KIT_MAP){
+			sender.sendMessage(ChatColor.RED + " Deaths until Raidable: " + this.getDtrColour() + JavaUtils.format(getDeathsUntilRaidable(false)) + ChatColor.WHITE + "/" + this.getMaximumDeathsUntilRaidable() + this.getRegenStatus().getSymbol());
 		}else{
-			sender.sendMessage(ChatColor.BLUE + " Balance: " + ChatColor.AQUA + '$' + this.balance + ChatColor.BLUE + ", " + "Total Kills: " + ChatColor.AQUA + combinedKills1 + ChatColor.AQUA + " kills");
-			if(!(sender.hasPermission("rank.staff"))){
-				sender.sendMessage(ChatColor.BLUE + " Deaths until Raidable: " + this.getDtrColour() + JavaUtils.format(getDeathsUntilRaidable(false)) + ChatColor.GRAY + "/" + this.getMaximumDeathsUntilRaidable() + this.getRegenStatus().getSymbol());
-			}else{
-				Text dtr = new Text(ChatColor.BLUE + " Deaths until Raidable: " + this.getDtrColour() + JavaUtils.format(getDeathsUntilRaidable(false)) + ChatColor.GRAY + "/" + this.getMaximumDeathsUntilRaidable() + this.getRegenStatus().getSymbol() + ChatColor.GRAY + " (");
-				Text dtrUp = new Text(ChatColor.GREEN + "+1").setHoverText(ChatColor.GRAY + "Increase DTR").setClick(ClickAction.RUN_COMMAND, "/f setdtr " + ChatColor.stripColor(this.getDisplayName(sender) + " -i"));
-				Text line = new Text(ChatColor.GRAY + " | ");
-				Text dtrDown = new Text(ChatColor.RED + "-1").setHoverText(ChatColor.GRAY + "Decrease DTR").setClick(ClickAction.RUN_COMMAND, "/f setdtr " + ChatColor.stripColor(this.getDisplayName(sender) + " -d"));
-				Text bracket = new Text(ChatColor.GRAY + ")");
-				dtr.append(dtrUp.append(line.reset().append(dtrDown.append(bracket)))).send(sender);
-
-			}
+			Text dtr = new Text(ChatColor.RED + " Deaths until Raidable: " + this.getDtrColour() + JavaUtils.format(getDeathsUntilRaidable(false)) + ChatColor.WHITE + "/" + this.getMaximumDeathsUntilRaidable() + this.getRegenStatus().getSymbol() + ChatColor.WHITE + " (");
+			Text dtrUp = new Text(ChatColor.RED + "+1").setHoverText(ChatColor.WHITE + "Increase DTR").setClick(ClickAction.RUN_COMMAND, "/f setdtr " + ChatColor.stripColor(this.getDisplayName(sender) + " -i"));
+			Text line = new Text(ChatColor.WHITE + " | ");
+			Text dtrDown = new Text(ChatColor.RED + "-1").setHoverText(ChatColor.WHITE + "Decrease DTR").setClick(ClickAction.RUN_COMMAND, "/f setdtr " + ChatColor.stripColor(this.getDisplayName(sender) + " -d"));
+			Text bracket = new Text(ChatColor.WHITE + ")");
+			dtr.append(dtrUp.append(line.reset().append(dtrDown.append(bracket)))).send(sender);
 		}
 
 		if(dtrRegenRemaining > 0L){
-			if(sender.hasPermission("rank.staff")){
-				Text beforeRegen = new Text(ChatColor.YELLOW + " Time until Regen: " + ChatColor.LIGHT_PURPLE + DurationFormatUtils.formatDurationWords(dtrRegenRemaining, true, true) + " ");
-				Text regen = new Text(ChatColor.GRAY + "(Remove)");
-				regen.setHoverText(ChatColor.GRAY + "Click to remove regen delay.");
+			if(sender.hasPermission("rank.staff") && !ConfigurationService.KIT_MAP){
+				Text beforeRegen = new Text(ChatColor.RED + " Time until Regen: " + ChatColor.LIGHT_PURPLE + DurationFormatUtils.formatDurationWords(dtrRegenRemaining, true, true) + " ");
+				Text regen = new Text(ChatColor.WHITE + "(Remove)");
+				regen.setHoverText(ChatColor.WHITE + "Click to remove regen delay.");
 				regen.setClick(ClickAction.RUN_COMMAND, "/f setdtrregen " + ChatColor.stripColor(this.getDisplayName(sender) + " 0s"));
 				beforeRegen.append(regen).send(sender);
-				//sender.sendMessage(ChatColor.YELLOW + "   Time until Regen: " + ChatColor.LIGHT_PURPLE + DurationFormatUtils.formatDurationWords(dtrRegenRemaining, true, true));
+				//sender.sendMessage(ChatColor.WHITE + "   Time until Regen: " + ChatColor.LIGHT_PURPLE + DurationFormatUtils.formatDurationWords(dtrRegenRemaining, true, true));
 			}else{
-				sender.sendMessage(ChatColor.YELLOW + "   Time until Regen: " + ChatColor.LIGHT_PURPLE + DurationFormatUtils.formatDurationWords(dtrRegenRemaining, true, true));
+				sender.sendMessage(ChatColor.RED + " Time until Regen: " + ChatColor.LIGHT_PURPLE + DurationFormatUtils.formatDurationWords(dtrRegenRemaining, true, true));
 
 			}
 		}
-
-
-		sender.sendMessage(ChatColor.translateAlternateColorCodes('&', "&9" + BukkitUtils.STRAIGHT_LINE_DEFAULT));
+        if(sender instanceof Player){
+            final Faction playerFaction2 = HCF.getPlugin().getFactionManager().getPlayerFaction((Player) sender);
+            if(playerFaction2 != null && this.announcement != null && playerFaction2.equals(this)){
+                sender.sendMessage(ChatColor.RED + " Announcement: " + ChatColor.LIGHT_PURPLE + this.announcement);
+            }
+        }
+        String[] split = this.creationDate.split(" ");
+        sender.sendMessage(ChatColor.RED + " Created: " + ChatColor.WHITE + split[1] + " " + split[2] + " "  + split[3] + " "  + split[4] + ".");
+		sender.sendMessage(ChatColor.translateAlternateColorCodes('&', "&c" + BukkitUtils.STRAIGHT_LINE_DEFAULT));
 	}
 
 

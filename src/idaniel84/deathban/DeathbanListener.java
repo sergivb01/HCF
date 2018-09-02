@@ -3,15 +3,8 @@ package idaniel84.deathban;
 import idaniel84.HCF;
 import idaniel84.user.FactionUser;
 import idaniel84.utils.ConfigurationService;
-import idaniel84.HCF;
-import idaniel84.user.FactionUser;
-import idaniel84.utils.ConfigurationService;
-import idaniel84.user.FactionUser;
-import idaniel84.utils.ConfigurationService;
 import net.minecraft.util.com.google.common.cache.CacheBuilder;
 import net.veilmc.base.BasePlugin;
-import idaniel84.user.FactionUser;
-import idaniel84.utils.ConfigurationService;
 import net.veilmc.util.BukkitUtils;
 import org.apache.commons.lang3.time.DurationFormatUtils;
 import org.bukkit.ChatColor;
@@ -89,7 +82,7 @@ public class DeathbanListener
 
 	@EventHandler(ignoreCancelled = true, priority = EventPriority.LOW)
 	public void onPlayerDeath(PlayerDeathEvent event){
-		if(ConfigurationService.KIT_MAP || ConfigurationService.VEILZ || ConfigurationService.FFA){
+		if(ConfigurationService.KIT_MAP){
 			return;
 		}
 

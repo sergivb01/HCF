@@ -1,17 +1,11 @@
 package idaniel84.timer.type;
 
-import idaniel84.classes.PvpClass;
-import idaniel84.utils.ConfigurationService;
-import idaniel84.classes.PvpClass;
-import idaniel84.utils.ConfigurationService;
-import idaniel84.classes.PvpClass;
-import idaniel84.utils.ConfigurationService;
-import net.minecraft.util.com.google.common.cache.CacheBuilder;
 import idaniel84.HCF;
 import idaniel84.classes.PvpClass;
 import idaniel84.timer.PlayerTimer;
 import idaniel84.timer.TimerRunnable;
 import idaniel84.utils.ConfigurationService;
+import net.minecraft.util.com.google.common.cache.CacheBuilder;
 import net.veilmc.util.Config;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -42,7 +36,6 @@ public class PvpClassWarmupTimer
 		super(ConfigurationService.PVP_CLASS_WARMUP_TIMER, TimeUnit.SECONDS.toMillis(10), false);
 		this.plugin = plugin;
 		this.classWarmups = CacheBuilder.newBuilder().expireAfterWrite(this.defaultCooldown + 5000, TimeUnit.MILLISECONDS).build().asMap();
-		if (ConfigurationService.VEILZ || ConfigurationService.FFA) return;
 		runTaskTimer(() -> {
 			for(Player player : Bukkit.getServer().getOnlinePlayers()){
 				attemptEquip(player);
@@ -96,7 +89,6 @@ public class PvpClassWarmupTimer
 
 	@EventHandler(ignoreCancelled = true, priority = EventPriority.MONITOR)
 	public void onPlayerJoin(PlayerJoinEvent event){
-		if (ConfigurationService.VEILZ || ConfigurationService.FFA) return;
 		this.attemptEquip(event.getPlayer());
 	}
 

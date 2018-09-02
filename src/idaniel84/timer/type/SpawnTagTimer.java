@@ -1,26 +1,17 @@
 package idaniel84.timer.type;
 
-import idaniel84.timer.event.TimerClearEvent;
-import idaniel84.timer.event.TimerStartEvent;
-import idaniel84.utils.ConfigurationService;
-import idaniel84.timer.event.TimerClearEvent;
-import idaniel84.timer.event.TimerStartEvent;
-import idaniel84.utils.ConfigurationService;
-import idaniel84.timer.event.TimerClearEvent;
-import idaniel84.timer.event.TimerStartEvent;
-import idaniel84.utils.ConfigurationService;
-import net.veilmc.base.kit.event.KitApplyEvent;
+import com.google.common.base.Optional;
 import idaniel84.HCF;
-import idaniel84.utils.ConfigurationService;
 import idaniel84.faction.event.PlayerClaimEnterEvent;
 import idaniel84.faction.event.PlayerJoinFactionEvent;
 import idaniel84.faction.event.PlayerLeaveFactionEvent;
 import idaniel84.timer.PlayerTimer;
 import idaniel84.timer.event.TimerClearEvent;
 import idaniel84.timer.event.TimerStartEvent;
+import idaniel84.utils.ConfigurationService;
 import idaniel84.visualise.VisualType;
+import net.veilmc.base.kit.event.KitApplyEvent;
 import net.veilmc.util.BukkitUtils;
-import com.google.common.base.Optional;
 import org.apache.commons.lang.time.DurationFormatUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -116,9 +107,6 @@ public class SpawnTagTimer
 
 	@EventHandler(ignoreCancelled = true, priority = EventPriority.MONITOR)
 	public void onEntityDamageByEntity(EntityDamageByEntityEvent event){
-		if (ConfigurationService.FFA) {
-			return;
-		}
 		Entity entity;
 		Player attacker = BukkitUtils.getFinalAttacker(event, true);
 		if(attacker != null && (entity = event.getEntity()) instanceof Player){

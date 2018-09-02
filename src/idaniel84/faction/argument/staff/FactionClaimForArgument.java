@@ -3,16 +3,12 @@ package idaniel84.faction.argument.staff;
 import com.sk89q.worldedit.bukkit.WorldEditPlugin;
 import com.sk89q.worldedit.bukkit.selections.Selection;
 import idaniel84.HCF;
-import idaniel84.utils.ConfigurationService;
-import idaniel84.HCF;
-import idaniel84.utils.ConfigurationService;
-import idaniel84.utils.ConfigurationService;
-import net.minecraft.util.com.google.common.collect.Lists;
 import idaniel84.faction.claim.Claim;
 import idaniel84.faction.type.ClaimableFaction;
 import idaniel84.faction.type.Faction;
 import idaniel84.faction.type.PlayerFaction;
 import idaniel84.utils.ConfigurationService;
+import net.minecraft.util.com.google.common.collect.Lists;
 import net.veilmc.util.command.CommandArgument;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -61,10 +57,6 @@ public class FactionClaimForArgument
 		Selection selection = worldEditPlugin.getSelection(player);
 		if(selection == null){
 			sender.sendMessage(ChatColor.RED + "You must make a WorldEdit selection to do this.");
-			return true;
-		}
-		if (!ConfigurationService.VEILZ && args[1].equalsIgnoreCase("ciudad")) {
-			player.sendMessage(ChatColor.RED + "You can only claim this faction on VeilZ.");
 			return true;
 		}
 		if (!ConfigurationService.KIT_MAP && args[1].equalsIgnoreCase("ffa")) {

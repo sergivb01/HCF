@@ -10,29 +10,6 @@ import idaniel84.faction.struct.Relation;
 import idaniel84.faction.struct.Role;
 import idaniel84.faction.type.*;
 import idaniel84.utils.ConfigurationService;
-import idaniel84.HCF;
-import idaniel84.faction.claim.Claim;
-import idaniel84.faction.event.*;
-import idaniel84.faction.event.cause.ClaimChangeCause;
-import idaniel84.faction.struct.ChatChannel;
-import idaniel84.faction.struct.Relation;
-import idaniel84.faction.struct.Role;
-import idaniel84.faction.type.*;
-import idaniel84.utils.ConfigurationService;
-import idaniel84.faction.claim.Claim;
-import idaniel84.faction.event.cause.ClaimChangeCause;
-import idaniel84.faction.struct.ChatChannel;
-import idaniel84.faction.struct.Relation;
-import idaniel84.faction.struct.Role;
-import idaniel84.utils.ConfigurationService;
-import idaniel84.faction.claim.Claim;
-import idaniel84.faction.event.*;
-import idaniel84.faction.event.cause.ClaimChangeCause;
-import idaniel84.faction.struct.ChatChannel;
-import idaniel84.faction.struct.Relation;
-import idaniel84.faction.struct.Role;
-import idaniel84.faction.type.*;
-import idaniel84.utils.ConfigurationService;
 import net.veilmc.util.Config;
 import net.veilmc.util.JavaUtils;
 import net.veilmc.util.cuboid.CoordinatePair;
@@ -301,9 +278,6 @@ public class FlatFileFactionManager implements Listener, FactionManager{
 		if(!this.factionNameMap.containsKey("Glowstone")){
 			adding.add(new GlowstoneFaction());
 		}
-		if(!this.factionNameMap.containsKey("Ciudad")) {
-			adding.add(new CityFaction());
-		}
 		if(!this.factionNameMap.containsKey("FFA")) {
 			adding.add(new FFAFaction());
 		}
@@ -330,7 +304,6 @@ public class FlatFileFactionManager implements Listener, FactionManager{
 		}
 		for(final Faction added : adding){
 			this.cacheFaction(added);
-			Bukkit.getConsoleSender().sendMessage(ChatColor.RED + "Faction " + added.getName() + " not found, created.");
 		}
 	}
 

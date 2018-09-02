@@ -1,14 +1,10 @@
 package idaniel84.command.crate.argument;
 
-import idaniel84.HCF;
+import com.google.common.primitives.Ints;
 import idaniel84.HCF;
 import idaniel84.command.crate.Key;
+import idaniel84.command.crate.KeyListener;
 import net.veilmc.util.command.CommandArgument;
-import com.google.common.primitives.Ints;
-
-import java.util.*;
-import java.util.stream.Collectors;
-
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
@@ -18,6 +14,11 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
+
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class LootGiveArgument
 		extends CommandArgument{
@@ -45,7 +46,7 @@ public class LootGiveArgument
 			sender.sendMessage(ChatColor.GOLD + "Player '" + ChatColor.WHITE + args[1] + ChatColor.GOLD + "' not found.");
 			return true;
 		}
-		Key key = this.plugin.getKeyManager().getKey(args[2]);
+		Key key = KeyListener.getKey(args[2]);
 		if(key == null){
 			sender.sendMessage(ChatColor.RED + "There is no key type named '" + args[2] + "'.");
 			return true;
@@ -86,7 +87,7 @@ public class LootGiveArgument
 			return null;
 		}
 		if(args.length == 3){
-			return this.plugin.getKeyManager().getKeys().stream().map(Key::getName).collect(Collectors.toList());
+			return KeyListener.getKeys().stream().map(Key::getName).collect(Collectors.toList());
 		}
 		return Collections.emptyList();
 	}

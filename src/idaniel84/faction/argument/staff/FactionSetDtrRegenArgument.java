@@ -1,21 +1,17 @@
 package idaniel84.faction.argument.staff;
 
 import idaniel84.HCF;
-import idaniel84.utils.ConfigurationService;
-import idaniel84.HCF;
-import idaniel84.utils.ConfigurationService;
-import idaniel84.utils.ConfigurationService;
-import idaniel84.utils.ConfigurationService;
 import idaniel84.faction.FactionManager;
 import idaniel84.faction.type.Faction;
 import idaniel84.faction.type.PlayerFaction;
+import idaniel84.utils.ConfigurationService;
 import net.veilmc.util.JavaUtils;
 import net.veilmc.util.command.CommandArgument;
-
 import org.apache.commons.lang3.time.DurationFormatUtils;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
+import org.bukkit.command.ConsoleCommandSender;
 
 public class FactionSetDtrRegenArgument
 		extends CommandArgument{
@@ -32,9 +28,9 @@ public class FactionSetDtrRegenArgument
 	}
 
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args){
-		if(ConfigurationService.KIT_MAP){
-			sender.sendMessage(ChatColor.RED + "There is no need for this command on VeilMC kitmap.");
-			return false;
+		if (ConfigurationService.KIT_MAP && !(sender instanceof ConsoleCommandSender)) {
+			sender.sendMessage(ChatColor.RED + "You don't need to use this on KitMap. Ask a Owner to use this.");
+			return true;
 		}
 		if(args.length < 3){
 			sender.sendMessage(ChatColor.RED + "Incorrect usage!" + ChatColor.YELLOW + " Use like this: " + ChatColor.AQUA + this.getUsage(label));

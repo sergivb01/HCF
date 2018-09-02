@@ -6,20 +6,14 @@ import idaniel84.faction.type.WarzoneFaction;
 import idaniel84.faction.type.WildernessFaction;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.inventory.Inventory;
-import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.ItemMeta;
-
-import java.util.Arrays;
 
 public class EnderChestCommand implements CommandExecutor, Listener {
 
@@ -39,14 +33,14 @@ public class EnderChestCommand implements CommandExecutor, Listener {
             player.sendMessage(ChatColor.RED + "You can not do this while your " + ChatColor.BOLD + "Spawn Tag" + ChatColor.RED + " is active.");
             return true;
         }
-        player.sendMessage(ChatColor.GREEN + "Chest opened.");
+        //player.sendMessage(ChatColor.GREEN + "Chest opened.");
         Inventory i = Bukkit.createInventory(player, 36, ChatColor.RED.toString() + ChatColor.BOLD + "EnderChest");
-        int a = 0;
+        //int a = 0;
         for(int ix = 0; ix < player.getEnderChest().getSize(); ix++){
             i.setItem(ix, player.getEnderChest().getItem(ix));
-            a = ix;
+            //a = ix;
         }
-        ItemStack glass = new ItemStack(Material.STAINED_GLASS_PANE);
+        /*ItemStack glass = new ItemStack(Material.STAINED_GLASS_PANE);
         if(player.getInventory().getHelmet() != null){
             i.setItem(27, player.getPlayer().getInventory().getHelmet());
         }
@@ -73,7 +67,7 @@ public class EnderChestCommand implements CommandExecutor, Listener {
         i.setItem(32, glass);
         i.setItem(33, glass);
         i.setItem(34, glass);
-        i.setItem(35, glass);
+        i.setItem(35, glass);*/
         player.openInventory(i);
         return true;
     }
@@ -89,7 +83,7 @@ public class EnderChestCommand implements CommandExecutor, Listener {
         }
     }
 
-    @EventHandler
+    /*@EventHandler
     private void inventoryclick(InventoryClickEvent event) {
         Player player = Bukkit.getPlayer(event.getWhoClicked().getName());
         if (!ChatColor.stripColor(event.getInventory().getName()).equals("EnderChest")) {
@@ -143,7 +137,7 @@ public class EnderChestCommand implements CommandExecutor, Listener {
                     player.getInventory().setHelmet(player.getItemOnCursor());
                     return;
                 }
-                break;*/
+                break;
         }
-    }
+    }*/
 }

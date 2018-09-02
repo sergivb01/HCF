@@ -4,54 +4,13 @@ import idaniel84.HCF;
 import idaniel84.classes.PvpClass;
 import idaniel84.classes.bard.BardClass;
 import idaniel84.classes.type.MinerClass;
-import idaniel84.timer.GlobalTimer;
-import idaniel84.timer.PlayerTimer;
-import idaniel84.timer.Timer;
-import idaniel84.timer.type.NotchAppleTimer;
-import idaniel84.timer.type.SotwTimer;
-import idaniel84.timer.type.SpawnTagTimer;
-import idaniel84.user.FactionUser;
-import idaniel84.utils.ConfigurationService;
-import idaniel84.utils.DateTimeFormats;
-import idaniel84.utils.DurationFormatter;
-import idaniel84.HCF;
-import idaniel84.classes.PvpClass;
-import idaniel84.classes.bard.BardClass;
-import idaniel84.classes.type.MinerClass;
-import idaniel84.timer.GlobalTimer;
-import idaniel84.timer.PlayerTimer;
-import idaniel84.timer.Timer;
-import idaniel84.timer.type.NotchAppleTimer;
-import idaniel84.timer.type.SotwTimer;
-import idaniel84.timer.type.SpawnTagTimer;
-import idaniel84.user.FactionUser;
-import idaniel84.utils.ConfigurationService;
-import idaniel84.utils.DateTimeFormats;
-import idaniel84.utils.DurationFormatter;
-import idaniel84.classes.PvpClass;
-import idaniel84.classes.bard.BardClass;
-import idaniel84.classes.type.MinerClass;
-import idaniel84.timer.GlobalTimer;
-import idaniel84.timer.PlayerTimer;
-import idaniel84.timer.Timer;
-import idaniel84.timer.type.NotchAppleTimer;
-import idaniel84.timer.type.SotwTimer;
-import idaniel84.timer.type.SpawnTagTimer;
-import idaniel84.user.FactionUser;
-import idaniel84.utils.ConfigurationService;
-import idaniel84.utils.DateTimeFormats;
-import idaniel84.utils.DurationFormatter;
-import net.veilmc.base.BasePlugin;
-import net.veilmc.base.user.BaseUser;
-import idaniel84.classes.PvpClass;
-import idaniel84.classes.bard.BardClass;
-import idaniel84.classes.type.MinerClass;
 import idaniel84.faction.type.PlayerFaction;
 import idaniel84.kothgame.EventTimer;
 import idaniel84.kothgame.eotw.EOTWHandler;
 import idaniel84.kothgame.faction.ConquestFaction;
 import idaniel84.kothgame.faction.EventFaction;
 import idaniel84.kothgame.tracker.ConquestTracker;
+import idaniel84.listener.FishingRodHitchListener;
 import idaniel84.scoreboard.SidebarEntry;
 import idaniel84.scoreboard.SidebarProvider;
 import idaniel84.timer.GlobalTimer;
@@ -64,7 +23,10 @@ import idaniel84.user.FactionUser;
 import idaniel84.utils.ConfigurationService;
 import idaniel84.utils.DateTimeFormats;
 import idaniel84.utils.DurationFormatter;
+import net.veilmc.base.BasePlugin;
+import net.veilmc.base.user.BaseUser;
 import net.veilmc.util.BukkitUtils;
+import net.veilmc.util.JavaUtils;
 import org.apache.commons.lang3.time.DurationFormatUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -189,10 +151,6 @@ public class TimerSidebarProvider implements SidebarProvider{
 			}
 		}
 
-		if(ConfigurationService.DEV){
-			lines.add(new SidebarEntry(ChatColor.RED.toString() + ChatColor.BOLD, "DEVELOPMENT MODE", ""));
-		}
-
 		if(eventFaction instanceof ConquestFaction){
 			final ConquestFaction conquestFaction = (ConquestFaction) eventFaction;
 			lines.add(new SidebarEntry(ChatColor.GOLD.toString(), ChatColor.BOLD + "Conquest Event", ""));
@@ -282,13 +240,19 @@ public class TimerSidebarProvider implements SidebarProvider{
 			lines.add(new SidebarEntry("§f » §9Players", "§8: ", "§c" + Bukkit.getOnlinePlayers().size()));
 		}
 
+		long remainingMillis = FishingRodHitchListener.getTaskRemainingMilliseconds(player);
+		if (remainingMillis > 0) {
+			lines.add(new SidebarEntry(ChatColor.BLUE, "Fishing Rod: ", ChatColor.WHITE + DurationFormatUtils.formatDuration(remainingMillis, "mm:ss")));
+		}
 
 		final FactionUser factionUser = this.plugin.getUserManager().getUser(player.getUniqueId());
+		final PlayerFaction playerFaction = this.plugin.getFactionManager().getPlayerFaction(player);
 
-		if((ConfigurationService.KIT_MAP || ConfigurationService.VEILZ || ConfigurationService.FFA) && factionUser != null){
+		if((ConfigurationService.KIT_MAP) && factionUser != null){
 			lines.add(new SidebarEntry(ChatColor.GOLD.toString() + " ", ChatColor.BLUE + "Balance: " + ChatColor.WHITE + "$", this.plugin.getEconomyManager().getBalance(player.getUniqueId())));
 			lines.add(new SidebarEntry(ChatColor.BLUE, " Kills", ": " + ChatColor.WHITE + factionUser.getKills()));
-			lines.add(new SidebarEntry(ChatColor.GOLD.toString() + " ", ChatColor.BLUE + "Deaths" + ": " + ChatColor.WHITE, player.getStatistic(Statistic.DEATHS)));
+			lines.add(new SidebarEntry(ChatColor.GOLD.toString() + " ", ChatColor.BLUE + "Deaths" + ": " + ChatColor.WHITE, factionUser.getDeaths()));
+			if (playerFaction != null) lines.add(new SidebarEntry(" ", ChatColor.BLUE + "DTR: ", playerFaction.getDtrColour() + JavaUtils.format(playerFaction.getDeathsUntilRaidable(false)) + ChatColor.WHITE + "/" + playerFaction.getMaximumDeathsUntilRaidable() + playerFaction.getRegenStatus().getSymbol()));
 		}
 
 		if(!lines.isEmpty()){

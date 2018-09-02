@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="HCF:jar">
+    <output-path>$USER_HOME$/Desktop/Development/plugins</output-path>
+    <root id="archive" name="HCF.jar">
+      <element id="module-output" name="HCF" />
+      <element id="extracted-dir" path="$USER_HOME$/Desktop/depends (1)/depends/EXPORT-Commons-Lang-3.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

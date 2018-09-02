@@ -1,33 +1,21 @@
 package idaniel84.faction.type;
 
-import idaniel84.HCF;
-import idaniel84.faction.event.FactionRenameEvent;
-import idaniel84.faction.struct.Relation;
-import idaniel84.utils.ConfigurationService;
-import idaniel84.HCF;
-import idaniel84.faction.event.FactionRenameEvent;
-import idaniel84.faction.struct.Relation;
-import idaniel84.utils.ConfigurationService;
-import idaniel84.faction.event.FactionRenameEvent;
-import idaniel84.faction.struct.Relation;
-import idaniel84.utils.ConfigurationService;
-import idaniel84.utils.ConfigurationService;
-import idaniel84.faction.event.FactionRenameEvent;
-import idaniel84.faction.struct.Relation;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.Maps;
-
-import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.UUID;
-
+import idaniel84.HCF;
+import idaniel84.faction.event.FactionRenameEvent;
+import idaniel84.faction.struct.Relation;
+import idaniel84.utils.ConfigurationService;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-
-
 import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.serialization.ConfigurationSerializable;
 import org.bukkit.entity.Player;
+
+import java.util.Date;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.UUID;
 
 public abstract class Faction
 		implements ConfigurationSerializable{
@@ -35,8 +23,8 @@ public abstract class Faction
 	public long lastRenameMillis;
 	protected String name;
 	protected long creationMillis;
-	protected double dtrLossMultiplier = 1.0;
 	protected double deathbanMultiplier = 1.0;
+	protected String creationDate = new Date().toString();
 	protected boolean safezone;
 	protected boolean locked;
 
@@ -53,6 +41,7 @@ public abstract class Faction
 		this.lastRenameMillis = Long.parseLong((String) map.get("lastRenameMillis"));
 		this.deathbanMultiplier = (Double) map.get("deathbanMultiplier");
 		this.safezone = (Boolean) map.get("safezone");
+		this.creationDate = map.get("creationDate").toString();
 	}
 
 	public Map<String, Object> serialize(){
@@ -63,6 +52,7 @@ public abstract class Faction
 		map.put("lastRenameMillis", Long.toString(this.lastRenameMillis));
 		map.put("deathbanMultiplier", this.deathbanMultiplier);
 		map.put("safezone", this.safezone);
+		map.put("creationDate", this.creationDate);
 		return map;
 	}
 
@@ -149,14 +139,6 @@ public abstract class Faction
 		this.deathbanMultiplier = deathbanMultiplier;
 	}
 
-	public double getDtrLossMultiplier(){
-		return this.dtrLossMultiplier;
-	}
-
-	public void setDtrLossMultiplier(double dtrLossMultiplier){
-		this.dtrLossMultiplier = dtrLossMultiplier;
-	}
-
 	public boolean isLocked(){
 		return this.locked;
 	}
@@ -183,9 +165,6 @@ public abstract class Faction
 		if(this.lastRenameMillis != faction.lastRenameMillis){
 			return false;
 		}
-		if(Double.compare(faction.dtrLossMultiplier, this.dtrLossMultiplier) != 0){
-			return false;
-		}
 		if(Double.compare(faction.deathbanMultiplier, this.deathbanMultiplier) != 0){
 			return false;
 		}
@@ -198,7 +177,7 @@ public abstract class Faction
 		return this.name != null ? this.name.equals(faction.name) : faction.name == null;
 	}
 
-	public int hashCode(){
+	/*public int hashCode(){
 		int result = this.uniqueID != null ? this.uniqueID.hashCode() : 0;
 		result = 31 * result + (this.name != null ? this.name.hashCode() : 0);
 		result = 31 * result + (int) (this.creationMillis ^ this.creationMillis >>> 32);
@@ -209,6 +188,6 @@ public abstract class Faction
 		result = 31 * result + (int) (temp ^ temp >>> 32);
 		result = 31 * result + (this.safezone ? 1 : 0);
 		return result;
-	}
+	}*/
 }
 

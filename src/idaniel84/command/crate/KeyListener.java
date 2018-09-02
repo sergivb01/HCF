@@ -1,22 +1,16 @@
 package idaniel84.command.crate;
 
+import com.google.common.collect.Sets;
 import idaniel84.HCF;
-import idaniel84.HCF;
+import idaniel84.command.crate.type.ConquestKey;
+import idaniel84.command.crate.type.KnockKothKey;
+import idaniel84.command.crate.type.KothKey;
+import idaniel84.command.crate.type.PalaceKey;
 import net.veilmc.util.InventoryUtils;
 import net.veilmc.util.chat.Text;
 import net.veilmc.util.chat.TextUtils;
-
-import java.util.ArrayList;
-import java.util.Random;
-
-import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
-import org.bukkit.Location;
-import org.bukkit.Material;
-import org.bukkit.Sound;
-import org.bukkit.World;
+import org.bukkit.*;
 import org.bukkit.block.Block;
-import org.bukkit.block.BlockState;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
@@ -29,20 +23,27 @@ import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.event.inventory.InventoryDragEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.Inventory;
-import org.bukkit.inventory.InventoryView;
 import org.bukkit.inventory.ItemStack;
+
+import java.util.ArrayList;
+import java.util.Random;
+import java.util.Set;
 
 public class KeyListener
 		implements Listener{
 	private final HCF plugin;
 
+	private static Set<Key> keys;
+
 	public KeyListener(HCF plugin){
+
+		keys = Sets.newHashSet(new Key[]{new KothKey(), new PalaceKey(), new ConquestKey(), new KnockKothKey()});
 		this.plugin = plugin;
 	}
 
 	@EventHandler(ignoreCancelled = true, priority = EventPriority.HIGH)
 	public void onBlockPlace(BlockPlaceEvent event){
-		Key key = this.plugin.getKeyManager().getKey(event.getItemInHand());
+		Key key = getKey(event.getItemInHand());
 		if(key != null){
 			event.setCancelled(true);
 		}
@@ -52,7 +53,7 @@ public class KeyListener
 	public void onInventoryClose(InventoryCloseEvent event){
 		Inventory inventory = event.getInventory();
 		Inventory topInventory = event.getView().getTopInventory();
-		if(inventory != null && topInventory != null && topInventory.equals(inventory) && topInventory.getTitle().endsWith(" 豆贝尔维")){
+		if(inventory != null && topInventory != null && topInventory.equals(inventory) && topInventory.getTitle().endsWith(" key.")){
 			Player player = (Player) event.getPlayer();
 			Location location = player.getLocation();
 			World world = player.getWorld();
@@ -72,7 +73,7 @@ public class KeyListener
 	public void onInventoryDrag(InventoryDragEvent event){
 		Inventory inventory = event.getInventory();
 		Inventory topInventory = event.getView().getTopInventory();
-		if(inventory != null && topInventory != null && topInventory.equals(inventory) && topInventory.getTitle().endsWith(" 豆贝尔维")){
+		if(inventory != null && topInventory != null && topInventory.equals(inventory) && topInventory.getTitle().endsWith(" key.")){
 			event.setCancelled(true);
 		}
 	}
@@ -81,7 +82,7 @@ public class KeyListener
 	public void onInventoryClick(InventoryClickEvent event){
 		Inventory clickedInventory = event.getClickedInventory();
 		Inventory topInventory = event.getView().getTopInventory();
-		if(clickedInventory == null || topInventory == null || !topInventory.getTitle().endsWith(" 豆贝尔维")){
+		if(clickedInventory == null || topInventory == null || !topInventory.getTitle().endsWith(" key.")){
 			return;
 		}
 		InventoryAction action = event.getAction();
@@ -109,23 +110,17 @@ public class KeyListener
 		if(action != Action.RIGHT_CLICK_BLOCK){
 			return;
 		}
-		Key key = this.plugin.getKeyManager().getKey(stack);
+		Key key = getKey(stack);
 		if(key == null){
 			return;
 		}
 		Block block = event.getClickedBlock();
-		BlockState state = block.getState();
 		if(key instanceof EnderChestKey && block.getType() == Material.ENDER_CHEST){
-			InventoryView openInventory = player.getOpenInventory();
-			Inventory topInventory = openInventory.getTopInventory();
-			if(topInventory != null && topInventory.getTitle().endsWith(" 贝艾る丝马せ艾勒艾し艾尺あ")){
-				return;
-			}
 			EnderChestKey enderChestKey = (EnderChestKey) key;
 			boolean broadcastLoot = enderChestKey.getBroadcastItems();
 			int rolls = enderChestKey.getRolls();
 			int size = InventoryUtils.getSafestInventorySize(rolls);
-			Inventory inventory = Bukkit.createInventory(player, size, enderChestKey.getName() + " 豆贝尔维");
+			Inventory inventory = Bukkit.createInventory(player, size, enderChestKey.getName() + " key.");
 			ItemStack[] loot = enderChestKey.getLoot();
 			if(loot == null){
 				player.sendMessage(ChatColor.RED + "That key has no loot defined, please inform an admin.");
@@ -155,6 +150,30 @@ public class KeyListener
 			this.decrementHand(player);
 			event.setCancelled(true);
 		}
+	}
+
+	public static Key getKey(ItemStack stack){
+		if(stack == null || !stack.hasItemMeta()){
+			return null;
+		}
+		for(Key key : keys){
+			ItemStack item = key.getItemStack();
+			if(!item.getItemMeta().getDisplayName().equals(stack.getItemMeta().getDisplayName())) continue;
+			return key;
+		}
+		return null;
+	}
+
+	public static Key getKey(String name){
+		for(Key key : keys){
+			if(!key.getName().equalsIgnoreCase(name)) continue;
+			return key;
+		}
+		return null;
+	}
+
+	public static Set<Key> getKeys(){
+		return keys;
 	}
 }
 

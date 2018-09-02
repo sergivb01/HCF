@@ -5,19 +5,6 @@ import idaniel84.faction.FactionManager;
 import idaniel84.faction.type.Faction;
 import idaniel84.faction.type.PlayerFaction;
 import idaniel84.utils.ConfigurationService;
-import idaniel84.HCF;
-import idaniel84.faction.FactionManager;
-import idaniel84.faction.type.Faction;
-import idaniel84.faction.type.PlayerFaction;
-import idaniel84.utils.ConfigurationService;
-import idaniel84.faction.FactionManager;
-import idaniel84.faction.type.Faction;
-import idaniel84.faction.type.PlayerFaction;
-import idaniel84.utils.ConfigurationService;
-import idaniel84.faction.FactionManager;
-import idaniel84.faction.type.Faction;
-import idaniel84.faction.type.PlayerFaction;
-import idaniel84.utils.ConfigurationService;
 import org.bukkit.*;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -46,7 +33,7 @@ public class SpawnCommand
 			player.sendMessage(ChatColor.YELLOW + "You have been teleported to spawn.");
 			return true;
 		}
-		if(ConfigurationService.KIT_MAP || ConfigurationService.VEILZ || ConfigurationService.FFA){
+		if(ConfigurationService.KIT_MAP){
 			if(this.plugin.getTimerManager().spawnTagTimer.getRemaining(player) > 0L){
 				player.sendMessage(ChatColor.RED + "You can not do this while your " + ChatColor.BOLD + "Spawn Tag" + ChatColor.RED + " is active.");
 				return false;

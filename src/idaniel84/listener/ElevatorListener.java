@@ -1,13 +1,6 @@
 package idaniel84.listener;
 
 import idaniel84.HCF;
-import idaniel84.timer.PlayerTimer;
-import idaniel84.utils.ConfigurationService;
-import idaniel84.HCF;
-import idaniel84.timer.PlayerTimer;
-import idaniel84.utils.ConfigurationService;
-import idaniel84.timer.PlayerTimer;
-import idaniel84.utils.ConfigurationService;
 import idaniel84.faction.type.Faction;
 import idaniel84.faction.type.PlayerFaction;
 import idaniel84.timer.PlayerTimer;
@@ -113,7 +106,7 @@ public class ElevatorListener implements Listener{
 		}
 		PlayerTimer timer = this.plugin.getTimerManager().spawnTagTimer;
 		long remaining = timer.getRemaining(player);
-		if(((timer = this.plugin.getTimerManager().spawnTagTimer).getRemaining(player) > 0L) && (!ConfigurationService.KIT_MAP && !ConfigurationService.VEILZ && !ConfigurationService.FFA)){
+		if(((timer = this.plugin.getTimerManager().spawnTagTimer).getRemaining(player) > 0L) && (!ConfigurationService.KIT_MAP)){
 			player.sendMessage(ChatColor.RED + "You can not use this while your " + ChatColor.BOLD + "Spawn Tag" + ChatColor.RED + " is active.");
 			return false;
 

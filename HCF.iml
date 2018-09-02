@@ -7,14 +7,14 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="Base" level="project" />
-    <orderEntry type="library" name="EXPORT-Commons-Lang-3" level="project" />
-    <orderEntry type="library" name="Giraffe" level="project" />
-    <orderEntry type="library" name="LiteBans" level="project" />
+    <orderEntry type="library" name="WorldEdit" level="project" />
     <orderEntry type="library" name="paperspigot-api-1.7.10-R0.1-SNAPSHOT" level="project" />
     <orderEntry type="library" name="paperspigot-1.7.10-R0.1-SNAPSHOT" level="project" />
-    <orderEntry type="library" name="WorldEdit" level="project" />
-    <orderEntry type="library" name="ProtocolLib_1" level="project" />
+    <orderEntry type="library" name="LiteBans" level="project" />
+    <orderEntry type="library" name="EXPORT-Commons-Lang-3" level="project" />
     <orderEntry type="library" name="PermissionsEx-1.23.3" level="project" />
+    <orderEntry type="library" name="ProtocolLib_1" level="project" />
+    <orderEntry type="library" name="Base" level="project" />
+    <orderEntry type="library" name="Giraffe" level="project" />
   </component>
 </module>

@@ -1,20 +1,7 @@
 package idaniel84.timer.type;
 
-import idaniel84.timer.event.TimerClearEvent;
-import idaniel84.timer.event.TimerStartEvent;
-import idaniel84.utils.ConfigurationService;
-import idaniel84.utils.DurationFormatter;
-import idaniel84.timer.event.TimerClearEvent;
-import idaniel84.timer.event.TimerStartEvent;
-import idaniel84.utils.ConfigurationService;
-import idaniel84.utils.DurationFormatter;
-import idaniel84.timer.event.TimerClearEvent;
-import idaniel84.timer.event.TimerStartEvent;
-import idaniel84.utils.ConfigurationService;
-import idaniel84.utils.DurationFormatter;
+import com.google.common.base.Optional;
 import idaniel84.HCF;
-import idaniel84.utils.ConfigurationService;
-import idaniel84.utils.DurationFormatter;
 import idaniel84.faction.claim.Claim;
 import idaniel84.faction.event.FactionClaimChangedEvent;
 import idaniel84.faction.event.PlayerClaimEnterEvent;
@@ -27,11 +14,12 @@ import idaniel84.timer.PlayerTimer;
 import idaniel84.timer.TimerRunnable;
 import idaniel84.timer.event.TimerClearEvent;
 import idaniel84.timer.event.TimerStartEvent;
+import idaniel84.utils.ConfigurationService;
+import idaniel84.utils.DurationFormatter;
 import idaniel84.visualise.VisualType;
+import net.minecraft.util.com.google.common.cache.CacheBuilder;
 import net.veilmc.util.BukkitUtils;
 import net.veilmc.util.Config;
-import com.google.common.base.Optional;
-import net.minecraft.util.com.google.common.cache.CacheBuilder;
 import org.apache.commons.lang3.time.DurationFormatUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -132,7 +120,7 @@ public class PvpProtectionTimer extends PlayerTimer implements Listener{
 
 	@EventHandler(ignoreCancelled = true, priority = EventPriority.MONITOR)
 	public void onPlayerRespawn(PlayerRespawnEvent event){
-		if(ConfigurationService.KIT_MAP || ConfigurationService.VEILZ || ConfigurationService.FFA){
+		if(ConfigurationService.KIT_MAP){
 			return;
 		}
 		Player player = event.getPlayer();
@@ -144,7 +132,7 @@ public class PvpProtectionTimer extends PlayerTimer implements Listener{
 
 	@EventHandler
 	public void onTimer(TimerStartEvent e){
-		if(ConfigurationService.KIT_MAP || ConfigurationService.VEILZ || ConfigurationService.FFA){
+		if(ConfigurationService.KIT_MAP){
 			if(e.getTimer() instanceof PvpProtectionTimer){
 				this.plugin.getTimerManager().pvpProtectionTimer.clearCooldown(e.getUserUUID().get());
 			}
@@ -153,7 +141,7 @@ public class PvpProtectionTimer extends PlayerTimer implements Listener{
 
 	@EventHandler(ignoreCancelled = true, priority = EventPriority.MONITOR)
 	public void onPlayerDeath(final PlayerDeathEvent event){
-		if(ConfigurationService.KIT_MAP || ConfigurationService.VEILZ || ConfigurationService.FFA){
+		if(ConfigurationService.KIT_MAP){
 			return;
 		}
 		final Player player = event.getEntity();
@@ -226,7 +214,7 @@ public class PvpProtectionTimer extends PlayerTimer implements Listener{
 	@EventHandler(ignoreCancelled = true, priority = EventPriority.MONITOR)
 	public void onPlayerSpawnLocation(final PlayerSpawnLocationEvent event){
 		final Player player = event.getPlayer();
-		if(!player.hasPlayedBefore() && (!ConfigurationService.KIT_MAP && !ConfigurationService.VEILZ && !ConfigurationService.FFA)){
+		if(!player.hasPlayedBefore() && (!ConfigurationService.KIT_MAP)){
 			if(!this.plugin.getEotwHandler().isEndOfTheWorld() && this.legible.add(player.getUniqueId())){
 				player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&cYou now have PvP Protection since you have died."));
 			}

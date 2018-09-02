@@ -1,7 +1,6 @@
 package idaniel84.command;
 
 import idaniel84.HCF;
-import idaniel84.utils.ConfigurationService;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -35,7 +34,7 @@ public class EndPortalCommand implements CommandExecutor, Listener{
 		this.plugin = plugin;
 		this.ITEM_DISPLAYNAME = ChatColor.GREEN + "Endportal Maker";
 		this.playerSelections = new HashMap<UUID, LocationPair>();
-		if (!ConfigurationService.VEILZ || !ConfigurationService.FFA) this.plugin.getServer().getPluginManager().registerEvents(this, this.plugin);
+		this.plugin.getServer().getPluginManager().registerEvents(this, this.plugin);
 	}
 
 	@EventHandler
@@ -128,14 +127,6 @@ public class EndPortalCommand implements CommandExecutor, Listener{
 	}
 
 	public boolean onCommand(final CommandSender s, final Command c, final String alias, final String[] args){
-		if (ConfigurationService.VEILZ) {
-			s.sendMessage(ChatColor.RED + "You cannot use this command while Veilz is enabled.");
-			return false;
-		}
-		if (ConfigurationService.FFA) {
-			s.sendMessage(ChatColor.RED + "You cannot use this command while FFA is enabled.");
-			return false;
-		}
 		if(!(s instanceof Player)){
 			return true;
 		}
@@ -144,7 +135,7 @@ public class EndPortalCommand implements CommandExecutor, Listener{
 			return true;
 		}
 		if(!p.hasPermission("hcf.command.endportal")){
-			s.sendMessage(ChatColor.RED + "You do not have acces to this command.");
+			s.sendMessage(ChatColor.RED + "You do not have access to this command.");
 			return true;
 		}
 		final ItemStack portalMaker = new ItemStack(Material.GOLD_SWORD);

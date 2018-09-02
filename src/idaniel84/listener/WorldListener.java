@@ -2,37 +2,20 @@ package idaniel84.listener;
 
 import idaniel84.HCF;
 import idaniel84.utils.ConfigurationService;
-import idaniel84.HCF;
-import idaniel84.utils.ConfigurationService;
-import idaniel84.utils.ConfigurationService;
-import idaniel84.utils.ConfigurationService;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.block.CreatureSpawner;
-import org.bukkit.entity.EnderDragon;
-import org.bukkit.entity.Entity;
-import org.bukkit.entity.Player;
-import org.bukkit.entity.Squid;
-import org.bukkit.entity.Wither;
+import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
-import org.bukkit.event.block.BlockBreakEvent;
-import org.bukkit.event.block.BlockFadeEvent;
-import org.bukkit.event.block.BlockFromToEvent;
-import org.bukkit.event.block.BlockIgniteEvent;
-import org.bukkit.event.block.BlockPlaceEvent;
-import org.bukkit.event.entity.CreatureSpawnEvent;
-import org.bukkit.event.entity.EntityChangeBlockEvent;
-import org.bukkit.event.entity.EntityExplodeEvent;
-import org.bukkit.event.entity.EntityPortalEvent;
-import org.bukkit.event.entity.PlayerDeathEvent;
+import org.bukkit.event.block.*;
+import org.bukkit.event.entity.*;
 import org.bukkit.event.inventory.InventoryOpenEvent;
 import org.bukkit.event.player.PlayerBedEnterEvent;
 import org.bukkit.event.player.PlayerRespawnEvent;
-import org.bukkit.inventory.ItemStack;
 import org.bukkit.material.EnderChest;
 import org.spigotmc.event.player.PlayerSpawnLocationEvent;
 
@@ -111,9 +94,6 @@ public class WorldListener implements Listener{
 
 	@EventHandler(ignoreCancelled = true, priority = EventPriority.HIGH)
 	public void onPlayerRespawn(PlayerRespawnEvent event){
-		if (ConfigurationService.FFA) {
-			Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "kit apply Axe " + event.getPlayer().getName());
-		}
 		event.setRespawnLocation(Bukkit.getWorld("world").getSpawnLocation().add(0.5, 0.0, 0.5));
 	}
 
@@ -121,10 +101,7 @@ public class WorldListener implements Listener{
 	public void onPlayerSpawn(PlayerSpawnLocationEvent event){
 		Player player = event.getPlayer();
 		if(!player.hasPlayedBefore()){
-			if (ConfigurationService.FFA) {
-				Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "kit apply Axe " + event.getPlayer().getName());
-			}
-			if (!ConfigurationService.VEILZ) this.plugin.getEconomyManager().addBalance(player.getUniqueId(), 250);
+			this.plugin.getEconomyManager().addBalance(player.getUniqueId(), 250);
 			event.setSpawnLocation(Bukkit.getWorld("world").getSpawnLocation().add(0.5, 0.0, 0.5));
 		}
 	}
@@ -152,20 +129,14 @@ public class WorldListener implements Listener{
 
 	@EventHandler
 	public void onPlayerDeath(PlayerDeathEvent event){
-		if((ConfigurationService.KIT_MAP || ConfigurationService.VEILZ || ConfigurationService.FFA) && event.getEntity().getKiller() != null){
+		if((ConfigurationService.KIT_MAP) && event.getEntity().getKiller() != null){
 			Player killer = event.getEntity().getKiller();
 			if(killer != event.getEntity().getPlayer()){
-				if (ConfigurationService.FFA) {
-					ItemStack gapple = new ItemStack(Material.GOLDEN_APPLE);
-					killer.getInventory().addItem(gapple);
-				}
 				int mult = getMultiplier(killer);
-				int eco;
-				if (ConfigurationService.VEILZ) eco = 25 * mult;
-				else eco = 100 * mult;
+				int eco = 100 * mult;
 				plugin.getEconomyManager().addBalance(killer.getUniqueId(), eco);
 				killer.sendMessage(ChatColor.GREEN + "You have gained $" + eco + " for killing " + ChatColor.WHITE + event.getEntity().getName() + ChatColor.GREEN + ". " + (mult != 1 ? ChatColor.GRAY + " (x" + mult + " multiplier" : ""));
-				if (ConfigurationService.KIT_MAP || ConfigurationService.FFA) Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "crate key " + killer.getName() + " KillReward");
+				if (ConfigurationService.KIT_MAP) Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "crate key " + killer.getName() + " KillReward");
 			}
 		}
 	}

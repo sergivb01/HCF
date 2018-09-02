@@ -16,7 +16,7 @@ public class SendCoordsCommand
 		implements CommandExecutor{
 
 	private final HCF plugin;
-	public HashMap<String, Long> cooldowns = new HashMap<String, Long>();
+	private HashMap<String, Long> cooldowns = new HashMap<String, Long>();
 
 
 	public SendCoordsCommand(HCF plugin){

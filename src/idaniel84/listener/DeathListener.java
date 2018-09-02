@@ -1,21 +1,13 @@
 package idaniel84.listener;
 
 import idaniel84.HCF;
-import idaniel84.user.FactionUser;
-import idaniel84.utils.ConfigurationService;
-import idaniel84.HCF;
-import idaniel84.user.FactionUser;
-import idaniel84.utils.ConfigurationService;
+import idaniel84.faction.struct.Role;
+import idaniel84.faction.type.PlayerFaction;
 import idaniel84.user.FactionUser;
 import idaniel84.utils.ConfigurationService;
 import net.minecraft.server.v1_7_R4.EntityLightning;
 import net.minecraft.server.v1_7_R4.PacketPlayOutSpawnEntityWeather;
 import net.minecraft.server.v1_7_R4.WorldServer;
-import idaniel84.faction.struct.Role;
-import idaniel84.faction.type.Faction;
-import idaniel84.faction.type.PlayerFaction;
-import idaniel84.user.FactionUser;
-import idaniel84.utils.ConfigurationService;
 import net.veilmc.util.JavaUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -34,11 +26,9 @@ import java.util.HashMap;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
-import static idaniel84.utils.ConfigurationService.VEILZ;
-
 public class DeathListener
 		implements Listener{
-	private static final long REGEN_DELAY = TimeUnit.MINUTES.toMillis(60L);
+	private static final long REGEN_DELAY = (ConfigurationService.KIT_MAP ? TimeUnit.MINUTES.toMillis(5L) : TimeUnit.MINUTES.toMillis(60L));
 	public static HashMap<UUID, ItemStack[]> PlayerInventoryContents = new HashMap();
 	public static HashMap<UUID, ItemStack[]> PlayerArmorContents = new HashMap();
 	private final HCF plugin;
@@ -49,6 +39,8 @@ public class DeathListener
 
 	@EventHandler(priority = EventPriority.LOWEST)
 	public void onPlayerDeathKillIncrement(PlayerDeathEvent event){
+		FactionUser death = this.plugin.getUserManager().getUser(event.getEntity().getUniqueId());
+		death.setDeaths(death.getDeaths() + 1);
 		Player killer = event.getEntity().getKiller();
 		if(killer != null){
 			FactionUser user = this.plugin.getUserManager().getUser(killer.getUniqueId());
@@ -60,25 +52,14 @@ public class DeathListener
 	public void onPlayerDeath(PlayerDeathEvent event){
 		Player player = event.getEntity();
 		PlayerFaction playerFaction = this.plugin.getFactionManager().getPlayerFaction(player.getUniqueId());
-		if(playerFaction != null && !ConfigurationService.KIT_MAP){
-			Faction factionAt = this.plugin.getFactionManager().getFactionAt(player.getLocation());
+		if(playerFaction != null){
 			Role role = playerFaction.getMember(player.getUniqueId()).getRole();
-			long regen = ConfigurationService.VEILZ_REGEN;
 			if(playerFaction.getDeathsUntilRaidable() >= -5.0D){
-				playerFaction.setDeathsUntilRaidable(playerFaction.getDeathsUntilRaidable() - factionAt.getDtrLossMultiplier());
-
-				if(ConfigurationService.VEILZ){
-					playerFaction.setRemainingRegenerationTime(regen);
-				}else{
-					playerFaction.setRemainingRegenerationTime(REGEN_DELAY);
-				}
+				playerFaction.setDeathsUntilRaidable(playerFaction.getDeathsUntilRaidable() - (ConfigurationService.KIT_MAP ? 0.5 : 1.0));
+				playerFaction.setRemainingRegenerationTime(REGEN_DELAY);
 				playerFaction.broadcast(ChatColor.RED + "Member Death: " + ChatColor.WHITE + role.getAstrix() + player.getName() + ChatColor.YELLOW + " DTR:" + ChatColor.GRAY + " [" + playerFaction.getDtrColour() + JavaUtils.format(playerFaction.getDeathsUntilRaidable()) + ChatColor.WHITE + '/' + ChatColor.WHITE + playerFaction.getMaximumDeathsUntilRaidable() + ChatColor.GRAY + "].");
 			}else{
-				if(ConfigurationService.VEILZ){
-					playerFaction.setRemainingRegenerationTime(regen);
-				}else{
-					playerFaction.setRemainingRegenerationTime(REGEN_DELAY);
-				}
+				playerFaction.setRemainingRegenerationTime(REGEN_DELAY);
 				playerFaction.broadcast(ChatColor.RED + "Member Death: " + ChatColor.WHITE + role.getAstrix() + ChatColor.YELLOW + " DTR:" + ChatColor.GRAY + " [" + playerFaction.getDtrColour() + JavaUtils.format(playerFaction.getDeathsUntilRaidable()) + ChatColor.WHITE + '/' + ChatColor.WHITE + playerFaction.getMaximumDeathsUntilRaidable() + ChatColor.GRAY + "].");
 			}
 		}

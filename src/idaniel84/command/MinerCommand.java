@@ -5,7 +5,6 @@ import org.bukkit.*;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
 
 public class MinerCommand implements CommandExecutor {
 
@@ -31,7 +30,7 @@ public class MinerCommand implements CommandExecutor {
             sender.sendMessage(ChatColor.AQUA + "» Level 5 (2000 Diamonds)");
             sender.sendMessage(ChatColor.WHITE + " Speed I, Haste IV, Resistance I, Saturation I, Regeneration I");
             sender.sendMessage(" ");
-            sender.sendMessage(ChatColor.DARK_AQUA + "Type /miner <" + sender.getName() + "> to see your miner level.");
+            sender.sendMessage(ChatColor.DARK_AQUA + "Type /miner <player> to see a player miner level.");
             sender.sendMessage(ChatColor.GRAY + BukkitUtils.STRAIGHT_LINE_DEFAULT);
 
         }

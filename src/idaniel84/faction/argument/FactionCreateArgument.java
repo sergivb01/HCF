@@ -1,15 +1,10 @@
 package idaniel84.faction.argument;
 
 import idaniel84.HCF;
-import idaniel84.utils.ConfigurationService;
-import idaniel84.HCF;
-import idaniel84.utils.ConfigurationService;
-import idaniel84.utils.ConfigurationService;
-import idaniel84.utils.ConfigurationService;
 import idaniel84.faction.type.PlayerFaction;
+import idaniel84.utils.ConfigurationService;
 import net.veilmc.util.JavaUtils;
 import net.veilmc.util.command.CommandArgument;
-
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -62,17 +57,7 @@ public class FactionCreateArgument
 			sender.sendMessage(ChatColor.RED + "You are already in a faction.");
 			return true;
 		}
-		if (ConfigurationService.VEILZ) {
-			int balance = plugin.getEconomyManager().getBalance(((Player) sender).getUniqueId());
-			int cost = ConfigurationService.VEILZ_FACTIONCOST;
-			if (balance < cost) sender.sendMessage(ChatColor.RED + "You need atleast $" + cost + " to create a faction. You currently have $" + balance + ".");
-			else {
-				this.plugin.getFactionManager().createFaction(new PlayerFaction(name), sender);
-				plugin.getEconomyManager().setBalance(((Player) sender).getUniqueId(), balance - cost);
-			}
-
-		}
-		if (!ConfigurationService.VEILZ) this.plugin.getFactionManager().createFaction(new PlayerFaction(name), sender);
+		this.plugin.getFactionManager().createFaction(new PlayerFaction(name), sender);
 		return true;
 	}
 }

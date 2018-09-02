@@ -1,389 +1,453 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="HCF:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="4af18e11-1793-4a2a-b640-b63833cced43" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/balances.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/config.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/enderdragon-art-old.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/enderdragon-art.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/event-schedules.txt" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/gopple-art.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/HCF.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/balance/EconomyCommand.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/balance/EconomyManager.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/balance/FlatFileEconomyManager.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/balance/PayCommand.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/balance/ShopSignListener.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/classes/PvpClass.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/classes/PvpClassManager.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/classes/archer/ArcherClass.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/classes/bard/BardClass.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/classes/bard/BardData.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/classes/bard/BardEffect.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/classes/bard/BardRestorer.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/classes/event/PvpClassEquipEvent.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/classes/event/PvpClassUnequipEvent.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/classes/type/AssassinClass.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/classes/type/MinerClass.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/classes/type/RogueClass.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/classes/type/RougeRestorer.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/combatlog/CombatLogEntry.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/combatlog/CombatLogListener.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/combatlog/CustomEntityRegistration.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/combatlog/LoggerDeathEvent.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/combatlog/LoggerEntity.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/combatlog/LoggerSpawnEvent.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/command/ChatGameCommand.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/command/CheckCommand.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/command/CobbleCommand.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/command/CoordsCommand.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/command/CrowbarCommand.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/command/CrowbarGiveCommand.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/command/DInfoCommand.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/command/EndDragonCommand.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/command/EndPortalCommand.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/command/EnderChestCommand.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/command/FFACommand.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/command/FactionFocusArgument.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/command/FfaEventCommand.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/command/GoppleCommand.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/command/HCFCommand.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/command/HelpCommand.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/command/LagCommand.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/command/LocationCommand.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/command/LogoutCommand.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/command/MapKitCommand.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/command/MinerCommand.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/command/NetherCommand.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/command/OresCommand.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/command/PermissionsCommand.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/command/PlatinumReviveCommand.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/command/PlayerStats.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/command/PlayerVaultCommand.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/command/PvpTimerCommand.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/command/RefundCommand.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/command/ReviveCommand.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/command/SafestopCommand.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/command/SaveDataCommand.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/command/SendCoordsCommand.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/command/ServerTimeCommand.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/command/SetBorderCommand.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/command/SotwCommand.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/command/SpawnEntitiesCommand.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/command/SpawnerCommand.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/command/StaffReviveCommand.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/command/StatResetCommand.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/command/StoreCommand.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/command/SumoEventCommand.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/command/SupplydropCommand.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/command/TeamspeakCommand.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/command/ThimbleEventCommand.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/command/ToggleEnd.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/command/TogglefdCommand.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/command/crate/EnderChestKey.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/command/crate/Key.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/command/crate/KeyListener.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/command/crate/KeyManager.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/command/crate/LootExecutor.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/command/crate/argument/LootBankArgument.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/command/crate/argument/LootBroadcastsArgument.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/command/crate/argument/LootDepositArgument.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/command/crate/argument/LootGiveArgument.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/command/crate/argument/LootListArgument.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/command/crate/argument/LootWithdrawArgument.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/command/crate/type/ConquestKey.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/command/crate/type/KnockKothKey.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/command/crate/type/KothKey.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/command/crate/type/PalaceKey.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/command/crate/type/Tier1Key.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/command/crate/type/Tier2Key.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/command/crate/type/Tier3Key.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/command/death/DeathExecutor.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/command/death/argument/DeathInfoArgument.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/command/death/argument/DeathRefundArgument.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/command/death/argument/DeathReviveArgument.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/command/lives/LivesExecutor.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/command/lives/argument/LivesCheckArgument.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/command/lives/argument/LivesClearDeathbansArgument.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/command/lives/argument/LivesGiveArgument.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/command/lives/argument/LivesReviveArgument.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/command/lives/argument/LivesSetArgument.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/command/lives/argument/LivesSetDeathbanTimeArgument.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/command/spawn/SpawnCommand.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/command/spawn/TokenExecutor.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/command/spawn/argument/TokenCheckArgument.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/command/spawn/argument/TokenGiveArgument.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/command/spawn/argument/TokenSetArgument.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/config/EventManager.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/config/FlatFileEventManager.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/config/PlayerData.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/config/PotionLimiterData.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/config/WorldData.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/crowbar/Crowbar.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/deathban/Deathban.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/deathban/DeathbanListener.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/deathban/DeathbanManager.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/deathban/FlatFileDeathbanManager.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/faction/FactionExecutor.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/faction/FactionManager.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/faction/FactionMember.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/faction/FlatFileFactionManager.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/faction/LandMap.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/faction/argument/FactionAcceptArgument.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/faction/argument/FactionAllyArgument.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/faction/argument/FactionAnnouncementArgument.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/faction/argument/FactionChatArgument.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/faction/argument/FactionClaimArgument.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/faction/argument/FactionClaimChunkArgument.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/faction/argument/FactionClaimsArgument.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/faction/argument/FactionCoLeaderArgument.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/faction/argument/FactionCreateArgument.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/faction/argument/FactionDemoteArgument.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/faction/argument/FactionDepositArgument.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/faction/argument/FactionDisbandArgument.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/faction/argument/FactionHelpArgument.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/faction/argument/FactionHomeArgument.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/faction/argument/FactionInviteArgument.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/faction/argument/FactionInvitesArgument.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/faction/argument/FactionKickArgument.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/faction/argument/FactionLeaderArgument.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/faction/argument/FactionLeaveArgument.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/faction/argument/FactionListArgument.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/faction/argument/FactionMapArgument.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/faction/argument/FactionMessageArgument.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/faction/argument/FactionOpenArgument.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/faction/argument/FactionPromoteArgument.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/faction/argument/FactionRenameArgument.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/faction/argument/FactionSetHomeArgument.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/faction/argument/FactionShowArgument.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/faction/argument/FactionStuckArgument.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/faction/argument/FactionUnallyArgument.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/faction/argument/FactionUnclaimArgument.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/faction/argument/FactionUninviteArgument.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/faction/argument/FactionVersionArgument.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/faction/argument/FactionWithdrawArgument.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/faction/argument/staff/FactionBanArgument.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/faction/argument/staff/FactionChatSpyArgument.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/faction/argument/staff/FactionClaimForArgument.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/faction/argument/staff/FactionClearClaimsArgument.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/faction/argument/staff/FactionForceJoinArgument.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/faction/argument/staff/FactionForceKickArgument.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/faction/argument/staff/FactionForceLeaderArgument.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/faction/argument/staff/FactionForcePromoteArgument.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/faction/argument/staff/FactionLockArgument.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/faction/argument/staff/FactionMuteArgument.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/faction/argument/staff/FactionRemoveArgument.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/faction/argument/staff/FactionSetDeathbanMultiplierArgument.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/faction/argument/staff/FactionSetDtrArgument.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/faction/argument/staff/FactionSetDtrRegenArgument.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/faction/claim/Claim.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/faction/claim/ClaimHandler.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/faction/claim/ClaimSelection.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/faction/claim/ClaimWandListener.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/faction/claim/Subclaim.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/faction/event/CaptureZoneEnterEvent.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/faction/event/CaptureZoneLeaveEvent.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/faction/event/FactionChatEvent.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/faction/event/FactionClaimChangeEvent.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/faction/event/FactionClaimChangedEvent.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/faction/event/FactionCreateEvent.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/faction/event/FactionDtrChangeEvent.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/faction/event/FactionEvent.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/faction/event/FactionRelationCreateEvent.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/faction/event/FactionRelationRemoveEvent.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/faction/event/FactionRemoveEvent.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/faction/event/FactionRenameEvent.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/faction/event/PlayerClaimEnterEvent.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/faction/event/PlayerJoinFactionEvent.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/faction/event/PlayerJoinedFactionEvent.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/faction/event/PlayerLeaveFactionEvent.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/faction/event/PlayerLeftFactionEvent.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/faction/event/cause/ClaimChangeCause.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/faction/event/cause/FactionLeaveCause.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/faction/struct/ChatChannel.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/faction/struct/Raidable.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/faction/struct/RegenStatus.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/faction/struct/Relation.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/faction/struct/Role.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/faction/type/CityFaction.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/faction/type/ClaimableFaction.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/faction/type/EndPortalFaction.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/faction/type/FFAFaction.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/faction/type/Faction.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/faction/type/GlowstoneFaction.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/faction/type/PlayerFaction.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/faction/type/RoadFaction.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/faction/type/SpawnFaction.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/faction/type/WarzoneFaction.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/faction/type/WildernessFaction.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/kothgame/CaptureZone.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/kothgame/EventExecutor.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/kothgame/EventScheduler.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/kothgame/EventTimer.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/kothgame/EventType.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/kothgame/argument/EventCancelArgument.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/kothgame/argument/EventCreateArgument.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/kothgame/argument/EventDeleteArgument.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/kothgame/argument/EventListArgument.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/kothgame/argument/EventRenameArgument.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/kothgame/argument/EventSetAreaArgument.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/kothgame/argument/EventSetCapzoneArgument.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/kothgame/argument/EventStartArgument.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/kothgame/argument/EventUptimeArgument.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/kothgame/conquest/ConquestExecutor.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/kothgame/conquest/ConquestSetpointsArgument.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/kothgame/eotw/EOTWHandler.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/kothgame/eotw/EotwCommand.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/kothgame/eotw/EotwListener.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/kothgame/faction/CapturableFaction.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/kothgame/faction/ConquestFaction.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/kothgame/faction/EventFaction.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/kothgame/faction/KnockKothFaction.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/kothgame/faction/KothFaction.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/kothgame/koth/KothExecutor.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/kothgame/koth/argument/KothNextArgument.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/kothgame/koth/argument/KothScheduleArgument.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/kothgame/koth/argument/KothSetCapDelayArgument.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/kothgame/koth/argument/KothShowArgument.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/kothgame/tracker/ConquestTracker.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/kothgame/tracker/EventTracker.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/kothgame/tracker/KnockKothTracker.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/kothgame/tracker/KothTracker.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/listener/AutoSmeltOreListener.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/listener/BookDeenchantListener.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/listener/BorderListener.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/listener/BottledExpListener.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/listener/ChatListener.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/listener/CoreListener.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/listener/CreeperFriendlyListener.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/listener/CrowbarListener.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/listener/DeathListener.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/listener/DeathMessageListener.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/listener/DeathSignListener.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/listener/DonorOnlyListener.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/listener/ElevatorListener.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/listener/EndListener.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/listener/EntityLimitListener.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/listener/EventSignListener.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/listener/ExpMultiplierListener.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/listener/FactionListener.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/listener/FactionsCoreListener.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/listener/FallDamageDisabledOnFFA.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/listener/FoundDiamondsListener.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/listener/FurnaceSmeltSpeederListener.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/listener/HitDetectionListener.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/listener/ItemStatTrackingListener.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/listener/KitListener.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/listener/KitMapListener.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/listener/MinecartElevatorListener.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/listener/MobSpawnDisabledOnKitsListener.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/listener/PotionListener.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/listener/SignSubclaimListener.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/listener/SkullListener.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/listener/SotwListener.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/listener/StatTrackListener.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/listener/UnRepairableListener.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/listener/WorldListener.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/listener/fixes/AutoRespawnListener.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/listener/fixes/BeaconStrengthFixListener.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/listener/fixes/BlockHitFixListener.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/listener/fixes/BlockJumpGlitchFixListener.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/listener/fixes/BoatGlitchFixListener.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/listener/fixes/BookQuillFixListener.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/listener/fixes/ColonFix.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/listener/fixes/DupeGlitchFix.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/listener/fixes/EnchantLimitListener.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/listener/fixes/EnchantSecurityListener.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/listener/fixes/EnderChestRemovalListener.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/listener/fixes/EndermanFixListener.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/listener/fixes/HungerFixListener.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/listener/fixes/InfinityArrowFixListener.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/listener/fixes/NetherPortalPearlFixListener.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/listener/fixes/NoPermissionClickListener.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/listener/fixes/PearlGlitchListener.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/listener/fixes/PexCrashFix.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/listener/fixes/PortalFixListener.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/listener/fixes/PotionLimitListener.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/listener/fixes/VoidGlitchFixListener.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/listener/fixes/WeatherFixListener.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/palace/EventSetCapzone.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/palace/PalaceFaction.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/palace/PalaceTracker.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/scoreboard/BufferedObjective.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/scoreboard/PlayerBoard.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/scoreboard/ScoreboardHandler.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/scoreboard/SidebarEntry.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/scoreboard/SidebarProvider.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/scoreboard/provider/TimerSidebarProvider.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/tab/TUtils.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/tab/Tab.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/tab/TabListener.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/tab/utils/tinyprotocol/comphenix/Reflection.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/tab/utils/tinyprotocol/comphenix/TinyProtocol.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/timer/GlobalTimer.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/timer/PlayerTimer.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/timer/SOTWTimer.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/timer/Timer.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/timer/TimerExecutor.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/timer/TimerManager.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/timer/TimerRunnable.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/timer/argument/TimerCheckArgument.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/timer/argument/TimerSetArgument.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/timer/event/TimerClearEvent.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/timer/event/TimerExpireEvent.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/timer/event/TimerExtendEvent.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/timer/event/TimerPauseEvent.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/timer/event/TimerStartEvent.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/timer/type/ArcherTimer.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/timer/type/EnderPearlTimer.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/timer/type/GoldenAppleTimer.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/timer/type/LogoutTimer.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/timer/type/NotchAppleTimer.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/timer/type/PvpClassWarmupTimer.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/timer/type/PvpProtectionTimer.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/timer/type/SotwTimer.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/timer/type/SpawnTagTimer.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/timer/type/StuckTimer.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/timer/type/TeleportTimer.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/user/AbstractUserManager.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/user/FactionUser.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/user/TabStyles.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/user/UserManager.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/utils/Chat.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/utils/ConfigFile.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/utils/ConfigurationService.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/utils/Cooldowns.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/utils/DateTimeFormats.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/utils/DurationFormatter.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/utils/Message.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/utils/Reflection.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/utils/UUIDFetcher.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/visualise/BlockFiller.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/visualise/ProtocolLibHook.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/visualise/VisualBlock.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/visualise/VisualBlockData.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/visualise/VisualType.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/visualise/VisualiseHandler.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/idaniel84/visualise/WallBorderListener.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/items.csv" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/kits.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/player-data.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/plugin.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/potion-limiter.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/world-config.yml" />
-      <change beforePath="$PROJECT_DIR$/.idea/HCF.iml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/HCF_jar.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/HCF/HCF.iml" afterPath="$PROJECT_DIR$/HCF/HCF.iml" />
-      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/HCF.java" afterPath="$PROJECT_DIR$/HCF/src/idaniel84/HCF.java" />
-      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/balance/EconomyManager.java" afterPath="$PROJECT_DIR$/HCF/src/idaniel84/balance/EconomyManager.java" />
-      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/balance/FlatFileEconomyManager.java" afterPath="$PROJECT_DIR$/HCF/src/idaniel84/balance/FlatFileEconomyManager.java" />
-      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/classes/bard/BardClass.java" afterPath="$PROJECT_DIR$/HCF/src/idaniel84/classes/bard/BardClass.java" />
-      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/deathban/DeathbanListener.java" afterPath="$PROJECT_DIR$/HCF/src/idaniel84/deathban/DeathbanListener.java" />
-      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/deathban/DeathbanManager.java" afterPath="$PROJECT_DIR$/HCF/src/idaniel84/deathban/DeathbanManager.java" />
-      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/faction/claim/ClaimHandler.java" afterPath="$PROJECT_DIR$/HCF/src/idaniel84/faction/claim/ClaimHandler.java" />
+      <change beforePath="$PROJECT_DIR$/HCF.iml" afterPath="$PROJECT_DIR$/HCF.iml" />
+      <change beforePath="$PROJECT_DIR$/HCF/HCF.iml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/META-INF/MANIFEST.MF" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/balances.yml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/config.yml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/enderdragon-art-old.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/enderdragon-art.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/event-schedules.txt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/gopple-art.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/HCF.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/balance/EconomyCommand.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/balance/EconomyManager.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/balance/FlatFileEconomyManager.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/balance/PayCommand.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/balance/ShopSignListener.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/classes/PvpClass.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/classes/PvpClassManager.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/classes/archer/ArcherClass.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/classes/bard/BardClass.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/classes/bard/BardData.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/classes/bard/BardEffect.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/classes/bard/BardRestorer.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/classes/event/PvpClassEquipEvent.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/classes/event/PvpClassUnequipEvent.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/classes/type/AssassinClass.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/classes/type/MinerClass.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/classes/type/RogueClass.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/classes/type/RougeRestorer.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/combatlog/CombatLogEntry.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/combatlog/CombatLogListener.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/combatlog/CustomEntityRegistration.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/combatlog/LoggerDeathEvent.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/combatlog/LoggerEntity.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/combatlog/LoggerSpawnEvent.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/command/ChatGameCommand.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/command/CheckCommand.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/command/CobbleCommand.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/command/CoordsCommand.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/command/CrowbarCommand.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/command/CrowbarGiveCommand.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/command/DInfoCommand.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/command/EndDragonCommand.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/command/EndPortalCommand.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/command/EnderChestCommand.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/command/FFACommand.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/command/FactionFocusArgument.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/command/FfaEventCommand.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/command/GoppleCommand.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/command/HCFCommand.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/command/HelpCommand.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/command/LagCommand.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/command/LocationCommand.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/command/LogoutCommand.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/command/MapKitCommand.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/command/MinerCommand.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/command/NetherCommand.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/command/OresCommand.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/command/PermissionsCommand.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/command/PlatinumReviveCommand.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/command/PlayerStats.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/command/PlayerVaultCommand.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/command/PvpTimerCommand.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/command/RefundCommand.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/command/ReviveCommand.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/command/SafestopCommand.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/command/SaveDataCommand.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/command/SendCoordsCommand.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/command/ServerTimeCommand.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/command/SetBorderCommand.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/command/SotwCommand.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/command/SpawnEntitiesCommand.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/command/SpawnerCommand.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/command/StaffReviveCommand.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/command/StatResetCommand.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/command/StoreCommand.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/command/SumoEventCommand.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/command/SupplydropCommand.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/command/TeamspeakCommand.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/command/ThimbleEventCommand.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/command/ToggleEnd.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/command/TogglefdCommand.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/command/crate/EnderChestKey.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/command/crate/Key.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/command/crate/KeyListener.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/command/crate/KeyManager.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/command/crate/LootExecutor.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/command/crate/argument/LootBankArgument.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/command/crate/argument/LootBroadcastsArgument.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/command/crate/argument/LootDepositArgument.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/command/crate/argument/LootGiveArgument.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/command/crate/argument/LootListArgument.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/command/crate/argument/LootWithdrawArgument.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/command/crate/type/ConquestKey.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/command/crate/type/KnockKothKey.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/command/crate/type/KothKey.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/command/crate/type/PalaceKey.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/command/crate/type/Tier1Key.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/command/crate/type/Tier2Key.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/command/crate/type/Tier3Key.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/command/death/DeathExecutor.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/command/death/argument/DeathInfoArgument.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/command/death/argument/DeathRefundArgument.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/command/death/argument/DeathReviveArgument.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/command/lives/LivesExecutor.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/command/lives/argument/LivesCheckArgument.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/command/lives/argument/LivesClearDeathbansArgument.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/command/lives/argument/LivesGiveArgument.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/command/lives/argument/LivesReviveArgument.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/command/lives/argument/LivesSetArgument.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/command/lives/argument/LivesSetDeathbanTimeArgument.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/command/spawn/SpawnCommand.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/command/spawn/TokenExecutor.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/command/spawn/argument/TokenCheckArgument.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/command/spawn/argument/TokenGiveArgument.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/command/spawn/argument/TokenSetArgument.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/config/EventManager.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/config/FlatFileEventManager.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/config/PlayerData.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/config/PotionLimiterData.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/config/WorldData.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/crowbar/Crowbar.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/deathban/Deathban.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/deathban/DeathbanListener.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/deathban/DeathbanManager.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/deathban/FlatFileDeathbanManager.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/faction/FactionExecutor.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/faction/FactionManager.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/faction/FactionMember.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/faction/FlatFileFactionManager.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/faction/LandMap.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/faction/argument/FactionAcceptArgument.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/faction/argument/FactionAllyArgument.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/faction/argument/FactionAnnouncementArgument.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/faction/argument/FactionChatArgument.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/faction/argument/FactionClaimArgument.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/faction/argument/FactionClaimChunkArgument.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/faction/argument/FactionClaimsArgument.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/faction/argument/FactionCoLeaderArgument.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/faction/argument/FactionCreateArgument.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/faction/argument/FactionDemoteArgument.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/faction/argument/FactionDepositArgument.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/faction/argument/FactionDisbandArgument.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/faction/argument/FactionHelpArgument.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/faction/argument/FactionHomeArgument.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/faction/argument/FactionInviteArgument.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/faction/argument/FactionInvitesArgument.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/faction/argument/FactionKickArgument.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/faction/argument/FactionLeaderArgument.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/faction/argument/FactionLeaveArgument.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/faction/argument/FactionListArgument.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/faction/argument/FactionMapArgument.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/faction/argument/FactionMessageArgument.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/faction/argument/FactionOpenArgument.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/faction/argument/FactionPromoteArgument.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/faction/argument/FactionRenameArgument.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/faction/argument/FactionSetHomeArgument.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/faction/argument/FactionShowArgument.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/faction/argument/FactionStuckArgument.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/faction/argument/FactionUnallyArgument.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/faction/argument/FactionUnclaimArgument.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/faction/argument/FactionUninviteArgument.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/faction/argument/FactionVersionArgument.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/faction/argument/FactionWithdrawArgument.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/faction/argument/staff/FactionBanArgument.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/faction/argument/staff/FactionChatSpyArgument.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/faction/argument/staff/FactionClaimForArgument.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/faction/argument/staff/FactionClearClaimsArgument.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/faction/argument/staff/FactionForceJoinArgument.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/faction/argument/staff/FactionForceKickArgument.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/faction/argument/staff/FactionForceLeaderArgument.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/faction/argument/staff/FactionForcePromoteArgument.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/faction/argument/staff/FactionLockArgument.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/faction/argument/staff/FactionMuteArgument.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/faction/argument/staff/FactionRemoveArgument.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/faction/argument/staff/FactionSetDeathbanMultiplierArgument.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/faction/argument/staff/FactionSetDtrArgument.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/faction/argument/staff/FactionSetDtrRegenArgument.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/faction/claim/Claim.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/faction/claim/ClaimHandler.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/faction/claim/ClaimSelection.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/faction/claim/ClaimWandListener.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/faction/claim/Subclaim.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/faction/event/CaptureZoneEnterEvent.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/faction/event/CaptureZoneLeaveEvent.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/faction/event/FactionChatEvent.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/faction/event/FactionClaimChangeEvent.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/faction/event/FactionClaimChangedEvent.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/faction/event/FactionCreateEvent.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/faction/event/FactionDtrChangeEvent.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/faction/event/FactionEvent.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/faction/event/FactionRelationCreateEvent.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/faction/event/FactionRelationRemoveEvent.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/faction/event/FactionRemoveEvent.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/faction/event/FactionRenameEvent.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/faction/event/PlayerClaimEnterEvent.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/faction/event/PlayerJoinFactionEvent.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/faction/event/PlayerJoinedFactionEvent.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/faction/event/PlayerLeaveFactionEvent.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/faction/event/PlayerLeftFactionEvent.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/faction/event/cause/ClaimChangeCause.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/faction/event/cause/FactionLeaveCause.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/faction/struct/ChatChannel.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/faction/struct/Raidable.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/faction/struct/RegenStatus.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/faction/struct/Relation.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/faction/struct/Role.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/faction/type/CityFaction.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/faction/type/ClaimableFaction.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/faction/type/EndPortalFaction.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/faction/type/FFAFaction.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/faction/type/Faction.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/faction/type/GlowstoneFaction.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/faction/type/PlayerFaction.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/faction/type/RoadFaction.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/faction/type/SpawnFaction.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/faction/type/WarzoneFaction.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/faction/type/WildernessFaction.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/kothgame/CaptureZone.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/kothgame/EventExecutor.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/kothgame/EventScheduler.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/kothgame/EventTimer.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/kothgame/EventType.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/kothgame/argument/EventCancelArgument.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/kothgame/argument/EventCreateArgument.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/kothgame/argument/EventDeleteArgument.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/kothgame/argument/EventListArgument.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/kothgame/argument/EventRenameArgument.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/kothgame/argument/EventSetAreaArgument.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/kothgame/argument/EventSetCapzoneArgument.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/kothgame/argument/EventStartArgument.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/kothgame/argument/EventUptimeArgument.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/kothgame/conquest/ConquestExecutor.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/kothgame/conquest/ConquestSetpointsArgument.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/kothgame/eotw/EOTWHandler.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/kothgame/eotw/EotwCommand.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/kothgame/eotw/EotwListener.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/kothgame/faction/CapturableFaction.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/kothgame/faction/ConquestFaction.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/kothgame/faction/EventFaction.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/kothgame/faction/KnockKothFaction.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/kothgame/faction/KothFaction.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/kothgame/koth/KothExecutor.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/kothgame/koth/argument/KothNextArgument.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/kothgame/koth/argument/KothScheduleArgument.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/kothgame/koth/argument/KothSetCapDelayArgument.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/kothgame/koth/argument/KothShowArgument.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/kothgame/tracker/ConquestTracker.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/kothgame/tracker/EventTracker.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/kothgame/tracker/KnockKothTracker.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/kothgame/tracker/KothTracker.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/listener/AutoSmeltOreListener.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/listener/BookDeenchantListener.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/listener/BorderListener.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/listener/BottledExpListener.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/listener/ChatListener.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/listener/CoreListener.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/listener/CreeperFriendlyListener.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/listener/CrowbarListener.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/listener/DeathListener.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/listener/DeathMessageListener.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/listener/DeathSignListener.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/listener/DonorOnlyListener.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/listener/ElevatorListener.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/listener/EndListener.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/listener/EntityLimitListener.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/listener/EventSignListener.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/listener/ExpMultiplierListener.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/listener/FactionListener.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/listener/FactionsCoreListener.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/listener/FallDamageDisabledOnFFA.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/listener/FoundDiamondsListener.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/listener/FurnaceSmeltSpeederListener.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/listener/HitDetectionListener.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/listener/ItemStatTrackingListener.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/listener/KitListener.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/listener/KitMapListener.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/listener/MinecartElevatorListener.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/listener/MobSpawnDisabledOnKitsListener.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/listener/PotionListener.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/listener/SignSubclaimListener.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/listener/SkullListener.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/listener/SotwListener.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/listener/StatTrackListener.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/listener/UnRepairableListener.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/listener/WorldListener.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/listener/fixes/AutoRespawnListener.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/listener/fixes/BeaconStrengthFixListener.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/listener/fixes/BlockHitFixListener.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/listener/fixes/BlockJumpGlitchFixListener.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/listener/fixes/BoatGlitchFixListener.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/listener/fixes/BookQuillFixListener.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/listener/fixes/ColonFix.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/listener/fixes/DupeGlitchFix.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/listener/fixes/EnchantLimitListener.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/listener/fixes/EnchantSecurityListener.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/listener/fixes/EnderChestRemovalListener.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/listener/fixes/EndermanFixListener.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/listener/fixes/HungerFixListener.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/listener/fixes/InfinityArrowFixListener.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/listener/fixes/NetherPortalPearlFixListener.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/listener/fixes/NoPermissionClickListener.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/listener/fixes/PearlGlitchListener.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/listener/fixes/PexCrashFix.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/listener/fixes/PortalFixListener.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/listener/fixes/PotionLimitListener.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/listener/fixes/VoidGlitchFixListener.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/listener/fixes/WeatherFixListener.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/palace/EventSetCapzone.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/palace/PalaceFaction.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/palace/PalaceTracker.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/scoreboard/BufferedObjective.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/scoreboard/PlayerBoard.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/scoreboard/ScoreboardHandler.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/scoreboard/SidebarEntry.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/scoreboard/SidebarProvider.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/scoreboard/provider/TimerSidebarProvider.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/tab/TUtils.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/tab/Tab.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/tab/TabListener.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/tab/utils/tinyprotocol/comphenix/Reflection.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/tab/utils/tinyprotocol/comphenix/TinyProtocol.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/timer/GlobalTimer.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/timer/PlayerTimer.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/timer/SOTWTimer.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/timer/Timer.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/timer/TimerExecutor.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/timer/TimerManager.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/timer/TimerRunnable.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/timer/argument/TimerCheckArgument.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/timer/argument/TimerSetArgument.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/timer/event/TimerClearEvent.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/timer/event/TimerExpireEvent.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/timer/event/TimerExtendEvent.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/timer/event/TimerPauseEvent.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/timer/event/TimerStartEvent.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/timer/type/ArcherTimer.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/timer/type/EnderPearlTimer.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/timer/type/GoldenAppleTimer.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/timer/type/LogoutTimer.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/timer/type/NotchAppleTimer.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/timer/type/PvpClassWarmupTimer.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/timer/type/PvpProtectionTimer.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/timer/type/SotwTimer.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/timer/type/SpawnTagTimer.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/timer/type/StuckTimer.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/timer/type/TeleportTimer.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/user/AbstractUserManager.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/user/FactionUser.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/user/TabStyles.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/user/UserManager.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/utils/Chat.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/utils/ConfigFile.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/utils/ConfigurationService.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/utils/Cooldowns.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/utils/DateTimeFormats.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/utils/DurationFormatter.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/utils/Message.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/utils/Reflection.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/utils/UUIDFetcher.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/visualise/BlockFiller.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/visualise/ProtocolLibHook.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/visualise/VisualBlock.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/visualise/VisualBlockData.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/visualise/VisualType.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/visualise/VisualiseHandler.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/idaniel84/visualise/WallBorderListener.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/items.csv" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/kits.yml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/player-data.yml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/plugin.yml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/potion-limiter.yml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/HCF/src/world-config.yml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/HCF-Dani/.idea/HCF-Dani.iml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/balances.yml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/config.yml" afterPath="$PROJECT_DIR$/src/config.yml" />
+      <change beforePath="$PROJECT_DIR$/src/idaniel84/HCF.java" afterPath="$PROJECT_DIR$/src/idaniel84/HCF.java" />
+      <change beforePath="$PROJECT_DIR$/src/idaniel84/classes/PvpClassManager.java" afterPath="$PROJECT_DIR$/src/idaniel84/classes/PvpClassManager.java" />
+      <change beforePath="$PROJECT_DIR$/src/idaniel84/command/ChatGameCommand.java" afterPath="$PROJECT_DIR$/src/idaniel84/command/ChatGameCommand.java" />
+      <change beforePath="$PROJECT_DIR$/src/idaniel84/command/DInfoCommand.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/idaniel84/command/EndDragonCommand.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/idaniel84/command/EndPortalCommand.java" afterPath="$PROJECT_DIR$/src/idaniel84/command/EndPortalCommand.java" />
+      <change beforePath="$PROJECT_DIR$/src/idaniel84/command/EnderChestCommand.java" afterPath="$PROJECT_DIR$/src/idaniel84/command/EnderChestCommand.java" />
+      <change beforePath="$PROJECT_DIR$/src/idaniel84/command/FactionFocusArgument.java" afterPath="$PROJECT_DIR$/src/idaniel84/faction/argument/FactionFocusArgument.java" />
+      <change beforePath="$PROJECT_DIR$/src/idaniel84/command/FfaEventCommand.java" afterPath="$PROJECT_DIR$/src/idaniel84/command/event/FfaEventCommand.java" />
+      <change beforePath="$PROJECT_DIR$/src/idaniel84/command/HelpCommand.java" afterPath="$PROJECT_DIR$/src/idaniel84/command/HelpCommand.java" />
+      <change beforePath="$PROJECT_DIR$/src/idaniel84/command/MinerCommand.java" afterPath="$PROJECT_DIR$/src/idaniel84/command/MinerCommand.java" />
+      <change beforePath="$PROJECT_DIR$/src/idaniel84/command/NetherCommand.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/idaniel84/command/PermissionsCommand.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/idaniel84/command/PlatinumReviveCommand.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/idaniel84/command/PlayerStats.java" afterPath="$PROJECT_DIR$/src/idaniel84/command/StatsCommand.java" />
+      <change beforePath="$PROJECT_DIR$/src/idaniel84/command/PlayerVaultCommand.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/idaniel84/command/RefundCommand.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/idaniel84/command/SendCoordsCommand.java" afterPath="$PROJECT_DIR$/src/idaniel84/command/SendCoordsCommand.java" />
+      <change beforePath="$PROJECT_DIR$/src/idaniel84/command/StoreCommand.java" afterPath="$PROJECT_DIR$/src/idaniel84/command/StoreCommand.java" />
+      <change beforePath="$PROJECT_DIR$/src/idaniel84/command/SumoEventCommand.java" afterPath="$PROJECT_DIR$/src/idaniel84/command/event/SumoEventCommand.java" />
+      <change beforePath="$PROJECT_DIR$/src/idaniel84/command/TeamspeakCommand.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/idaniel84/command/ThimbleEventCommand.java" afterPath="$PROJECT_DIR$/src/idaniel84/command/event/ThimbleEventCommand.java" />
+      <change beforePath="$PROJECT_DIR$/src/idaniel84/command/crate/KeyListener.java" afterPath="$PROJECT_DIR$/src/idaniel84/command/crate/KeyListener.java" />
+      <change beforePath="$PROJECT_DIR$/src/idaniel84/command/crate/KeyManager.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/idaniel84/command/crate/LootExecutor.java" afterPath="$PROJECT_DIR$/src/idaniel84/command/crate/LootExecutor.java" />
+      <change beforePath="$PROJECT_DIR$/src/idaniel84/command/crate/argument/LootBankArgument.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/idaniel84/command/crate/argument/LootBroadcastsArgument.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/idaniel84/command/crate/argument/LootDepositArgument.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/idaniel84/command/crate/argument/LootGiveArgument.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/idaniel84/command/crate/argument/LootListArgument.java" afterPath="$PROJECT_DIR$/src/idaniel84/command/crate/argument/LootListArgument.java" />
+      <change beforePath="$PROJECT_DIR$/src/idaniel84/command/crate/argument/LootWithdrawArgument.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/idaniel84/command/crate/type/Tier1Key.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/idaniel84/command/crate/type/Tier2Key.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/idaniel84/command/crate/type/Tier3Key.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/idaniel84/command/death/DeathExecutor.java" afterPath="$PROJECT_DIR$/src/idaniel84/command/death/DeathExecutor.java" />
+      <change beforePath="$PROJECT_DIR$/src/idaniel84/command/spawn/SpawnCommand.java" afterPath="$PROJECT_DIR$/src/idaniel84/command/spawn/SpawnCommand.java" />
+      <change beforePath="$PROJECT_DIR$/src/idaniel84/config/WorldData.java" afterPath="$PROJECT_DIR$/src/idaniel84/config/WorldData.java" />
+      <change beforePath="$PROJECT_DIR$/src/idaniel84/deathban/DeathbanListener.java" afterPath="$PROJECT_DIR$/src/idaniel84/deathban/DeathbanListener.java" />
+      <change beforePath="$PROJECT_DIR$/src/idaniel84/faction/FactionExecutor.java" afterPath="$PROJECT_DIR$/src/idaniel84/faction/FactionExecutor.java" />
+      <change beforePath="$PROJECT_DIR$/src/idaniel84/faction/FlatFileFactionManager.java" afterPath="$PROJECT_DIR$/src/idaniel84/faction/FlatFileFactionManager.java" />
+      <change beforePath="$PROJECT_DIR$/src/idaniel84/faction/argument/FactionCreateArgument.java" afterPath="$PROJECT_DIR$/src/idaniel84/faction/argument/FactionCreateArgument.java" />
+      <change beforePath="$PROJECT_DIR$/src/idaniel84/faction/argument/staff/FactionClaimForArgument.java" afterPath="$PROJECT_DIR$/src/idaniel84/faction/argument/staff/FactionClaimForArgument.java" />
+      <change beforePath="$PROJECT_DIR$/src/idaniel84/faction/argument/staff/FactionSetDtrArgument.java" afterPath="$PROJECT_DIR$/src/idaniel84/faction/argument/staff/FactionSetDtrArgument.java" />
+      <change beforePath="$PROJECT_DIR$/src/idaniel84/faction/argument/staff/FactionSetDtrRegenArgument.java" afterPath="$PROJECT_DIR$/src/idaniel84/faction/argument/staff/FactionSetDtrRegenArgument.java" />
+      <change beforePath="$PROJECT_DIR$/src/idaniel84/faction/type/CityFaction.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/idaniel84/faction/type/Faction.java" afterPath="$PROJECT_DIR$/src/idaniel84/faction/type/Faction.java" />
+      <change beforePath="$PROJECT_DIR$/src/idaniel84/faction/type/PlayerFaction.java" afterPath="$PROJECT_DIR$/src/idaniel84/faction/type/PlayerFaction.java" />
+      <change beforePath="$PROJECT_DIR$/src/idaniel84/kothgame/EventTimer.java" afterPath="$PROJECT_DIR$/src/idaniel84/kothgame/EventTimer.java" />
+      <change beforePath="$PROJECT_DIR$/src/idaniel84/listener/DeathListener.java" afterPath="$PROJECT_DIR$/src/idaniel84/listener/DeathListener.java" />
+      <change beforePath="$PROJECT_DIR$/src/idaniel84/listener/ElevatorListener.java" afterPath="$PROJECT_DIR$/src/idaniel84/listener/ElevatorListener.java" />
+      <change beforePath="$PROJECT_DIR$/src/idaniel84/listener/FactionListener.java" afterPath="$PROJECT_DIR$/src/idaniel84/listener/FactionListener.java" />
+      <change beforePath="$PROJECT_DIR$/src/idaniel84/listener/FactionsCoreListener.java" afterPath="$PROJECT_DIR$/src/idaniel84/listener/FactionsCoreListener.java" />
+      <change beforePath="$PROJECT_DIR$/src/idaniel84/listener/FallDamageDisabledOnFFA.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/idaniel84/listener/MobSpawnDisabledOnKitsListener.java" afterPath="$PROJECT_DIR$/src/idaniel84/listener/MobSpawnDisabledOnKitsListener.java" />
+      <change beforePath="$PROJECT_DIR$/src/idaniel84/listener/WorldListener.java" afterPath="$PROJECT_DIR$/src/idaniel84/listener/WorldListener.java" />
+      <change beforePath="$PROJECT_DIR$/src/idaniel84/scoreboard/provider/TimerSidebarProvider.java" afterPath="$PROJECT_DIR$/src/idaniel84/scoreboard/provider/TimerSidebarProvider.java" />
+      <change beforePath="$PROJECT_DIR$/src/idaniel84/timer/type/EnderPearlTimer.java" afterPath="$PROJECT_DIR$/src/idaniel84/timer/type/EnderPearlTimer.java" />
+      <change beforePath="$PROJECT_DIR$/src/idaniel84/timer/type/PvpClassWarmupTimer.java" afterPath="$PROJECT_DIR$/src/idaniel84/timer/type/PvpClassWarmupTimer.java" />
+      <change beforePath="$PROJECT_DIR$/src/idaniel84/timer/type/PvpProtectionTimer.java" afterPath="$PROJECT_DIR$/src/idaniel84/timer/type/PvpProtectionTimer.java" />
+      <change beforePath="$PROJECT_DIR$/src/idaniel84/timer/type/SpawnTagTimer.java" afterPath="$PROJECT_DIR$/src/idaniel84/timer/type/SpawnTagTimer.java" />
+      <change beforePath="$PROJECT_DIR$/src/idaniel84/utils/ConfigurationService.java" afterPath="$PROJECT_DIR$/src/idaniel84/utils/ConfigurationService.java" />
+      <change beforePath="$PROJECT_DIR$/src/kits.yml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/player-data.yml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/plugin.yml" afterPath="$PROJECT_DIR$/src/plugin.yml" />
+      <change beforePath="$PROJECT_DIR$/src/world-config.yml" afterPath="" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -393,13 +457,16 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
+  </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="HCF.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/idaniel84/HCF.java">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="FishingRodHitchListener.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/idaniel84/listener/FishingRodHitchListener.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-552">
-              <caret line="217" column="9" lean-forward="true" selection-start-line="217" selection-start-column="9" selection-end-line="217" selection-end-column="9" />
+            <state relative-caret-position="2438">
+              <caret line="123" column="13" lean-forward="false" selection-start-line="123" selection-start-column="13" selection-end-line="123" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -407,7 +474,82 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="FactionNearArgument.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/idaniel84/faction/argument/FactionNearArgument.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="421">
+              <caret line="40" column="463" lean-forward="false" selection-start-line="40" selection-start-column="463" selection-end-line="40" selection-end-column="463" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TimerSidebarProvider.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/idaniel84/scoreboard/provider/TimerSidebarProvider.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="4577">
+              <caret line="239" column="60" lean-forward="false" selection-start-line="239" selection-start-column="60" selection-end-line="239" selection-end-column="60" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
     </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>BLUE</find>
+      <find>AQUA</find>
+      <find>YELLOW</find>
+      <find>GOLD</find>
+      <find>GREEN</find>
+      <find>GRAY</find>
+      <find>ChatColor</find>
+      <find>in-faction</find>
+      <find>IN_FACTION</find>
+      <find>that fast</find>
+      <find>sendCoords</find>
+      <find>scheduleSync</find>
+      <find>scheduleaSync</find>
+      <find>callEvent</find>
+      <find>timerSide</find>
+      <find>You cannot use this</find>
+      <find>&quot;You cannot use&quot;</find>
+      <find>ENDERPEARL_COOLDOWN_EXPIRED</find>
+      <find>setCooldown</find>
+      <find>Sending you to your</find>
+      <find>teleportTimer</find>
+      <find>TimerSidebar</find>
+      <find>getRemainingTicks</find>
+      <find>TimeUnit</find>
+      <find>System.currentTimeMillis()</find>
+      <find>System.currentTimeMillis() -</find>
+      <find>spawntag_timer</find>
+      <find>System.currentTimeMillis</find>
+      <find>buffered</find>
+      <find>BaseUser</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>key.</replace>
+      <replace>GOLD</replace>
+      <replace>YELLOW</replace>
+      <replace>GRAY</replace>
+      <replace>GREEN</replace>
+      <replace>RED</replace>
+      <replace>WHITE</replace>
+    </replaceStrings>
+    <dirStrings>
+      <dir>C:\Users\danie\IdeaProjects\HCF</dir>
+      <dir>C:\Users\danie\IdeaProjects\HCF\src\idaniel84\command\crate</dir>
+      <dir>C:\Users\danie\IdeaProjects\HCF\src\idaniel84</dir>
+    </dirStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -421,13 +563,54 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/HCF-Dani/idaniel84/HCF.java" />
+        <option value="$PROJECT_DIR$/src/idaniel84/classes/PvpClassManager.java" />
+        <option value="$PROJECT_DIR$/src/idaniel84/faction/FlatFileFactionManager.java" />
+        <option value="$PROJECT_DIR$/src/idaniel84/config/WorldData.java" />
+        <option value="$PROJECT_DIR$/src/idaniel84/faction/argument/FactionCreateArgument.java" />
+        <option value="$PROJECT_DIR$/src/idaniel84/command/EndPortalCommand.java" />
+        <option value="$PROJECT_DIR$/src/idaniel84/listener/WorldListener.java" />
+        <option value="$PROJECT_DIR$/src/config.yml" />
+        <option value="$PROJECT_DIR$/src/idaniel84/command/EnderChestCommand.java" />
+        <option value="$PROJECT_DIR$/src/idaniel84/command/PermissionsCommand.java" />
+        <option value="$PROJECT_DIR$/src/idaniel84/command/PlayerStats.java" />
+        <option value="$PROJECT_DIR$/src/idaniel84/command/StatsCommand.java" />
+        <option value="$PROJECT_DIR$/src/idaniel84/faction/argument/FactionFocusArgument.java" />
+        <option value="$PROJECT_DIR$/src/idaniel84/command/EndDragonCommand.java" />
+        <option value="$PROJECT_DIR$/src/idaniel84/command/EnderDragonEventCommand.java" />
+        <option value="$PROJECT_DIR$/src/idaniel84/command/event/EnderDragonEventCommand.java" />
+        <option value="$PROJECT_DIR$/src/idaniel84/command/event/ThimbleEventCommand.java" />
+        <option value="$PROJECT_DIR$/src/idaniel84/command/event/FfaEventCommand.java" />
+        <option value="$PROJECT_DIR$/src/idaniel84/command/event/SumoEventCommand.java" />
+        <option value="$PROJECT_DIR$/src/idaniel84/command/death/DeathExecutor.java" />
+        <option value="$PROJECT_DIR$/src/idaniel84/command/StoreCommand.java" />
+        <option value="$PROJECT_DIR$/src/idaniel84/command/HelpCommand.java" />
+        <option value="$PROJECT_DIR$/src/idaniel84/command/MinerCommand.java" />
+        <option value="$PROJECT_DIR$/src/idaniel84/command/crate/LootExecutor.java" />
+        <option value="$PROJECT_DIR$/src/idaniel84/command/crate/KeyManager.java" />
+        <option value="$PROJECT_DIR$/src/idaniel84/command/crate/argument/LootListArgument.java" />
+        <option value="$PROJECT_DIR$/src/idaniel84/command/crate/argument/LootGiveArgument.java" />
+        <option value="$PROJECT_DIR$/src/idaniel84/faction/FactionExecutor.java" />
+        <option value="$PROJECT_DIR$/src/plugin.yml" />
+        <option value="$PROJECT_DIR$/src/idaniel84/command/crate/KeyListener.java" />
+        <option value="$PROJECT_DIR$/src/idaniel84/listener/fixes/NearPearlFixListener.java" />
+        <option value="$PROJECT_DIR$/src/idaniel84/kothgame/EventTimer.java" />
+        <option value="$PROJECT_DIR$/src/idaniel84/faction/type/Faction.java" />
+        <option value="$PROJECT_DIR$/src/idaniel84/faction/argument/staff/FactionSetDtrRegenArgument.java" />
+        <option value="$PROJECT_DIR$/src/idaniel84/faction/argument/staff/FactionSetDtrArgument.java" />
+        <option value="$PROJECT_DIR$/src/idaniel84/listener/DeathListener.java" />
+        <option value="$PROJECT_DIR$/src/idaniel84/faction/type/PlayerFaction.java" />
         <option value="$PROJECT_DIR$/src/idaniel84/HCF.java" />
+        <option value="$PROJECT_DIR$/src/idaniel84/listener/FactionsCoreListener.java" />
+        <option value="$PROJECT_DIR$/src/idaniel84/command/SendCoordsCommand.java" />
+        <option value="$PROJECT_DIR$/src/idaniel84/timer/type/EnderPearlTimer.java" />
+        <option value="$PROJECT_DIR$/src/idaniel84/scoreboard/provider/TimerSidebarProvider.java" />
+        <option value="$PROJECT_DIR$/src/idaniel84/listener/FishingRodHitchListener.java" />
+        <option value="$PROJECT_DIR$/src/idaniel84/faction/argument/FactionNearArgument.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="255" />
-    <option name="y" value="79" />
+    <option name="x" value="55" />
     <option name="width" value="565" />
     <option name="height" value="692" />
   </component>
@@ -464,6 +647,35 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="idaniel84" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="HCF" type="b2602c69:ProjectViewProjectNode" />
+              <item name="HCF" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="idaniel84" type="462c0819:PsiDirectoryNode" />
+              <item name="command" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="HCF" type="b2602c69:ProjectViewProjectNode" />
+              <item name="HCF" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="idaniel84" type="462c0819:PsiDirectoryNode" />
+              <item name="faction" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="HCF" type="b2602c69:ProjectViewProjectNode" />
+              <item name="HCF" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="idaniel84" type="462c0819:PsiDirectoryNode" />
+              <item name="faction" type="462c0819:PsiDirectoryNode" />
+              <item name="argument" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="HCF" type="b2602c69:ProjectViewProjectNode" />
+              <item name="HCF" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="idaniel84" type="462c0819:PsiDirectoryNode" />
+              <item name="listener" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -475,11 +687,12 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/depends (1)/depends/PermissionsEx-1.23.3.jar!/" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/depends (1)/depends/EXPORT-Commons-Lang-3.jar!/" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.16015625" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://C:/Users/danie/IdeaProjects/HCF/src/idaniel84/timer/type/EnderPearlTimer.java" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -599,32 +812,34 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33442622" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32903227" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903227" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2867804" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32896176" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -635,13 +850,361 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/idaniel84/command/crate/KeyManager.java" />
+    <entry file="file://$PROJECT_DIR$/src/idaniel84/command/crate/EnderChestKey.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/idaniel84/command/crate/Key.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="6" column="22" lean-forward="false" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/idaniel84/faction/argument/FactionMapArgument.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="27" column="8" lean-forward="false" selection-start-line="27" selection-start-column="8" selection-end-line="81" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/idaniel84/faction/argument/FactionListArgument.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-46">
+          <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/idaniel84/faction/argument/FactionMessageArgument.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/idaniel84/command/event/EnderDragonEventCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-184">
+          <caret line="20" column="13" lean-forward="false" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/idaniel84/faction/argument/FactionFocusArgument.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="142">
+          <caret line="29" column="8" lean-forward="false" selection-start-line="29" selection-start-column="8" selection-end-line="33" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/idaniel84/faction/argument/FactionShowArgument.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="31" column="15" lean-forward="false" selection-start-line="31" selection-start-column="8" selection-end-line="31" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/idaniel84/faction/FactionExecutor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="53" column="35" lean-forward="false" selection-start-line="53" selection-start-column="35" selection-end-line="53" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/idaniel84/command/TeamspeakCommand.java" />
+    <entry file="file://$PROJECT_DIR$/src/idaniel84/command/ReviveCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="22" column="13" lean-forward="false" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/plugin.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69">
+          <caret line="3" column="19" lean-forward="false" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/idaniel84/faction/FactionManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="26" column="17" lean-forward="false" selection-start-line="26" selection-start-column="17" selection-end-line="26" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/idaniel84/faction/argument/FactionCreateArgument.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/idaniel84/faction/FactionMember.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="23">
+          <caret line="23" column="13" lean-forward="false" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/idaniel84/faction/event/FactionCreateEvent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="17" column="29" lean-forward="false" selection-start-line="17" selection-start-column="29" selection-end-line="17" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/idaniel84/listener/FactionListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="290">
+          <caret line="65" column="32" lean-forward="false" selection-start-line="65" selection-start-column="32" selection-end-line="65" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/idaniel84/faction/FlatFileFactionManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1656">
+          <caret line="33" column="51" lean-forward="false" selection-start-line="33" selection-start-column="37" selection-end-line="33" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/idaniel84/command/crate/argument/LootListArgument.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="30" column="93" lean-forward="false" selection-start-line="30" selection-start-column="85" selection-end-line="30" selection-end-column="93" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/idaniel84/command/crate/argument/LootGiveArgument.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="395">
+          <caret line="50" column="48" lean-forward="false" selection-start-line="50" selection-start-column="48" selection-end-line="50" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/idaniel84/command/crate/LootExecutor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="9" column="22" lean-forward="false" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/idaniel84/command/crate/KeyListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="382">
+          <caret line="119" column="70" lean-forward="false" selection-start-line="119" selection-start-column="70" selection-end-line="119" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/idaniel84/utils/Chat.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/idaniel84/listener/UnRepairableListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="20" column="85" lean-forward="false" selection-start-line="20" selection-start-column="85" selection-end-line="20" selection-end-column="85" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/idaniel84/listener/fixes/PearlGlitchListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="759">
+          <caret line="51" column="73" lean-forward="false" selection-start-line="51" selection-start-column="73" selection-end-line="51" selection-end-column="73" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/idaniel84/listener/fixes/NetherPortalPearlFixListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/config.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2967">
+          <caret line="129" column="71" lean-forward="false" selection-start-line="129" selection-start-column="71" selection-end-line="129" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/idaniel84/listener/fixes/NearPearlFixListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="145">
+          <caret line="17" column="116" lean-forward="false" selection-start-line="17" selection-start-column="116" selection-end-line="17" selection-end-column="116" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/idaniel84/listener/fixes/PexCrashFix.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="23">
+          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/idaniel84/faction/type/Faction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2739">
+          <caret line="25" column="39" lean-forward="false" selection-start-line="25" selection-start-column="21" selection-end-line="25" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/idaniel84/faction/argument/FactionDepositArgument.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="20" column="13" lean-forward="false" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/idaniel84/kothgame/EventTimer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-295">
+          <caret line="151" column="9" lean-forward="false" selection-start-line="151" selection-start-column="9" selection-end-line="151" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/idaniel84/faction/type/ClaimableFaction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="55" column="16" lean-forward="false" selection-start-line="55" selection-start-column="16" selection-end-line="55" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/idaniel84/faction/argument/staff/FactionSetDtrRegenArgument.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="30" column="8" lean-forward="false" selection-start-line="30" selection-start-column="8" selection-end-line="33" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/idaniel84/faction/argument/staff/FactionSetDtrArgument.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="506">
+          <caret line="37" column="9" lean-forward="false" selection-start-line="37" selection-start-column="9" selection-end-line="37" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/idaniel84/faction/argument/staff/FactionClaimForArgument.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="22" column="13" lean-forward="false" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/idaniel84/HCF.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-552">
-          <caret line="217" column="9" lean-forward="true" selection-start-line="217" selection-start-column="9" selection-end-line="217" selection-end-column="9" />
+        <state relative-caret-position="6095">
+          <caret line="345" column="32" lean-forward="false" selection-start-line="345" selection-start-column="32" selection-end-line="345" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/idaniel84/listener/DeathListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="42" column="45" lean-forward="false" selection-start-line="42" selection-start-column="45" selection-end-line="42" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/idaniel84/listener/FactionsCoreListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5658">
+          <caret line="278" column="77" lean-forward="false" selection-start-line="278" selection-start-column="15" selection-end-line="278" selection-end-column="77" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/idaniel84/utils/ConfigurationService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="214" column="92" lean-forward="false" selection-start-line="214" selection-start-column="92" selection-end-line="214" selection-end-column="92" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/idaniel84/command/SendCoordsCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/idaniel84/scoreboard/ScoreboardHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="45" column="13" lean-forward="false" selection-start-line="45" selection-start-column="13" selection-end-line="45" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/idaniel84/faction/type/PlayerFaction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="23">
+          <caret line="522" column="20" lean-forward="false" selection-start-line="522" selection-start-column="20" selection-end-line="522" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/idaniel84/classes/archer/ArcherClass.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-989">
+          <caret line="69" column="47" lean-forward="false" selection-start-line="69" selection-start-column="47" selection-end-line="69" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/idaniel84/timer/type/EnderPearlTimer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-368">
+          <caret line="53" column="26" lean-forward="false" selection-start-line="53" selection-start-column="13" selection-end-line="53" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/idaniel84/faction/argument/FactionHomeArgument.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="851">
+          <caret line="98" column="103" lean-forward="false" selection-start-line="98" selection-start-column="103" selection-end-line="98" selection-end-column="103" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/idaniel84/timer/type/TeleportTimer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="60" column="5" lean-forward="true" selection-start-line="60" selection-start-column="5" selection-end-line="60" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/idaniel84/scoreboard/provider/TimerSidebarProvider.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4577">
+          <caret line="239" column="60" lean-forward="false" selection-start-line="239" selection-start-column="60" selection-end-line="239" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/idaniel84/listener/FishingRodHitchListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2438">
+          <caret line="123" column="13" lean-forward="false" selection-start-line="123" selection-start-column="13" selection-end-line="123" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/idaniel84/faction/argument/FactionNearArgument.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="421">
+          <caret line="40" column="463" lean-forward="false" selection-start-line="40" selection-start-column="463" selection-end-line="40" selection-end-column="463" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -651,10 +1214,12 @@
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
           <artifact-editor />
+          <last-edited>HCF:jar</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.5" />
               </list>
             </option>
           </splitter-proportions>
@@ -702,7 +1267,6 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
-                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>
